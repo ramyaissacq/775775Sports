@@ -6,11 +6,12 @@
 //
 
 import UIKit
+import DropDown
 
 class AwardsViewController: BaseViewController {
     //MARK: - IBOutlets
-    @IBOutlet weak var lblCategory1: UILabel!
-    @IBOutlet weak var lblCategory2: UILabel!
+    @IBOutlet weak var lblSports: UILabel!
+    @IBOutlet weak var lblLeague: UILabel!
     @IBOutlet weak var collectionViewTop: UICollectionView!
     @IBOutlet weak var collectionViewHeading: UICollectionView!
     @IBOutlet weak var tableViewStandings: UITableView!
@@ -26,8 +27,12 @@ class AwardsViewController: BaseViewController {
     var headers = [String]()
     var headerSizes = [CGFloat]()
     var selectedTopTitleIndex = 0
+    var sportsDropDown:DropDown?
+    var leagueDropDown:DropDown?
     static var selectedPlayerMoreIndices = [Int]()
     static var selectedTeamMoreIndices = [Int]()
+    var selectedLeagueID:Int?
+    var viewModel = AwardsViewModel()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,7 +40,25 @@ class AwardsViewController: BaseViewController {
 
     }
     
+    //MARK: - IBActions
+    
+    @IBAction func actionTapSports(_ sender: Any) {
+        sportsDropDown?.show()
+    }
+    
+    
+    @IBAction func actionTapLeague(_ sender: Any) {
+        leagueDropDown?.show()
+        
+    }
+    
     func initialSettings(){
+        FootballLeague.populateFootballLeagues()
+        configureSportsDropDown()
+        configureLeagueDropDown()
+        lblSports.text = "Football"
+        lblLeague.text = FootballLeague.leagues?.first?.name
+        selectedLeagueID = FootballLeague.leagues?.first?.id
         headers = headings1
         collectionViewTop.registerCell(identifier: "SelectionCollectionViewCell")
         collectionViewHeading.registerCell(identifier: "TitleCollectionViewCell")
@@ -63,7 +86,7 @@ class AwardsViewController: BaseViewController {
         balance = (UIScreen.main.bounds.width - totalSpace)/CGFloat(headings2.count)
         secondHeaderSizes = secondHeaderSizes.map{$0+balance}
         
-        
+        viewModel.getTeamStandings(leagueID: selectedLeagueID!)
         
     }
     
@@ -80,76 +103,28 @@ class AwardsViewController: BaseViewController {
         tableViewStandings.reloadData()
         
     }
+    
+    func configureSportsDropDown(){
+        sportsDropDown = DropDown()
+        sportsDropDown?.dataSource = ["Football"]
+        sportsDropDown?.anchorView = lblSports
+        sportsDropDown?.selectionAction = { [unowned self] (index: Int, item: String) in
+          print("Selected item: \(item) at index: \(index)")
+            lblSports.text = item
+        }
+    }
+    
+    func configureLeagueDropDown(){
+        leagueDropDown = DropDown()
+        leagueDropDown?.dataSource = FootballLeague.leagues?.map{$0.name ?? ""} ?? []
+        leagueDropDown?.anchorView = lblLeague
+        leagueDropDown?.selectionAction = { [unowned self] (index: Int, item: String) in
+          print("Selected item: \(item) at index: \(index)")
+            lblLeague.text = item
+            selectedLeagueID = FootballLeague.leagues?[index].id
+        }
+    }
+    
 
 }
 
-extension AwardsViewController:UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout{
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        if collectionView == collectionViewTop{
-            return topTitles.count
-        }
-        else{
-            return headers.count
-        }
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        if collectionView == collectionViewTop{
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "SelectionCollectionViewCell", for: indexPath) as! SelectionCollectionViewCell
-            cell.lblTitle.text = topTitles[indexPath.row]
-            return cell
-        }
-        else{
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "TitleCollectionViewCell", for: indexPath) as! TitleCollectionViewCell
-            cell.titleType = .RedHeader
-            cell.lblTitle.text = headers[indexPath.row]
-            return cell
-            
-        }
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        if collectionView == collectionViewTop{
-            selectedTopTitleIndex = indexPath.row
-            setupViews()
-        }
-        
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        if collectionView == collectionViewTop{
-            let w = UIScreen.main.bounds.width / 2
-            return CGSize(width: w, height: 55)
-        }
-        else{
-            return CGSize(width: headerSizes[indexPath.row], height: 55)
-        }
-    }
-    
-    
-}
-
-extension AwardsViewController:UITableViewDelegate,UITableViewDataSource{
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as! StandingsTableViewCell
-        cell.cellIndex = indexPath.row
-        if selectedTopTitleIndex == 0{
-            cell.isTeamStandigs = true
-        }
-        else{
-            cell.isTeamStandigs = false
-        }
-        cell.callReloadCell = {
-            tableView.reloadRows(at: [indexPath], with: .none)
-        }
-        cell.headerSizes = headerSizes
-        cell.collectionViewStandings.reloadData()
-        return cell
-    }
-    
-    
-}

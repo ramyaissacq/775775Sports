@@ -24,7 +24,6 @@ class StandingsTableViewCell: UITableViewCell {
         }
     }
     
-    
     var callReloadCell:(() -> Void)?
     
     var teamStandings = ["1","Man City","20","20","20","20","20","20","20"]
@@ -95,6 +94,10 @@ class StandingsTableViewCell: UITableViewCell {
         }
         
     }
+    
+    
+    
+    
     
     
 }

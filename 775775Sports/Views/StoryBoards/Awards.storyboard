@@ -37,10 +37,10 @@
                                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="VSY-41-GpF">
                                                                 <rect key="frame" x="20" y="10" width="374" height="40"/>
                                                                 <subviews>
-                                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LVc-nd-3zM">
+                                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LVc-nd-3zM" userLabel="SportsView">
                                                                         <rect key="frame" x="0.0" y="0.0" width="177" height="40"/>
                                                                         <subviews>
-                                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sepak Bola" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Afs-eR-Mhb">
+                                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Choose Sports" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Afs-eR-Mhb">
                                                                                 <rect key="frame" x="10" y="11" width="139" height="18.5"/>
                                                                                 <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="13"/>
                                                                                 <nil key="textColor"/>
@@ -55,6 +55,7 @@
                                                                             </imageView>
                                                                         </subviews>
                                                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                                        <gestureRecognizers/>
                                                                         <constraints>
                                                                             <constraint firstAttribute="trailing" secondItem="jWh-1T-hXp" secondAttribute="trailing" constant="10" id="IaA-jH-g8z"/>
                                                                             <constraint firstItem="Afs-eR-Mhb" firstAttribute="leading" secondItem="LVc-nd-3zM" secondAttribute="leading" constant="10" id="KIc-3C-ncz"/>
@@ -68,11 +69,14 @@
                                                                                 <real key="value" value="7"/>
                                                                             </userDefinedRuntimeAttribute>
                                                                         </userDefinedRuntimeAttributes>
+                                                                        <connections>
+                                                                            <outletCollection property="gestureRecognizers" destination="LAI-Vm-yIa" appends="YES" id="TMr-cI-qo7"/>
+                                                                        </connections>
                                                                     </view>
-                                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZlD-OH-oS8">
+                                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZlD-OH-oS8" userLabel="LeagueView">
                                                                         <rect key="frame" x="197" y="0.0" width="177" height="40"/>
                                                                         <subviews>
-                                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sepak Bola" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JgD-Wc-o9G">
+                                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Choose League" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JgD-Wc-o9G">
                                                                                 <rect key="frame" x="10" y="11" width="139" height="18.5"/>
                                                                                 <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="13"/>
                                                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -87,6 +91,7 @@
                                                                             </imageView>
                                                                         </subviews>
                                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                        <gestureRecognizers/>
                                                                         <constraints>
                                                                             <constraint firstItem="QEw-Qu-2Eu" firstAttribute="centerY" secondItem="ZlD-OH-oS8" secondAttribute="centerY" id="Cfo-ul-mq1"/>
                                                                             <constraint firstAttribute="height" constant="40" id="DJx-LH-XQQ"/>
@@ -106,6 +111,9 @@
                                                                                 <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                             </userDefinedRuntimeAttribute>
                                                                         </userDefinedRuntimeAttributes>
+                                                                        <connections>
+                                                                            <outletCollection property="gestureRecognizers" destination="wQc-6V-w98" appends="YES" id="8YC-BL-AfI"/>
+                                                                        </connections>
                                                                     </view>
                                                                 </subviews>
                                                             </stackView>
@@ -230,13 +238,23 @@
                     <connections>
                         <outlet property="collectionViewHeading" destination="IP8-sV-X8p" id="M1J-gW-1Pw"/>
                         <outlet property="collectionViewTop" destination="9mM-MV-bAw" id="qZh-9Y-Ob6"/>
-                        <outlet property="lblCategory1" destination="Afs-eR-Mhb" id="qnv-K2-1Ma"/>
-                        <outlet property="lblCategory2" destination="JgD-Wc-o9G" id="TiG-U2-x5b"/>
+                        <outlet property="lblLeague" destination="JgD-Wc-o9G" id="Itk-Ke-pRd"/>
+                        <outlet property="lblSports" destination="Afs-eR-Mhb" id="RxM-2O-ebD"/>
                         <outlet property="tableViewStandings" destination="g4k-pE-w6U" id="np6-nK-mfh"/>
                         <outlet property="tableViewStandingsHeight" destination="GPX-eV-X9Y" id="ITO-ME-kzk"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="LAI-Vm-yIa" userLabel="tapSports">
+                    <connections>
+                        <action selector="actionTapSports:" destination="Y6W-OH-hqX" id="cQP-Lz-Smm"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="wQc-6V-w98" userLabel="tapLeagues">
+                    <connections>
+                        <action selector="actionTapLeague:" destination="Y6W-OH-hqX" id="jbA-Cx-GNY"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="971" y="-13"/>
         </scene>

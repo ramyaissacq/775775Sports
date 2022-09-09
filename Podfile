@@ -14,6 +14,7 @@ pod 'Alamofire' #Webservice
  pod 'Kingfisher' # Image Caching and Loading
  pod 'ReachabilitySwift'  #To ckeck if network available
  pod 'SwiftEntryKit' #Dialogs
+ pod 'DropDown'
 
 
   target '775775SportsTests' do
