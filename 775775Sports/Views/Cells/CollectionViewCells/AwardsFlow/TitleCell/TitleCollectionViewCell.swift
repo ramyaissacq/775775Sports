@@ -1,0 +1,50 @@
+//
+//  TitleCollectionViewCell.swift
+//  775775Sports
+//
+//  Created by Remya on 9/3/22.
+//
+
+import UIKit
+enum TitleType:String{
+    case Normal
+    case GrayHeader
+    case RedHeader
+}
+
+class TitleCollectionViewCell: UICollectionViewCell {
+    @IBOutlet weak var lblTitle:UILabel!
+    
+    //MARK: - Variables
+    var titleType:TitleType?{
+        didSet{
+            setupTitle()
+        }
+        
+    }
+    
+
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        // Initialization code
+    }
+    
+    func setupTitle(){
+        switch titleType{
+        case .Normal:
+            lblTitle.textColor = .black
+            lblTitle.font = UIFont(name: "Poppins-Regular", size: 10)
+        case .RedHeader:
+            lblTitle.textColor = Colors.accentColor()
+            lblTitle.font = UIFont(name: "Poppins-Medium", size: 10)
+        case .GrayHeader:
+            lblTitle.textColor = UIColor(named: "gray5")
+            lblTitle.font = UIFont(name: "Poppins-Medium", size: 12)
+        default:
+            break
+            
+        
+        }
+    }
+
+}
