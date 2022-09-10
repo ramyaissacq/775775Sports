@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Y6W-OH-hqX">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -9,6 +10,9 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
+        <array key="Poppins-Medium.otf">
+            <string>Poppins-Medium</string>
+        </array>
         <array key="Poppins-Regular.otf">
             <string>Poppins-Regular</string>
         </array>
@@ -53,13 +57,13 @@
                                                         <rect key="frame" x="0.0" y="63" width="414" height="35"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Recommended for you" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pcy-gB-hsm">
-                                                                <rect key="frame" x="15" y="9" width="154" height="17.5"/>
+                                                                <rect key="frame" x="15" y="7" width="172.5" height="21"/>
                                                                 <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="15"/>
                                                                 <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rui-48-V8C">
-                                                                <rect key="frame" x="338.5" y="2" width="70.5" height="31.5"/>
+                                                                <rect key="frame" x="336" y="0.0" width="73" height="35"/>
                                                                 <state key="normal" title="Button"/>
                                                                 <buttonConfiguration key="configuration" style="plain" title="See All">
                                                                     <fontDescription key="titleFontDescription" name="Poppins-Regular" family="Poppins" pointSize="15"/>
@@ -99,13 +103,13 @@
                                                         <rect key="frame" x="0.0" y="266" width="414" height="35"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Recommended for you" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5KX-Cg-VIl">
-                                                                <rect key="frame" x="15" y="9" width="154" height="17.5"/>
+                                                                <rect key="frame" x="15" y="7" width="172.5" height="21"/>
                                                                 <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="15"/>
                                                                 <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PXO-s3-uCj">
-                                                                <rect key="frame" x="338.5" y="2" width="70.5" height="31.5"/>
+                                                                <rect key="frame" x="336" y="0.0" width="73" height="35"/>
                                                                 <state key="normal" title="Button"/>
                                                                 <buttonConfiguration key="configuration" style="plain" title="See All">
                                                                     <fontDescription key="titleFontDescription" name="Poppins-Regular" family="Poppins" pointSize="15"/>
@@ -156,12 +160,41 @@
                                 <viewLayoutGuide key="contentLayoutGuide" id="qC1-0c-OFg"/>
                                 <viewLayoutGuide key="frameLayoutGuide" id="K0k-bD-o6f"/>
                             </scrollView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iDS-r0-WgK">
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="noData" translatesAutoresizingMaskIntoConstraints="NO" id="WIQ-CQ-uKe">
+                                        <rect key="frame" x="107" y="234" width="200" height="150"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="150" id="6e2-06-8Nh"/>
+                                            <constraint firstAttribute="width" constant="200" id="VWq-RT-ehS"/>
+                                        </constraints>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="Sorry...No News Found!" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nJU-hL-tmb">
+                                        <rect key="frame" x="133.5" y="392" width="147.5" height="18.5"/>
+                                        <fontDescription key="fontDescription" name="Poppins-Medium" family="Poppins" pointSize="13"/>
+                                        <color key="textColor" name="gray1"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstItem="WIQ-CQ-uKe" firstAttribute="centerX" secondItem="iDS-r0-WgK" secondAttribute="centerX" id="3GM-mn-Pf2"/>
+                                    <constraint firstItem="nJU-hL-tmb" firstAttribute="centerX" secondItem="iDS-r0-WgK" secondAttribute="centerX" id="PSu-No-fl8"/>
+                                    <constraint firstItem="nJU-hL-tmb" firstAttribute="top" secondItem="WIQ-CQ-uKe" secondAttribute="bottom" constant="8" id="fIU-1C-SmA"/>
+                                    <constraint firstItem="WIQ-CQ-uKe" firstAttribute="centerY" secondItem="iDS-r0-WgK" secondAttribute="centerY" constant="-100" id="pqr-eC-x7Q"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="iDS-r0-WgK" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="8Do-cB-iee"/>
                             <constraint firstItem="Xwu-Qk-AEj" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="PEH-xh-ir2"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="top" secondItem="iDS-r0-WgK" secondAttribute="top" id="TJj-OL-rRU"/>
                             <constraint firstItem="Xwu-Qk-AEj" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" id="Tbm-nJ-dhA"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="iDS-r0-WgK" secondAttribute="trailing" id="Tkm-4D-umU"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="iDS-r0-WgK" secondAttribute="bottom" id="YNz-Lj-yq5"/>
                             <constraint firstItem="Xwu-Qk-AEj" firstAttribute="bottom" secondItem="vDu-zF-Fre" secondAttribute="bottom" id="ffK-8X-nto"/>
                             <constraint firstItem="Xwu-Qk-AEj" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="ob6-lN-Nvr"/>
                         </constraints>
@@ -171,6 +204,7 @@
                         <outlet property="collectionViewHeader" destination="ZoP-5H-Amj" id="xzX-Dd-Wdz"/>
                         <outlet property="collectionViewNews" destination="zDh-MQ-vpi" id="jJt-wJ-yhF"/>
                         <outlet property="collectionViewNewsHeight" destination="Lom-EP-rRU" id="8Py-FR-129"/>
+                        <outlet property="emptyView" destination="iDS-r0-WgK" id="dg0-mW-xaO"/>
                         <outlet property="headerView1" destination="Gan-Sr-TXq" id="s0A-Tm-3bU"/>
                         <outlet property="headerView2" destination="ctd-1X-5fP" id="DZ0-0M-Bds"/>
                         <outlet property="lblHeader1" destination="pcy-gB-hsm" id="GIi-qK-DBM"/>
@@ -195,7 +229,7 @@
                                 <rect key="frame" x="0.0" y="44" width="414" height="818"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="J7m-3d-jje">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="645"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="740.5"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Ronaldo" translatesAutoresizingMaskIntoConstraints="NO" id="3Mm-qd-gYH">
                                                 <rect key="frame" x="0.0" y="0.0" width="414" height="250"/>
@@ -204,19 +238,19 @@
                                                 </constraints>
                                             </imageView>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="Ryj-4D-mOa">
-                                                <rect key="frame" x="15" y="260" width="384" height="365"/>
+                                                <rect key="frame" x="15" y="260" width="384" height="460.5"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="Fkw-jv-xkm">
                                                         <rect key="frame" x="0.0" y="0.0" width="384" height="15"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2022-06-25 14:03" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OB5-Ow-4im">
-                                                                <rect key="frame" x="0.0" y="0.0" width="96.5" height="15"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="103" height="15"/>
                                                                 <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="12"/>
                                                                 <color key="textColor" name="gray1"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="vi2-7x-jKQ">
-                                                                <rect key="frame" x="313.5" y="0.0" width="70.5" height="15"/>
+                                                                <rect key="frame" x="310" y="0.0" width="74" height="15"/>
                                                                 <subviews>
                                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="clock" translatesAutoresizingMaskIntoConstraints="NO" id="PSe-6J-eFa">
                                                                         <rect key="frame" x="0.0" y="0.0" width="15" height="15"/>
@@ -226,7 +260,7 @@
                                                                         </constraints>
                                                                     </imageView>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="14m ago" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1i8-gH-2Vv">
-                                                                        <rect key="frame" x="23" y="0.0" width="47.5" height="15"/>
+                                                                        <rect key="frame" x="23" y="0.0" width="51" height="15"/>
                                                                         <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="12"/>
                                                                         <color key="textColor" name="gray1"/>
                                                                         <nil key="highlightedColor"/>
@@ -236,7 +270,7 @@
                                                         </subviews>
                                                     </stackView>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bZX-wF-w5I">
-                                                        <rect key="frame" x="0.0" y="25" width="384" height="35"/>
+                                                        <rect key="frame" x="0.0" y="25" width="384" height="42"/>
                                                         <string key="text">Cristiano Ronaldo Soon Launches
 NFT Collection</string>
                                                         <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="15"/>
@@ -244,7 +278,7 @@ NFT Collection</string>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bhR-wu-XaI">
-                                                        <rect key="frame" x="0.0" y="70" width="384" height="245"/>
+                                                        <rect key="frame" x="0.0" y="77" width="384" height="333.5"/>
                                                         <string key="text">As reported by Channel News Asia, Friday (6/24/2022), Cristiano Ronaldo and Binance signed a multi-year deal. Later, a series of Ronaldo's NFT collections will be sold on the company's platform.
 
 The first collection of the Portugal national team captain is scheduled to launch at the end of this year. The NFT will feature iconic designs created in collaboration with Ronaldo.
@@ -257,7 +291,7 @@ The first collection of the Portugal national team captain is scheduled to launc
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Oyd-3q-EVB">
-                                                        <rect key="frame" x="0.0" y="325" width="384" height="40"/>
+                                                        <rect key="frame" x="0.0" y="420.5" width="384" height="40"/>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="40" id="6i1-kl-x2z"/>
@@ -299,12 +333,41 @@ The first collection of the Portugal national team captain is scheduled to launc
                                 <viewLayoutGuide key="contentLayoutGuide" id="LoJ-ey-QNI"/>
                                 <viewLayoutGuide key="frameLayoutGuide" id="jpz-pb-C91"/>
                             </scrollView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QZk-6W-Zme">
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="noData" translatesAutoresizingMaskIntoConstraints="NO" id="ST0-qd-JXz">
+                                        <rect key="frame" x="107" y="234" width="200" height="150"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="200" id="cGx-GI-ZJ6"/>
+                                            <constraint firstAttribute="height" constant="150" id="qw7-lq-NEI"/>
+                                        </constraints>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="Sorry...No News Details Found!" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7pH-5Q-9dm">
+                                        <rect key="frame" x="109" y="392" width="196" height="18.5"/>
+                                        <fontDescription key="fontDescription" name="Poppins-Medium" family="Poppins" pointSize="13"/>
+                                        <color key="textColor" name="gray1"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstItem="ST0-qd-JXz" firstAttribute="centerY" secondItem="QZk-6W-Zme" secondAttribute="centerY" constant="-100" id="AIl-7i-pxp"/>
+                                    <constraint firstItem="7pH-5Q-9dm" firstAttribute="top" secondItem="ST0-qd-JXz" secondAttribute="bottom" constant="8" id="AKs-yL-gRj"/>
+                                    <constraint firstItem="ST0-qd-JXz" firstAttribute="centerX" secondItem="QZk-6W-Zme" secondAttribute="centerX" id="Q7m-c2-Tk4"/>
+                                    <constraint firstItem="7pH-5Q-9dm" firstAttribute="centerX" secondItem="QZk-6W-Zme" secondAttribute="centerX" id="Ymn-xI-Hkz"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="VhM-tA-pa2"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="N3A-ho-ypz" firstAttribute="top" secondItem="VhM-tA-pa2" secondAttribute="top" id="1rt-iS-35f"/>
+                            <constraint firstItem="QZk-6W-Zme" firstAttribute="leading" secondItem="VhM-tA-pa2" secondAttribute="leading" id="N1q-Mw-ZKA"/>
+                            <constraint firstItem="VhM-tA-pa2" firstAttribute="trailing" secondItem="QZk-6W-Zme" secondAttribute="trailing" id="NTc-3A-KhC"/>
                             <constraint firstItem="N3A-ho-ypz" firstAttribute="trailing" secondItem="VhM-tA-pa2" secondAttribute="trailing" id="Zx5-Se-nGd"/>
+                            <constraint firstItem="VhM-tA-pa2" firstAttribute="top" secondItem="QZk-6W-Zme" secondAttribute="top" id="cwt-Aw-bGB"/>
+                            <constraint firstItem="VhM-tA-pa2" firstAttribute="bottom" secondItem="QZk-6W-Zme" secondAttribute="bottom" id="ecS-Kt-vUL"/>
                             <constraint firstItem="N3A-ho-ypz" firstAttribute="bottom" secondItem="VhM-tA-pa2" secondAttribute="bottom" id="vt7-x6-bvx"/>
                             <constraint firstItem="N3A-ho-ypz" firstAttribute="leading" secondItem="VhM-tA-pa2" secondAttribute="leading" id="wne-Iz-3WQ"/>
                         </constraints>
@@ -312,6 +375,7 @@ The first collection of the Portugal national team captain is scheduled to launc
                     <connections>
                         <outlet property="collectionViewHeight" destination="6i1-kl-x2z" id="i62-TW-Jrf"/>
                         <outlet property="collectionViewTypes" destination="Oyd-3q-EVB" id="ukj-tz-rTH"/>
+                        <outlet property="emptyView" destination="QZk-6W-Zme" id="GUs-6G-bNF"/>
                         <outlet property="imgNews" destination="3Mm-qd-gYH" id="ah3-B2-UGp"/>
                         <outlet property="lblDate" destination="OB5-Ow-4im" id="Zdd-ds-HXJ"/>
                         <outlet property="lblDescription" destination="bhR-wu-XaI" id="F2n-wx-a2c"/>
@@ -335,7 +399,7 @@ The first collection of the Portugal national team captain is scheduled to launc
                                 <rect key="frame" x="0.0" y="44" width="414" height="818"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Q0x-NT-Ctg" userLabel="ReferenceView">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="506"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="519.5"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SNX-BU-n1k" userLabel="VideoView">
                                                 <rect key="frame" x="0.0" y="0.0" width="414" height="250"/>
@@ -345,19 +409,19 @@ The first collection of the Portugal national team captain is scheduled to launc
                                                 </constraints>
                                             </view>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="0XW-X5-kWU">
-                                                <rect key="frame" x="15" y="257" width="384" height="229"/>
+                                                <rect key="frame" x="15" y="257" width="384" height="242.5"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="eZB-ne-Vhm">
-                                                        <rect key="frame" x="0.0" y="0.0" width="384" height="53"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="384" height="63"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Promes diduga mengedarkan narkoba. Mengapa pemain Spartak disadap oleh layanan khusus." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KEQ-r9-lC6">
-                                                                <rect key="frame" x="0.0" y="0.0" width="384" height="35"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="384" height="42"/>
                                                                 <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="15"/>
                                                                 <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2022-06-25 14:03" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="94h-66-L6i">
-                                                                <rect key="frame" x="0.0" y="39" width="384" height="14"/>
+                                                                <rect key="frame" x="0.0" y="46" width="384" height="17"/>
                                                                 <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="12"/>
                                                                 <color key="textColor" name="gray1"/>
                                                                 <nil key="highlightedColor"/>
@@ -365,20 +429,20 @@ The first collection of the Portugal national team captain is scheduled to launc
                                                         </subviews>
                                                     </stackView>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AWj-SH-ORl">
-                                                        <rect key="frame" x="0.0" y="63" width="384" height="0.5"/>
+                                                        <rect key="frame" x="0.0" y="73" width="384" height="0.5"/>
                                                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="0.5" id="yrT-E3-ZoX"/>
                                                         </constraints>
                                                     </view>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Recommended Videos" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mLV-PQ-tfW">
-                                                        <rect key="frame" x="0.0" y="73.5" width="384" height="17.5"/>
+                                                        <rect key="frame" x="0.0" y="83.5" width="384" height="21"/>
                                                         <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="15"/>
                                                         <color key="textColor" name="AccentColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="63d-mg-tuq">
-                                                        <rect key="frame" x="0.0" y="101" width="384" height="128"/>
+                                                        <rect key="frame" x="0.0" y="114.5" width="384" height="128"/>
                                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="128" id="7jf-jo-eH7"/>
@@ -440,6 +504,7 @@ The first collection of the Portugal national team captain is scheduled to launc
     <resources>
         <image name="Ronaldo" width="1126" height="759"/>
         <image name="clock" width="12" height="12"/>
+        <image name="noData" width="433" height="278"/>
         <namedColor name="AccentColor">
             <color red="1" green="0.37254901960784315" blue="0.25098039215686274" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

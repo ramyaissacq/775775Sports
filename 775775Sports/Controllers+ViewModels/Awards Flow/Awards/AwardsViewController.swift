@@ -103,6 +103,22 @@ class AwardsViewController: BaseViewController {
             headers = headings1
             headerSizes = firstHeaderSizes
             imgLogo.isHidden = false
+            
+        }
+        else{
+            headers = headings2
+            headerSizes = secondHeaderSizes
+            imgLogo.isHidden = true
+            
+        }
+        collectionViewHeading.reloadData()
+        tableViewStandings.reloadData()
+        emptyChecks()
+        
+    }
+    
+    func emptyChecks(){
+        if selectedTopTitleIndex == 0{
             if viewModel.teamStandings?.totalStandings?.count ?? 0 > 0{
                 collectionViewHeading.isHidden = false
                 tableViewStandings.isHidden = false
@@ -118,9 +134,6 @@ class AwardsViewController: BaseViewController {
             }
         }
         else{
-            headers = headings2
-            headerSizes = secondHeaderSizes
-            imgLogo.isHidden = true
             if viewModel.playerStandings?.count ?? 0 > 0{
                 collectionViewHeading.isHidden = false
                 tableViewStandings.isHidden = false
@@ -134,13 +147,9 @@ class AwardsViewController: BaseViewController {
                 emptyView.isHidden = false
                 
             }
-            
         }
-        collectionViewHeading.reloadData()
-        tableViewStandings.reloadData()
         
     }
-    
     func configureSportsDropDown(){
         sportsDropDown = DropDown()
         sportsDropDown?.dataSource = ["Football"]

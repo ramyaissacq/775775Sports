@@ -17,6 +17,8 @@ class NewsDetailsViewController: BaseViewController {
     @IBOutlet weak var collectionViewHeight: NSLayoutConstraint!
     @IBOutlet weak var collectionViewTypes:UICollectionView!
     
+    @IBOutlet weak var emptyView: UIView!
+    
     //MARK: - Variables
     var collectionViewTypesObserver: NSKeyValueObservation?
     var newsID:Int?
@@ -61,6 +63,12 @@ class NewsDetailsViewController: BaseViewController {
             cellWidths.append(w)
         }
         collectionViewTypes.reloadData()
+        if viewModel.newsDetails?.description?.isEmpty ?? false{
+            emptyView.isHidden = false
+        }
+        else{
+            emptyView.isHidden = true
+        }
         
     }
 

@@ -293,33 +293,6 @@
             </objects>
             <point key="canvasLocation" x="971" y="-13"/>
         </scene>
-        <!--View Controller-->
-        <scene sceneID="qbe-er-7fH">
-            <objects>
-                <viewController id="5Aa-bb-2vk" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="WQ6-Va-x6d">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Team Name ame" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dZ4-uY-J27">
-                                <rect key="frame" x="175" y="438" width="88" height="14"/>
-                                <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="10"/>
-                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
-                        <viewLayoutGuide key="safeArea" id="QvV-qs-J8g"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <constraints>
-                            <constraint firstItem="dZ4-uY-J27" firstAttribute="leading" secondItem="QvV-qs-J8g" secondAttribute="leading" constant="175" id="OO1-xY-1Fq"/>
-                            <constraint firstItem="dZ4-uY-J27" firstAttribute="top" secondItem="QvV-qs-J8g" secondAttribute="top" constant="394" id="pDf-OJ-Hh2"/>
-                        </constraints>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Ndx-aR-vF8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1924.6376811594205" y="-24.107142857142858"/>
-        </scene>
     </scenes>
     <resources>
         <image name="clubLogo" width="78" height="79"/>

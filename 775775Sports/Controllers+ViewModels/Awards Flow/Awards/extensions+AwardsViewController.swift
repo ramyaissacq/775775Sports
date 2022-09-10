@@ -14,19 +14,7 @@ extension AwardsViewController:AwardsViewModeldelegate{
         if selectedTopTitleIndex == 0{
             lblSelectedLeague.text = (viewModel.teamStandings?.leagueInfo?.nameEn ?? "") + " " + (viewModel.teamStandings?.leagueInfo?.season ?? "")
         imgLogo.isHidden = false
-            if viewModel.teamStandings?.totalStandings?.count ?? 0 > 0{
-                collectionViewHeading.isHidden = false
-                tableViewStandings.isHidden = false
-                leagueView.isHidden = false
-                emptyView.isHidden = true
-            }
-            else{
-                collectionViewHeading.isHidden = true
-                tableViewStandings.isHidden = true
-                leagueView.isHidden = true
-                emptyView.isHidden = false
-                
-            }
+           emptyChecks()
         }
         self.tableViewStandings.reloadData()
         
@@ -36,19 +24,7 @@ extension AwardsViewController:AwardsViewModeldelegate{
         if selectedTopTitleIndex == 1{
             lblSelectedLeague.text = lblLeague.text
             imgLogo.isHidden = true
-            if viewModel.playerStandings?.count ?? 0 > 0{
-                collectionViewHeading.isHidden = false
-                tableViewStandings.isHidden = false
-                leagueView.isHidden = false
-                emptyView.isHidden = true
-            }
-            else{
-                collectionViewHeading.isHidden = true
-                tableViewStandings.isHidden = true
-                leagueView.isHidden = true
-                emptyView.isHidden = false
-                
-            }
+           emptyChecks()
         }
         self.tableViewStandings.reloadData()
     
@@ -85,6 +61,7 @@ extension AwardsViewController:UICollectionViewDelegate,UICollectionViewDataSour
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if collectionView == collectionViewTop{
             selectedTopTitleIndex = indexPath.row
+            collectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
             setupViews()
         }
         

@@ -26,6 +26,7 @@ class NewsViewController: BaseViewController {
     @IBOutlet weak var lblHeader1: UILabel!
     @IBOutlet weak var lblHeader2: UILabel!
     
+    @IBOutlet weak var emptyView: UIView!
     //MARK: - Variables
     var tableViewNewsObserver: NSKeyValueObservation?
     var collectionViewNewsObserver: NSKeyValueObservation?
@@ -108,6 +109,12 @@ func didFinishFetchNews() {
     newsPage += 1
     tableViewNews.reloadData()
     collectionViewNews.reloadData()
+    if viewModel.newsList?.count ?? 0 > 0{
+        emptyView.isHidden = true
+    }
+    else{
+        emptyView.isHidden = false
+    }
     
 }
 
@@ -115,6 +122,12 @@ func didFinishFetchVideos() {
     videoPage += 1
     tableViewNews.reloadData()
     collectionViewNews.reloadData()
+    if viewModel.videoList?.count ?? 0 > 0{
+        emptyView.isHidden = true
+    }
+    else{
+        emptyView.isHidden = false
+    }
     
 }
 }

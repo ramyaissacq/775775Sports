@@ -20,12 +20,12 @@ extension NewsViewController:UICollectionViewDelegate,UICollectionViewDataSource
                 return viewModel.newsList?.count ?? 0
             }
             else{
-            return viewModel.videoList?.count ?? 0
+                return viewModel.videoList?.count ?? 0
             }
         }
     }
     
-
+    
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if collectionView == collectionViewHeader{
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "SelectionCollectionViewCell", for: indexPath) as! SelectionCollectionViewCell
@@ -34,7 +34,7 @@ extension NewsViewController:UICollectionViewDelegate,UICollectionViewDataSource
         }
         else{
             if selectedHeaderIndex == 0{
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "NewsGamesCollectionViewCell", for: indexPath) as! NewsGamesCollectionViewCell
+                let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "NewsGamesCollectionViewCell", for: indexPath) as! NewsGamesCollectionViewCell
                 let rev:[NewsList] = viewModel.newsList?.reversed() ?? []
                 cell.configureCell(obj: rev[indexPath.row])
                 return cell
@@ -52,8 +52,9 @@ extension NewsViewController:UICollectionViewDelegate,UICollectionViewDataSource
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if collectionView == collectionViewHeader{
-        self.selectedHeaderIndex = indexPath.row
-        self.setupViews()
+            self.selectedHeaderIndex = indexPath.row
+            collectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
+            self.setupViews()
         }
         else{
             if selectedHeaderIndex == 0{
@@ -80,7 +81,7 @@ extension NewsViewController:UICollectionViewDelegate,UICollectionViewDataSource
         }
         else{
             if selectedHeaderIndex == 0{
-            return CGSize(width: 150, height: 150)
+                return CGSize(width: 150, height: 150)
             }
             else{
                 let w = UIScreen.main.bounds.width * 0.7
@@ -100,15 +101,15 @@ extension NewsViewController:UITableViewDelegate,UITableViewDataSource{
             return viewModel.newsList?.count ?? 0
         }
         else{
-           return viewModel.videoList?.count ?? 0
+            return viewModel.videoList?.count ?? 0
         }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if selectedHeaderIndex == 0{
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! NewsTableViewCell
+            let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! NewsTableViewCell
             cell.configureCell(obj: viewModel.newsList?[indexPath.row])
-        return cell
+            return cell
         }
         else{
             let cell = tableView.dequeueReusableCell(withIdentifier: "cell1", for: indexPath) as! HeighlightsTableViewCell
