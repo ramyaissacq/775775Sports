@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="uam-VM-kDg">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -86,10 +87,11 @@
                         <color key="badgeColor" name="AccentColor"/>
                     </tabBarItem>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="gOk-jD-fdt">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="gOk-jD-fdt">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" name="AccentColor"/>
+                        <color key="barTintColor" name="AccentColor"/>
                         <textAttributes key="titleTextAttributes">
                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </textAttributes>
@@ -109,10 +111,11 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="3mL-6l-UfS" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Live" image="live" selectedImage="SelectedLive" id="c0y-S9-SM5"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Kx1-OA-XUD">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="Kx1-OA-XUD">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" name="AccentColor"/>
+                        <color key="barTintColor" name="AccentColor"/>
                         <textAttributes key="titleTextAttributes">
                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </textAttributes>
@@ -132,10 +135,11 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="kYc-Z2-lPd" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Forum" image="forum" selectedImage="SelectedForum" id="0Jo-z5-ah7"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="ShG-VM-u1v">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="ShG-VM-u1v">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" name="AccentColor"/>
+                        <color key="barTintColor" name="AccentColor"/>
                         <textAttributes key="titleTextAttributes">
                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </textAttributes>
@@ -155,10 +159,11 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="mK9-YS-o4H" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="News" image="news" selectedImage="SelectedNews" id="x4H-k1-kfn"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="R7a-Px-GGi">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="R7a-Px-GGi">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" name="AccentColor"/>
+                        <color key="barTintColor" name="AccentColor"/>
                         <textAttributes key="titleTextAttributes">
                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </textAttributes>
@@ -178,10 +183,11 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="9HO-2P-qw7" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Awards" image="awards" selectedImage="selectedAwards" id="ypf-Q6-6k1"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="rur-Hf-QXh">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="rur-Hf-QXh">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" name="AccentColor"/>
+                        <color key="barTintColor" name="AccentColor"/>
                         <textAttributes key="titleTextAttributes">
                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </textAttributes>

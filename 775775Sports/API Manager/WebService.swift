@@ -57,7 +57,7 @@ class WebService {
                           encoding: encoding!,
                           headers: self.getHeaders(url: url))
                 .validate(statusCode: 200...299)
-                .validate(contentType: ["application/json"])
+                //.validate(contentType: ["application/json"])
                 .responseJSON(completionHandler: { (response) in
                     self.handleResponse(response: response, completion: completion, failed: failed)
             })

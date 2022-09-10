@@ -16,6 +16,7 @@ class MoreCollectionViewCell: UICollectionViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
        
+       
         // Initialization code
     }
     
@@ -23,6 +24,7 @@ class MoreCollectionViewCell: UICollectionViewCell {
         cellIndex = index
         self.isTeamStandings = isTeamStandings
         setupViews()
+        imgArrow.isHidden = false
     }
     
     func setupViews(){

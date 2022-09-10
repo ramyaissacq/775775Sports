@@ -9,15 +9,17 @@ import Foundation
 
 protocol AwardsViewModeldelegate{
     func didFinishTeamStandingsFetch()
+    func didFinishPlayerStandingsFetch()
 }
 
 class AwardsViewModel{
     var delegate:AwardsViewModeldelegate?
-    var teamStandings:AwardsResponse?
+    var teamStandings:TeamStandingsResponse?
+    var playerStandings:[PlayerStandings]?
     
     func getTeamStandings(leagueID:Int){
         Utility.showProgress()
-        AwardsAPI().getAwardsList(leagueID: leagueID, subLeagueID: 0) { response in
+        AwardsAPI().getTeamStandingsList(leagueID: leagueID, subLeagueID: 0) { response in
             self.teamStandings = response
             self.delegate?.didFinishTeamStandingsFetch()
         } failed: { msg in
@@ -25,6 +27,19 @@ class AwardsViewModel{
         }
 
     }
+    
+    func getPlayerStandings(leagueID:Int){
+        Utility.showProgress()
+        AwardsAPI().getPlayerStandingsList(leagueID: leagueID, subLeagueID: 0) { response in
+            self.playerStandings = response.list
+            self.delegate?.didFinishPlayerStandingsFetch()
+        } failed: { msg in
+            Utility.showErrorSnackView(message: msg)
+        }
+
+    }
+    
+    //Methods for handling teamstandings display
     
     func getTeamRowByIndex(index:Int)->[String]{
         var standings = [String]()
@@ -90,6 +105,30 @@ class AwardsViewModel{
         default:
             return ""
         }
+    }
+    
+    //Methods for handling player standings display
+    
+    func getPlayerRowByIndex(index:Int)->[String]{
+        var standings = [String]()
+        let obj = playerStandings?[index]
+        standings.append("\(index+1)")
+        standings.append(obj?.teamNameEn ?? "")
+        standings.append(obj?.playerNameEn ?? "")
+        standings.append("\(obj?.goals ?? 0)")
+        standings.append("\(obj?.homeGoals ?? 0)")
+        standings.append("\(obj?.awayGoals ?? 0)")
+        return standings
+    }
+    
+    func getPlayerPointsByIndex(index:Int)->[String]{
+        var points = [String]()
+        let obj = playerStandings?[index]
+        points.append("Home Penalty : \(obj?.homePenalty ?? 0)")
+        points.append("Away Penalty : \(obj?.awayPenalty ?? 0)")
+        points.append("Match Number : \(obj?.matchNum ?? 0)")
+        points.append("Sub Number : \(obj?.subNum ?? 0)")
+        return points
     }
     
 }

@@ -20,6 +20,10 @@ class AwardsViewController: BaseViewController {
     @IBOutlet weak var imgLogo: UIImageView!
     
     @IBOutlet weak var lblSelectedLeague: UILabel!
+    @IBOutlet weak var emptyView: UIView!
+    
+    @IBOutlet weak var leagueView: UIView!
+    
     //MARK: - Variables
     var tableViewStandingsObserver: NSKeyValueObservation?
     var topTitles = ["Team Standings","Player Standings"]
@@ -90,6 +94,7 @@ class AwardsViewController: BaseViewController {
         secondHeaderSizes = secondHeaderSizes.map{$0+balance}
         viewModel.delegate = self
         viewModel.getTeamStandings(leagueID: selectedLeagueID!)
+        viewModel.getPlayerStandings(leagueID: selectedLeagueID!)
         
     }
     
@@ -97,10 +102,39 @@ class AwardsViewController: BaseViewController {
         if selectedTopTitleIndex == 0{
             headers = headings1
             headerSizes = firstHeaderSizes
+            imgLogo.isHidden = false
+            if viewModel.teamStandings?.totalStandings?.count ?? 0 > 0{
+                collectionViewHeading.isHidden = false
+                tableViewStandings.isHidden = false
+                leagueView.isHidden = false
+                emptyView.isHidden = true
+            }
+            else{
+                collectionViewHeading.isHidden = true
+                tableViewStandings.isHidden = true
+                leagueView.isHidden = true
+                emptyView.isHidden = false
+                
+            }
         }
         else{
             headers = headings2
             headerSizes = secondHeaderSizes
+            imgLogo.isHidden = true
+            if viewModel.playerStandings?.count ?? 0 > 0{
+                collectionViewHeading.isHidden = false
+                tableViewStandings.isHidden = false
+                leagueView.isHidden = false
+                emptyView.isHidden = true
+            }
+            else{
+                collectionViewHeading.isHidden = true
+                tableViewStandings.isHidden = true
+                leagueView.isHidden = true
+                emptyView.isHidden = false
+                
+            }
+            
         }
         collectionViewHeading.reloadData()
         tableViewStandings.reloadData()
@@ -126,6 +160,7 @@ class AwardsViewController: BaseViewController {
             lblLeague.text = item
             selectedLeagueID = FootballLeague.leagues?[index].id
             viewModel.getTeamStandings(leagueID: selectedLeagueID!)
+            viewModel.getPlayerStandings(leagueID: selectedLeagueID!)
         }
     }
     

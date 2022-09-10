@@ -10,9 +10,48 @@ import UIKit
 
 extension AwardsViewController:AwardsViewModeldelegate{
     func didFinishTeamStandingsFetch() {
-        lblSelectedLeague.text = (viewModel.teamStandings?.leagueInfo?.nameEn ?? "") + " " + (viewModel.teamStandings?.leagueInfo?.season ?? "")
         imgLogo.setImage(with: viewModel.teamStandings?.leagueInfo?.logo, placeholder: Utility.getPlaceHolder())
+        if selectedTopTitleIndex == 0{
+            lblSelectedLeague.text = (viewModel.teamStandings?.leagueInfo?.nameEn ?? "") + " " + (viewModel.teamStandings?.leagueInfo?.season ?? "")
+        imgLogo.isHidden = false
+            if viewModel.teamStandings?.totalStandings?.count ?? 0 > 0{
+                collectionViewHeading.isHidden = false
+                tableViewStandings.isHidden = false
+                leagueView.isHidden = false
+                emptyView.isHidden = true
+            }
+            else{
+                collectionViewHeading.isHidden = true
+                tableViewStandings.isHidden = true
+                leagueView.isHidden = true
+                emptyView.isHidden = false
+                
+            }
+        }
         self.tableViewStandings.reloadData()
+        
+    }
+    
+    func didFinishPlayerStandingsFetch(){
+        if selectedTopTitleIndex == 1{
+            lblSelectedLeague.text = lblLeague.text
+            imgLogo.isHidden = true
+            if viewModel.playerStandings?.count ?? 0 > 0{
+                collectionViewHeading.isHidden = false
+                tableViewStandings.isHidden = false
+                leagueView.isHidden = false
+                emptyView.isHidden = true
+            }
+            else{
+                collectionViewHeading.isHidden = true
+                tableViewStandings.isHidden = true
+                leagueView.isHidden = true
+                emptyView.isHidden = false
+                
+            }
+        }
+        self.tableViewStandings.reloadData()
+    
     }
     
     
@@ -69,7 +108,9 @@ extension AwardsViewController:UITableViewDelegate,UITableViewDataSource{
         if selectedTopTitleIndex == 0{
             return viewModel.teamStandings?.totalStandings?.count ?? 0
         }
-        return 10
+        else{
+            return viewModel.playerStandings?.count ?? 0
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -84,7 +125,9 @@ extension AwardsViewController:UITableViewDelegate,UITableViewDataSource{
             
         }
         else{
-            cell.isTeamStandigs = false
+            let standings = viewModel.getPlayerRowByIndex(index: indexPath.row)
+            let points = viewModel.getPlayerPointsByIndex(index: indexPath.row)
+            cell.configurePlayerStandings(index: indexPath.row, standings: standings, points: points)
         }
         cell.callReloadCell = {
             tableView.reloadRows(at: [indexPath], with: .none)

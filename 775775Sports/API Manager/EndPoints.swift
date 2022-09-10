@@ -9,6 +9,7 @@ enum EndPoints: String ,CaseIterable {
     case newsList = "post-list"
     case videoList = "video-list"
     case newsDetails = "post"
-    case awards = "zqbf-list-jifen"
-    
+    case teamStandings = "zqbf-list-jifen"
+    case playerStandings = "zqbf-list-jifen-top-scorer"
+
 }

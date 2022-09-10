@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Y6W-OH-hqX">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -9,6 +10,9 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
+        <array key="Poppins-Medium.otf">
+            <string>Poppins-Medium</string>
+        </array>
         <array key="Poppins-Regular.otf">
             <string>Poppins-Regular</string>
         </array>
@@ -26,10 +30,10 @@
                                 <rect key="frame" x="0.0" y="44" width="414" height="818"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UAy-ct-7oB">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="368"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="635"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="o6U-84-DDH">
-                                                <rect key="frame" x="0.0" y="0.0" width="414" height="348"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="414" height="615"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cm9-EC-Sj9">
                                                         <rect key="frame" x="0.0" y="0.0" width="414" height="60"/>
@@ -144,37 +148,38 @@
                                                             <outlet property="delegate" destination="Y6W-OH-hqX" id="Il2-mh-zcT"/>
                                                         </connections>
                                                     </collectionView>
-                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zzS-Oi-6NG">
+                                                    <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zzS-Oi-6NG">
                                                         <rect key="frame" x="0.0" y="115" width="414" height="50"/>
                                                         <subviews>
-                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="clubLogo" translatesAutoresizingMaskIntoConstraints="NO" id="6W0-Pu-I7e">
-                                                                <rect key="frame" x="20" y="5" width="40" height="40"/>
-                                                                <constraints>
-                                                                    <constraint firstAttribute="height" constant="40" id="5gN-cf-pVf"/>
-                                                                    <constraint firstAttribute="width" constant="40" id="fOM-5f-KHD"/>
-                                                                </constraints>
-                                                            </imageView>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Liverpool" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8cA-yD-ndP">
-                                                                <rect key="frame" x="70" y="15" width="62.5" height="20"/>
-                                                                <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="14"/>
-                                                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                                <nil key="highlightedColor"/>
-                                                            </label>
+                                                            <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="jDN-jG-3ZP">
+                                                                <rect key="frame" x="20" y="5" width="386" height="40"/>
+                                                                <subviews>
+                                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="clubLogo" translatesAutoresizingMaskIntoConstraints="NO" id="6W0-Pu-I7e">
+                                                                        <rect key="frame" x="0.0" y="0.0" width="40" height="40"/>
+                                                                        <constraints>
+                                                                            <constraint firstAttribute="height" constant="40" id="5gN-cf-pVf"/>
+                                                                            <constraint firstAttribute="width" constant="40" id="fOM-5f-KHD"/>
+                                                                        </constraints>
+                                                                    </imageView>
+                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Liverpool" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8cA-yD-ndP">
+                                                                        <rect key="frame" x="50" y="0.0" width="336" height="40"/>
+                                                                        <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="14"/>
+                                                                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                        <nil key="highlightedColor"/>
+                                                                    </label>
+                                                                </subviews>
+                                                            </stackView>
                                                         </subviews>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <constraints>
-                                                            <constraint firstItem="8cA-yD-ndP" firstAttribute="top" relation="greaterThanOrEqual" secondItem="zzS-Oi-6NG" secondAttribute="top" constant="4" id="6we-jd-s0H"/>
-                                                            <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="8cA-yD-ndP" secondAttribute="bottom" constant="4" id="Afl-Rc-kMC"/>
-                                                            <constraint firstItem="6W0-Pu-I7e" firstAttribute="leading" secondItem="zzS-Oi-6NG" secondAttribute="leading" constant="20" id="I0M-mA-rmX"/>
-                                                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="8cA-yD-ndP" secondAttribute="trailing" constant="10" id="Ib0-Zr-gDx"/>
-                                                            <constraint firstItem="8cA-yD-ndP" firstAttribute="leading" secondItem="6W0-Pu-I7e" secondAttribute="trailing" constant="10" id="Kyt-pz-9CY"/>
-                                                            <constraint firstItem="6W0-Pu-I7e" firstAttribute="centerY" secondItem="zzS-Oi-6NG" secondAttribute="centerY" id="Ri5-VO-Pbo"/>
-                                                            <constraint firstItem="8cA-yD-ndP" firstAttribute="centerY" secondItem="6W0-Pu-I7e" secondAttribute="centerY" id="b47-oh-Qrh"/>
+                                                            <constraint firstItem="jDN-jG-3ZP" firstAttribute="centerY" secondItem="zzS-Oi-6NG" secondAttribute="centerY" id="Q3n-14-j93"/>
+                                                            <constraint firstItem="jDN-jG-3ZP" firstAttribute="leading" secondItem="zzS-Oi-6NG" secondAttribute="leading" constant="20" symbolic="YES" id="SPF-ge-k0v"/>
+                                                            <constraint firstAttribute="trailing" secondItem="jDN-jG-3ZP" secondAttribute="trailing" constant="8" id="WvF-hR-7FT"/>
                                                             <constraint firstAttribute="height" constant="50" id="nUs-Y9-ZYl"/>
                                                         </constraints>
                                                     </view>
-                                                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="IP8-sV-X8p">
-                                                        <rect key="frame" x="0.0" y="165" width="414" height="55"/>
+                                                    <collectionView hidden="YES" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="IP8-sV-X8p">
+                                                        <rect key="frame" x="0.0" y="115" width="414" height="55"/>
                                                         <color key="backgroundColor" name="gray2"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="55" id="K4c-VE-erY"/>
@@ -191,8 +196,8 @@
                                                             <outlet property="delegate" destination="Y6W-OH-hqX" id="RFR-LM-mhr"/>
                                                         </connections>
                                                     </collectionView>
-                                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="g4k-pE-w6U">
-                                                        <rect key="frame" x="0.0" y="220" width="414" height="128"/>
+                                                    <tableView hidden="YES" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="g4k-pE-w6U">
+                                                        <rect key="frame" x="0.0" y="115" width="414" height="128"/>
                                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="128" id="GPX-eV-X9Y"/>
@@ -202,6 +207,32 @@
                                                             <outlet property="delegate" destination="Y6W-OH-hqX" id="WAA-7j-im6"/>
                                                         </connections>
                                                     </tableView>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="y9a-Nh-XAD">
+                                                        <rect key="frame" x="0.0" y="115" width="414" height="500"/>
+                                                        <subviews>
+                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="noData" translatesAutoresizingMaskIntoConstraints="NO" id="U9q-BS-IJQ">
+                                                                <rect key="frame" x="107" y="75" width="200" height="150"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="width" constant="200" id="fV4-h6-P8I"/>
+                                                                    <constraint firstAttribute="height" constant="150" id="ifm-P4-l6p"/>
+                                                                </constraints>
+                                                            </imageView>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="Sorry...No standings details found!" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MDy-yx-Sb5">
+                                                                <rect key="frame" x="95.5" y="233" width="223.5" height="18.5"/>
+                                                                <fontDescription key="fontDescription" name="Poppins-Medium" family="Poppins" pointSize="13"/>
+                                                                <color key="textColor" name="gray1"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                        </subviews>
+                                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                        <constraints>
+                                                            <constraint firstItem="U9q-BS-IJQ" firstAttribute="centerY" secondItem="y9a-Nh-XAD" secondAttribute="centerY" constant="-100" id="4hE-0l-bEM"/>
+                                                            <constraint firstItem="MDy-yx-Sb5" firstAttribute="centerX" secondItem="y9a-Nh-XAD" secondAttribute="centerX" id="ee3-sZ-HR0"/>
+                                                            <constraint firstItem="MDy-yx-Sb5" firstAttribute="top" secondItem="U9q-BS-IJQ" secondAttribute="bottom" constant="8" id="pEn-lA-R9U"/>
+                                                            <constraint firstItem="U9q-BS-IJQ" firstAttribute="centerX" secondItem="y9a-Nh-XAD" secondAttribute="centerX" id="pTQ-JI-Tat"/>
+                                                            <constraint firstAttribute="height" constant="500" id="qxt-kC-b2C"/>
+                                                        </constraints>
+                                                    </view>
                                                 </subviews>
                                             </stackView>
                                         </subviews>
@@ -238,10 +269,12 @@
                     <connections>
                         <outlet property="collectionViewHeading" destination="IP8-sV-X8p" id="M1J-gW-1Pw"/>
                         <outlet property="collectionViewTop" destination="9mM-MV-bAw" id="qZh-9Y-Ob6"/>
+                        <outlet property="emptyView" destination="y9a-Nh-XAD" id="JEf-nM-3Dk"/>
                         <outlet property="imgLogo" destination="6W0-Pu-I7e" id="HLg-ll-IGy"/>
                         <outlet property="lblLeague" destination="JgD-Wc-o9G" id="Itk-Ke-pRd"/>
                         <outlet property="lblSelectedLeague" destination="8cA-yD-ndP" id="edM-Rr-w0S"/>
                         <outlet property="lblSports" destination="Afs-eR-Mhb" id="RxM-2O-ebD"/>
+                        <outlet property="leagueView" destination="zzS-Oi-6NG" id="BOi-Ae-KjF"/>
                         <outlet property="tableViewStandings" destination="g4k-pE-w6U" id="np6-nK-mfh"/>
                         <outlet property="tableViewStandingsHeight" destination="GPX-eV-X9Y" id="ITO-ME-kzk"/>
                     </connections>
@@ -292,8 +325,12 @@
         <image name="clubLogo" width="78" height="79"/>
         <image name="downArrow2" width="11" height="7"/>
         <image name="downArrowWhite" width="11" height="7"/>
+        <image name="noData" width="433" height="278"/>
         <namedColor name="AccentColor">
             <color red="1" green="0.37254901960784315" blue="0.25098039215686274" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="gray1">
+            <color red="0.48627450980392156" green="0.50980392156862742" blue="0.63137254901960782" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="gray2">
             <color red="0.93725490196078431" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

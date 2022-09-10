@@ -1,5 +1,5 @@
 //
-//  AwardsResponse.swift
+//  TeamStandingsResponse.swift
 //
 //  Generated using https://jsonmaster.github.io
 //  Created on September 09, 2022
@@ -7,7 +7,7 @@
 import Foundation
 import SwiftyJSON
 
-struct AwardsResponse {
+struct TeamStandingsResponse {
 
 	let leagueInfo: LeagueInfo?
 	let teamInfo: [TeamInfo]?

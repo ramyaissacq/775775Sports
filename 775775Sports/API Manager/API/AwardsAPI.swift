@@ -9,10 +9,18 @@ import Foundation
 
 class AwardsAPI:WebService{
     
-    func getAwardsList(leagueID:Int,subLeagueID:Int,completion:@escaping (AwardsResponse) -> Void, failed: @escaping (String) -> Void){
-        let url = BaseUrl.getBaseUrl() + EndPoints.awards.rawValue + "/\(leagueID)/sub/\(subLeagueID)"
+    func getTeamStandingsList(leagueID:Int,subLeagueID:Int,completion:@escaping (TeamStandingsResponse) -> Void, failed: @escaping (String) -> Void){
+        let url = BaseUrl.getBaseUrl() + EndPoints.teamStandings.rawValue + "/\(leagueID)/sub/\(subLeagueID)"
         get(url: url, params: [:], completion: { json in
-            let response = AwardsResponse(json!)
+            let response = TeamStandingsResponse(json!)
+            completion(response)
+        }, failed: failed)
+    }
+    
+    func getPlayerStandingsList(leagueID:Int,subLeagueID:Int,completion:@escaping (PlayerStandingsResponse) -> Void, failed: @escaping (String) -> Void){
+        let url = BaseUrl.getBaseUrl() + EndPoints.playerStandings.rawValue + "/\(leagueID)/season/\(subLeagueID)"
+        get(url: url, params: [:], completion: { json in
+            let response = PlayerStandingsResponse(json!)
             completion(response)
         }, failed: failed)
     }

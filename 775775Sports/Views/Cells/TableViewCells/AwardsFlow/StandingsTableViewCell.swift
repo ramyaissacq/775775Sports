@@ -20,10 +20,10 @@ class StandingsTableViewCell: UITableViewCell {
     var cellIndex = 0
     var isTeamStandigs:Bool?
     var callReloadCell:(() -> Void)?
-    var playerStandings = ["1","Man City","Erling Haland","20","20","20"]
     var headerSizes = [CGFloat]()
     var standings = [String]()
     var lastResults:[String]?
+    var points:[String]?
     
     
     override func awakeFromNib() {
@@ -53,6 +53,7 @@ class StandingsTableViewCell: UITableViewCell {
         pointsView.isHidden = true
         collectionViewStandings.reloadData()
         collectionViewLastResults.reloadData()
+        collectionViewPoints.reloadData()
         configureMoreViews()
     }
     
@@ -87,6 +88,15 @@ class StandingsTableViewCell: UITableViewCell {
         setupView()
     }
     
+    func configurePlayerStandings(index:Int,standings:[String],points:[String]){
+        isTeamStandigs = false
+        cellIndex = index
+        self.standings = standings
+        self.points = points
+        setupView()
+        
+    }
+    
     
     
     
@@ -105,13 +115,14 @@ extension StandingsTableViewCell:UICollectionViewDelegate,UICollectionViewDataSo
             return standings.count + 1
         }
         else {
-            return 4
+            return points?.count ?? 0
         }
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if collectionView == collectionViewPoints{
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PointsCollectionViewCell", for: indexPath) as! PointsCollectionViewCell
+            cell.lblTitle.text = points?[indexPath.row]
             return cell
             
         }
@@ -145,7 +156,7 @@ extension StandingsTableViewCell:UICollectionViewDelegate,UICollectionViewDataSo
         }
        }
             else{
-                if indexPath.row == playerStandings.count{
+                if indexPath.row == standings.count{
                     let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "MoreCollectionViewCell", for: indexPath) as! MoreCollectionViewCell
                     cell.configureCell(index: cellIndex, isTeamStandings: false)
                     return cell
@@ -155,7 +166,7 @@ extension StandingsTableViewCell:UICollectionViewDelegate,UICollectionViewDataSo
                 else{
                     let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "TitleCollectionViewCell", for: indexPath) as! TitleCollectionViewCell
                     cell.titleType = .Normal
-                    cell.lblTitle.text = playerStandings[indexPath.row]
+                    cell.lblTitle.text = standings[indexPath.row]
                     return cell
                     
                 }
@@ -176,17 +187,23 @@ extension StandingsTableViewCell:UICollectionViewDelegate,UICollectionViewDataSo
                 else{
                     AwardsViewController.selectedTeamMoreIndices.append(cellIndex)
                 }
+                if let cell = collectionView.cellForItem(at: indexPath) as? MoreCollectionViewCell{
+                    cell.imgArrow.isHidden = true
+                }
                 callReloadCell?()
             }
         }
         
-        else if collectionView == collectionViewStandings && indexPath.row == playerStandings.count{
+        else if collectionView == collectionViewStandings && indexPath.row == standings.count{
             if AwardsViewController.selectedPlayerMoreIndices.contains(cellIndex){
                 AwardsViewController.selectedPlayerMoreIndices.remove(at: AwardsViewController.selectedPlayerMoreIndices.firstIndex(of: cellIndex)!)
                 pointsView.isHidden = true
             }
             else{
                 AwardsViewController.selectedPlayerMoreIndices.append(cellIndex)
+            }
+            if let cell = collectionView.cellForItem(at: indexPath) as? MoreCollectionViewCell{
+                cell.imgArrow.isHidden = true
             }
             callReloadCell?()
             
@@ -199,7 +216,9 @@ extension StandingsTableViewCell:UICollectionViewDelegate,UICollectionViewDataSo
             return CGSize(width: 20, height: 20)
         }
         else if collectionView == collectionViewPoints{
-            return CGSize(width: 80, height: 30)
+            let str = points?[indexPath.row] ?? ""
+            let w = str.width(forHeight: 14, font: UIFont(name: "Poppins-Regular", size: 12)!) + 16
+            return CGSize(width: w, height: 30)
             
         }
         return CGSize(width: headerSizes[indexPath.row], height: 55)

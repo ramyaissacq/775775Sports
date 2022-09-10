@@ -11,6 +11,7 @@ class HomeViewController: BaseViewController {
     //MARK: - IBOutlets
     @IBOutlet weak var tableView:UITableView!
     
+    @IBOutlet weak var noDataView: UIView!
     //MARK: - Variables
     var viewModel = HomeVieModel()
     var page = 1
@@ -45,6 +46,12 @@ extension HomeViewController:HomeViewModelDelegate{
     func diFinisfFetchMatches() {
         page += 1
         tableView.reloadData()
+        if viewModel.matches?.count ?? 0 > 0{
+            noDataView.isHidden = true
+        }
+        else{
+            noDataView.isHidden = false
+        }
     }
     
    

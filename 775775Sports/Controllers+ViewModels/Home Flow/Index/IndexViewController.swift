@@ -98,6 +98,7 @@ extension IndexViewController:UICollectionViewDelegate,UICollectionViewDataSourc
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if collectionView == collectionViewCategory{
             selectedCategoryIndex = indexPath.row
+            collectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
             viewModel.filterData(index: selectedCategoryIndex)
             self.tableViewIndex.reloadData()
         }
@@ -108,7 +109,8 @@ extension IndexViewController:UICollectionViewDelegate,UICollectionViewDataSourc
             return CGSize(width: headerSizes[indexPath.row], height: 55)
         }
         else{
-            return CGSize()
+            let w = categories[indexPath.row].width(forHeight: 14, font: UIFont(name: "Poppins-Regular", size: 12)!) + 16
+            return CGSize(width: w, height: 55)
         }
     }
     
