@@ -17,6 +17,9 @@ class AwardsViewController: BaseViewController {
     @IBOutlet weak var tableViewStandings: UITableView!
     @IBOutlet weak var tableViewStandingsHeight: NSLayoutConstraint!
     
+    @IBOutlet weak var imgLogo: UIImageView!
+    
+    @IBOutlet weak var lblSelectedLeague: UILabel!
     //MARK: - Variables
     var tableViewStandingsObserver: NSKeyValueObservation?
     var topTitles = ["Team Standings","Player Standings"]
@@ -85,7 +88,7 @@ class AwardsViewController: BaseViewController {
         totalSpace = total_widths + itemSpacing
         balance = (UIScreen.main.bounds.width - totalSpace)/CGFloat(headings2.count)
         secondHeaderSizes = secondHeaderSizes.map{$0+balance}
-        
+        viewModel.delegate = self
         viewModel.getTeamStandings(leagueID: selectedLeagueID!)
         
     }
@@ -122,6 +125,7 @@ class AwardsViewController: BaseViewController {
           print("Selected item: \(item) at index: \(index)")
             lblLeague.text = item
             selectedLeagueID = FootballLeague.leagues?[index].id
+            viewModel.getTeamStandings(leagueID: selectedLeagueID!)
         }
     }
     

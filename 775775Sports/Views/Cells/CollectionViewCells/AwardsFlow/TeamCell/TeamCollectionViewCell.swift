@@ -15,5 +15,12 @@ class TeamCollectionViewCell: UICollectionViewCell {
         super.awakeFromNib()
         // Initialization code
     }
+    
+    func configureCell(team:String){
+        let arr = team.components(separatedBy: ",")
+        lblName.text = arr.first
+        imgLogo.setImage(with: arr.last, placeholder: Utility.getPlaceHolder())
+        
+    }
 
 }

@@ -10,6 +10,8 @@ import UIKit
 
 extension AwardsViewController:AwardsViewModeldelegate{
     func didFinishTeamStandingsFetch() {
+        lblSelectedLeague.text = (viewModel.teamStandings?.leagueInfo?.nameEn ?? "") + " " + (viewModel.teamStandings?.leagueInfo?.season ?? "")
+        imgLogo.setImage(with: viewModel.teamStandings?.leagueInfo?.logo, placeholder: Utility.getPlaceHolder())
         self.tableViewStandings.reloadData()
     }
     
@@ -72,10 +74,14 @@ extension AwardsViewController:UITableViewDelegate,UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as! StandingsTableViewCell
-        cell.cellIndex = indexPath.row
+        //cell.cellIndex = indexPath.row
         cell.headerSizes = headerSizes
         if selectedTopTitleIndex == 0{
-            cell.isTeamStandigs = true
+            let standings = viewModel.getTeamRowByIndex(index: indexPath.row)
+            let results = viewModel.getResultsArrayByIndex(index: indexPath.row)
+            let percentageStr = viewModel.getResultsPercentageStringByIndex(index: indexPath.row)
+            cell.configureTeamStandings(index: indexPath.row, standings: standings, results: results, resultsPercentage: percentageStr)
+            
         }
         else{
             cell.isTeamStandigs = false

@@ -18,19 +18,12 @@ class StandingsTableViewCell: UITableViewCell {
     //MARK: - Variables
     
     var cellIndex = 0
-    var isTeamStandigs:Bool?{
-        didSet{
-            setupView()
-        }
-    }
-    
+    var isTeamStandigs:Bool?
     var callReloadCell:(() -> Void)?
-    
-    var teamStandings = ["1","Man City","20","20","20","20","20","20","20"]
     var playerStandings = ["1","Man City","Erling Haland","20","20","20"]
     var headerSizes = [CGFloat]()
-    
     var standings = [String]()
+    var lastResults:[String]?
     
     
     override func awakeFromNib() {
@@ -58,19 +51,9 @@ class StandingsTableViewCell: UITableViewCell {
     func setupView(){
         resultsView.isHidden = true
         pointsView.isHidden = true
-        if isTeamStandigs ?? false{
-            standings = teamStandings
-            collectionViewStandings.reloadData()
-            
-        }
-        else{
-            standings = playerStandings
-            collectionViewStandings.reloadData()
-            
-        }
+        collectionViewStandings.reloadData()
+        collectionViewLastResults.reloadData()
         configureMoreViews()
-        
-        
     }
     
     func configureMoreViews(){
@@ -95,6 +78,15 @@ class StandingsTableViewCell: UITableViewCell {
         
     }
     
+    func configureTeamStandings(index:Int,standings:[String],results:[String],resultsPercentage:String?){
+        isTeamStandigs = true
+        cellIndex = index
+        self.standings = standings
+        self.lastResults = results
+        self.lblDescription.text = resultsPercentage
+        setupView()
+    }
+    
     
     
     
@@ -107,7 +99,7 @@ extension StandingsTableViewCell:UICollectionViewDelegate,UICollectionViewDataSo
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if collectionView == collectionViewLastResults{
-            return 6
+            return lastResults?.count ?? 0
         }
         else if collectionView == collectionViewStandings{
             return standings.count + 1
@@ -125,6 +117,8 @@ extension StandingsTableViewCell:UICollectionViewDelegate,UICollectionViewDataSo
         }
         else if collectionView == collectionViewLastResults{
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ResultCollectionViewCell", for: indexPath) as! ResultCollectionViewCell
+            cell.configureCell(status: lastResults?[indexPath.row] ?? "")
+            
             return cell
             
         }
@@ -132,19 +126,20 @@ extension StandingsTableViewCell:UICollectionViewDelegate,UICollectionViewDataSo
             switch indexPath.row{
             case 0:
                 let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "RankCollectionViewCell", for: indexPath) as! RankCollectionViewCell
+                cell.lblRank.text = standings[indexPath.row]
                 return cell
             case 1:
                 let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "TeamCollectionViewCell", for: indexPath) as! TeamCollectionViewCell
+                cell.configureCell(team: standings[indexPath.row])
                 return cell
             case standings.count:
                 let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "MoreCollectionViewCell", for: indexPath) as! MoreCollectionViewCell
-                cell.cellIndex = cellIndex
-                cell.isTeamStandings = true
+                cell.configureCell(index: cellIndex, isTeamStandings: true)
                 return cell
             default:
                 let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "TitleCollectionViewCell", for: indexPath) as! TitleCollectionViewCell
                 cell.titleType = .Normal
-                cell.lblTitle.text = teamStandings[indexPath.row]
+                cell.lblTitle.text = standings[indexPath.row]
                 return cell
            
         }
@@ -152,8 +147,7 @@ extension StandingsTableViewCell:UICollectionViewDelegate,UICollectionViewDataSo
             else{
                 if indexPath.row == playerStandings.count{
                     let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "MoreCollectionViewCell", for: indexPath) as! MoreCollectionViewCell
-                    cell.isTeamStandings = false
-                    cell.cellIndex = cellIndex
+                    cell.configureCell(index: cellIndex, isTeamStandings: false)
                     return cell
                     
                 }
@@ -173,7 +167,7 @@ extension StandingsTableViewCell:UICollectionViewDelegate,UICollectionViewDataSo
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if collectionView == collectionViewStandings && isTeamStandigs ?? false{
-            if indexPath.row == teamStandings.count{
+            if indexPath.row == standings.count{
                 
                 if AwardsViewController.selectedTeamMoreIndices.contains(cellIndex){
                     AwardsViewController.selectedTeamMoreIndices.remove(at: AwardsViewController.selectedTeamMoreIndices.firstIndex(of: cellIndex)!)

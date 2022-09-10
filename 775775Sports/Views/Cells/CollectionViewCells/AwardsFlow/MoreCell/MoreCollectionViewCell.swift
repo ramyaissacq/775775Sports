@@ -15,18 +15,35 @@ class MoreCollectionViewCell: UICollectionViewCell {
 
     override func awakeFromNib() {
         super.awakeFromNib()
+       
         // Initialization code
+    }
+    
+    func configureCell(index:Int,isTeamStandings:Bool){
+        cellIndex = index
+        self.isTeamStandings = isTeamStandings
+        setupViews()
     }
     
     func setupViews(){
         if isTeamStandings{
             if AwardsViewController.selectedTeamMoreIndices.contains(cellIndex){
-                imgArrow.transform = CGAffineTransform(rotationAngle: 180)
+                imgArrow.transform = CGAffineTransform(rotationAngle: .pi)
                 
             }
             else{
                 imgArrow.transform = .identity
             }
+        } // teamStandings if ends
+        else{ //for playerstandings
+            if AwardsViewController.selectedPlayerMoreIndices.contains(cellIndex){
+                imgArrow.transform = CGAffineTransform(rotationAngle: .pi)
+                
+            }
+            else{
+                imgArrow.transform = .identity
+            }
+            
         }
     }
 
