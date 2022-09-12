@@ -6,10 +6,11 @@
 //
 
 import UIKit
-enum TitleType:String{
+enum TitleType{
     case Normal
     case GrayHeader
     case RedHeader
+    case Header(color:UIColor)
 }
 
 class TitleCollectionViewCell: UICollectionViewCell {
@@ -40,6 +41,11 @@ class TitleCollectionViewCell: UICollectionViewCell {
         case .GrayHeader:
             lblTitle.textColor = UIColor(named: "gray5")
             lblTitle.font = UIFont(name: "Poppins-Medium", size: 12)
+        case .Header(let color):
+            lblTitle.textColor = color
+            lblTitle.font = UIFont(name: "Poppins-Medium", size: 12)
+            
+           
         default:
             break
             

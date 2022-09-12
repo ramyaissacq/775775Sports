@@ -7,6 +7,15 @@
 
 import UIKit
 
+enum HomeCategory{
+    case index
+    case analysis
+    case league
+    case event
+    case animation
+    case live
+}
+
 class HomeCategoryViewController: BaseViewController {
     //MARK: - IBOutlets
     //TopView outlets starts
@@ -43,9 +52,11 @@ class HomeCategoryViewController: BaseViewController {
     
     @IBOutlet weak var indexContainerView: UIView!
     
+    @IBOutlet weak var analysisContainerView: UIView!
     //MARK: - Variables
     static var matchID:Int?
     var selectedMatch:MatchList?
+    var selectedCategory = HomeCategory.index
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -59,7 +70,30 @@ class HomeCategoryViewController: BaseViewController {
     func initialSetup(){
         setBackButton()
         configureTopView()
+        configureContainers()
         FootballCompany.populateFootballCompanies()
+    }
+    
+    func configureContainers(){
+        switch selectedCategory{
+        case .index:
+            indexContainerView.isHidden = false
+            analysisContainerView.isHidden = true
+            
+        case .analysis:
+            indexContainerView.isHidden = true
+            analysisContainerView.isHidden = false
+            
+        case .league:
+            break
+        case .event:
+            break
+        case .animation:
+            break
+        case .live:
+            break
+        }
+        
     }
     
     func configureTopView(){

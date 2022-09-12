@@ -42,12 +42,16 @@ class ScoresTableViewCell: UITableViewCell {
     
     //MARK: - Variables
     var callIndexSelection:(()->Void)?
+    var callAnalysisSelection:(()->Void)?
     
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
         let tap = UITapGestureRecognizer(target: self, action: #selector(tapIndex))
         viewIndex.addGestureRecognizer(tap)
+        
+        let tapAnls = UITapGestureRecognizer(target: self, action: #selector(tapAnalysis))
+        viewAnalysis.addGestureRecognizer(tapAnls)
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -58,6 +62,12 @@ class ScoresTableViewCell: UITableViewCell {
     
     @objc func tapIndex(){
         callIndexSelection?()
+        
+    }
+    
+    
+    @objc func tapAnalysis(){
+        callAnalysisSelection?()
         
     }
     

@@ -24,4 +24,12 @@ class HomeAPI: WebService {
             completion(response)
         }, failed: failed)
     }
+    
+    func getScoresByAnalysis(id:Int,completion:@escaping (ScoreAnalysisResponse) -> Void, failed: @escaping (String) -> Void){
+        let url = BaseUrl.getBaseUrl() + EndPoints.scores_analysis.rawValue + "/\(id)"
+        get(url: url, params: [:], completion: { json in
+            let response = ScoreAnalysisResponse(json!)
+            completion(response)
+        }, failed: failed)
+    }
 }
