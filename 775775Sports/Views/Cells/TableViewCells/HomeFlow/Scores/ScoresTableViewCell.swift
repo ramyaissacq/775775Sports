@@ -43,6 +43,7 @@ class ScoresTableViewCell: UITableViewCell {
     //MARK: - Variables
     var callIndexSelection:(()->Void)?
     var callAnalysisSelection:(()->Void)?
+    var callEventSelection:(()->Void)?
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -52,6 +53,9 @@ class ScoresTableViewCell: UITableViewCell {
         
         let tapAnls = UITapGestureRecognizer(target: self, action: #selector(tapAnalysis))
         viewAnalysis.addGestureRecognizer(tapAnls)
+        
+        let tapEvnt = UITapGestureRecognizer(target: self, action: #selector(tapEvent))
+        viewEvent.addGestureRecognizer(tapEvnt)
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -68,6 +72,11 @@ class ScoresTableViewCell: UITableViewCell {
     
     @objc func tapAnalysis(){
         callAnalysisSelection?()
+        
+    }
+    
+    @objc func tapEvent(){
+        callEventSelection?()
         
     }
     
@@ -98,6 +107,30 @@ class ScoresTableViewCell: UITableViewCell {
         lblOverUnder2.text = String(obj?.odds?.overUnder?[5] ?? 0)
         lblOverUnder3.text = String(obj?.odds?.overUnder?[7] ?? 0)
         }
+        if obj?.havOdds ?? false{
+            viewIndex.isHidden = false
+        }
+        else{
+            viewIndex.isHidden = true
+            
+        }
+        
+        if obj?.havEvent ?? false{
+            viewEvent.isHidden = false
+        }
+        else{
+            viewEvent.isHidden = true
+            
+        }
+        
+        if obj?.havBriefing ?? false{
+            viewBriefing.isHidden = false
+        }
+        else{
+            viewBriefing.isHidden = true
+            
+        }
+        
     }
     
     class func getStatus(state:Int)->String{

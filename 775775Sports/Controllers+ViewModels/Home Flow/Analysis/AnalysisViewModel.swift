@@ -19,8 +19,12 @@ class AnalysisViewModel{
         Utility.showProgress()
         HomeAPI().getScoresByAnalysis(id: HomeCategoryViewController.matchID!) { response in
             self.analysisData = response.list?.first
+            if self.analysisData?.homeOdds?.count ?? 0 > 3{
             self.analysisData?.homeOdds?.remove(at: 3)
+            }
+            if self.analysisData?.awayOdds?.count ?? 0 > 3{
             self.analysisData?.awayOdds?.remove(at: 3)
+            }
             self.delegate?.didFinishFetch()
             
         } failed: { msg in

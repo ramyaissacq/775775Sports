@@ -31,5 +31,12 @@ class CustomTabBar:UITabBar{
         self.scrollEdgeAppearance = tabBarAppearance
             
         }
+        else{
+            let appearance = UITabBarAppearance()
+            appearance.stackedLayoutAppearance.selected.titleTextAttributes = [NSAttributedString.Key.foregroundColor:  Colors.accentColor()]
+            appearance.stackedLayoutAppearance.normal.titleTextAttributes = [NSAttributedString.Key.foregroundColor:  Colors.fadeRedColor()]
+                self.standardAppearance = appearance
+            
+        }
     }
 }

@@ -73,23 +73,29 @@ extension HomeViewController:UITableViewDelegate,UITableViewDataSource{
         }
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as! ScoresTableViewCell
         cell.callIndexSelection = {
-            let vc = self.storyboard?.instantiateViewController(withIdentifier: "HomeCategoryViewController") as! HomeCategoryViewController
-            HomeCategoryViewController.matchID = self.viewModel.matches?[indexPath.row].matchId
-            vc.selectedMatch =  self.viewModel.matches?[indexPath.row]
-            vc.selectedCategory = .index
-            self.navigationController?.pushViewController(vc, animated: true)
+            self.goToCategory(index: indexPath.row, category: .index)
         }
         
         cell.callAnalysisSelection = {
-            let vc = self.storyboard?.instantiateViewController(withIdentifier: "HomeCategoryViewController") as! HomeCategoryViewController
-            HomeCategoryViewController.matchID = self.viewModel.matches?[indexPath.row].matchId
-            vc.selectedMatch =  self.viewModel.matches?[indexPath.row]
-            vc.selectedCategory = .analysis
-            self.navigationController?.pushViewController(vc, animated: true)
+            self.goToCategory(index: indexPath.row, category: .analysis)
+        }
+        
+        cell.callEventSelection = {
+            self.goToCategory(index: indexPath.row, category: .event)
             
         }
+        
         cell.configureCell(obj: viewModel.matches?[indexPath.row])
         return cell
+        
+    }
+    
+    func goToCategory(index:Int,category:HomeCategory){
+        let vc = self.storyboard?.instantiateViewController(withIdentifier: "HomeCategoryViewController") as! HomeCategoryViewController
+        HomeCategoryViewController.matchID = self.viewModel.matches?[index].matchId
+        vc.selectedMatch =  self.viewModel.matches?[index]
+        vc.selectedCategory = category
+        self.navigationController?.pushViewController(vc, animated: true)
         
     }
     

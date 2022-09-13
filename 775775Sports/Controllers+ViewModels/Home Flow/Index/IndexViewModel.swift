@@ -35,37 +35,47 @@ class IndexViewModel{
             var filteredHandicaps = [[Double]]()
             filteredHandicaps = scores?.first?.handicap?.filter{$0.first == matchID} ?? []
             for m in filteredHandicaps{
+                if m.count > 7{
                 let obj = ScoreIndexModel(companyID: Int(m[1]), home1: String(m[6]), liveHp1: String(m[5]), away1: String(m[7]), home2: String(m[3]), liveHp2: String(m[2]), away2: String(m[4]))
                 currentScores.append(obj)
+                }
             }
         case 1:
             var filteredEuroOdds = [[Double]]()
             filteredEuroOdds = scores?.first?.europeOdds?.filter{$0.first == matchID} ?? []
             for m in filteredEuroOdds{
+                if m.count > 7{
                 let obj = ScoreIndexModel(companyID: Int(m[1]), home1: String(m[5]), liveHp1: String(m[6]), away1: String(m[7]), home2: String(m[4]), liveHp2: String(m[3]), away2: String(m[4]))
                 currentScores.append(obj)
+                }
             }
         case 2:
             var filteredOverUnder = [[Double]]()
             filteredOverUnder = scores?.first?.overUnder?.filter{$0.first == matchID} ?? []
             for m in filteredOverUnder{
+                if m.count > 7{
                 let obj = ScoreIndexModel(companyID: Int(m[1]), home1: String(m[6]), liveHp1:String(m[5]), away1:String( m[7]), home2: String(m[3]), liveHp2: String(m[2]), away2:String( m[4]))
                 currentScores.append(obj)
+                }
             }
         case 3:
             var filteredHandiHalf = [[Double]]()
             filteredHandiHalf = scores?.first?.handicapHalf?.filter{$0.first == matchID} ?? []
             for m in filteredHandiHalf{
+                if m.count > 7{
                 let obj = ScoreIndexModel(companyID: Int(m[1]), home1: String(m[6]), liveHp1: String(m[5]), away1: String(m[7]), home2: String(m[3]), liveHp2: String(m[2]), away2: String(m[4]))
                 currentScores.append(obj)
+                }
             }
 
         case 4:
             var filteredOverUnderHalf = [[Double]]()
             filteredOverUnderHalf = scores?.first?.overUnderHalf?.filter{$0.first == matchID} ?? []
             for m in filteredOverUnderHalf{
+                if m.count > 7{
                 let obj = ScoreIndexModel(companyID: Int(m[1]), home1: String(m[6]), liveHp1: String(m[5]), away1: String(m[7]), home2: String(m[3]), liveHp2: String(m[2]), away2: String(m[4]))
                 currentScores.append(obj)
+                }
             }
         default:
             break

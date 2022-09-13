@@ -53,6 +53,9 @@ class HomeCategoryViewController: BaseViewController {
     @IBOutlet weak var indexContainerView: UIView!
     
     @IBOutlet weak var analysisContainerView: UIView!
+    
+    @IBOutlet weak var eventContainerView: UIView!
+    
     //MARK: - Variables
     static var matchID:Int?
     var selectedMatch:MatchList?
@@ -77,17 +80,21 @@ class HomeCategoryViewController: BaseViewController {
     func configureContainers(){
         switch selectedCategory{
         case .index:
-            indexContainerView.isHidden = false
             analysisContainerView.isHidden = true
+            eventContainerView.isHidden = true
+            indexContainerView.isHidden = false
             
         case .analysis:
             indexContainerView.isHidden = true
+            eventContainerView.isHidden = true
             analysisContainerView.isHidden = false
             
         case .league:
             break
         case .event:
-            break
+            indexContainerView.isHidden = true
+            analysisContainerView.isHidden = true
+            eventContainerView.isHidden = false
         case .animation:
             break
         case .live:
@@ -122,6 +129,38 @@ class HomeCategoryViewController: BaseViewController {
         lblOverUnder1.text = String(selectedMatch?.odds?.overUnder?[6] ?? 0)
         lblOverUnder2.text = String(selectedMatch?.odds?.overUnder?[5] ?? 0)
         lblOverUnder3.text = String(selectedMatch?.odds?.overUnder?[7] ?? 0)
+        }
+        if selectedMatch?.havOdds ?? false{
+            viewIndex.isHidden = false
+        }
+        else{
+            viewIndex.isHidden = true
+            
+        }
+        
+        if selectedMatch?.havEvent ?? false{
+            viewEvent.isHidden = false
+        }
+        else{
+            viewEvent.isHidden = true
+            
+        }
+        
+        if selectedMatch?.havBriefing ?? false{
+            viewBriefing.isHidden = false
+        }
+        else{
+            viewBriefing.isHidden = true
+            
+        }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "toEvents"{
+            let vc = segue.destination as? EventViewController
+                vc?.homeName = selectedMatch?.homeName
+                vc?.awayName = selectedMatch?.awayName
+            
         }
     }
     

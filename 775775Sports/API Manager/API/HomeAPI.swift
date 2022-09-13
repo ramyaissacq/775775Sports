@@ -32,4 +32,12 @@ class HomeAPI: WebService {
             completion(response)
         }, failed: failed)
     }
+    
+    func getEvents(completion:@escaping (EventResponse) -> Void, failed: @escaping (String) -> Void){
+        let url = BaseUrl.getBaseUrl() + EndPoints.scores_events.rawValue
+        get(url: url, params: [:], completion: { json in
+            let response = EventResponse(json!)
+            completion(response)
+        }, failed: failed)
+    }
 }

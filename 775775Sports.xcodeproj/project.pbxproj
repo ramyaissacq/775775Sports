@@ -10,6 +10,17 @@
 		046138DA7F8D2498DED014CB /* Pods_775775Sports_775775SportsUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E87A7CF2C4FB2EFAA1B36205 /* Pods_775775Sports_775775SportsUITests.framework */; };
 		A77A4C418F235829F90F64D4 /* Pods_775775SportsTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D8591928100BBB4E0690BDB /* Pods_775775SportsTests.framework */; };
 		AD0363E928C1CB18002C25C8 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AD0363E828C1CB18002C25C8 /* Colors.xcassets */; };
+		AD0B05BD28D07236004B1A00 /* EventTechnicHeaderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD0B05BB28D07236004B1A00 /* EventTechnicHeaderTableViewCell.swift */; };
+		AD0B05BE28D07236004B1A00 /* EventTechnicHeaderTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AD0B05BC28D07236004B1A00 /* EventTechnicHeaderTableViewCell.xib */; };
+		AD0B05C228D075C7004B1A00 /* EventTechnicTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD0B05C028D075C7004B1A00 /* EventTechnicTableViewCell.swift */; };
+		AD0B05C328D075C7004B1A00 /* EventTechnicTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AD0B05C128D075C7004B1A00 /* EventTechnicTableViewCell.xib */; };
+		AD0B05C628D08D7E004B1A00 /* EventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD0B05C528D08D7E004B1A00 /* EventViewController.swift */; };
+		AD0B05CC28D0976C004B1A00 /* EventList.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD0B05C828D0976C004B1A00 /* EventList.swift */; };
+		AD0B05CD28D0976C004B1A00 /* EventResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD0B05C928D0976C004B1A00 /* EventResponse.swift */; };
+		AD0B05CE28D0976C004B1A00 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD0B05CA28D0976C004B1A00 /* Event.swift */; };
+		AD0B05CF28D0976C004B1A00 /* Technic.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD0B05CB28D0976C004B1A00 /* Technic.swift */; };
+		AD0B05D128D09ACA004B1A00 /* EventsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD0B05D028D09ACA004B1A00 /* EventsViewModel.swift */; };
+		AD0B05D328D0B17F004B1A00 /* EventTechnic.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD0B05D228D0B17F004B1A00 /* EventTechnic.swift */; };
 		AD182D7428CF048C00080963 /* ScoresView.xib in Resources */ = {isa = PBXBuildFile; fileRef = AD182D7328CF048C00080963 /* ScoresView.xib */; };
 		AD182D7628CF04DB00080963 /* ScoresView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD182D7528CF04DB00080963 /* ScoresView.swift */; };
 		AD182D7928CF0FC100080963 /* AnalysisViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD182D7828CF0FC100080963 /* AnalysisViewController.swift */; };
@@ -123,6 +134,12 @@
 		AD76588328CA0B9100014F23 /* VideoList.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD76588128CA0B9100014F23 /* VideoList.swift */; };
 		AD76588628CA275900014F23 /* NewsDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD76588528CA275900014F23 /* NewsDetails.swift */; };
 		AD76588828CA27CF00014F23 /* NewsDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD76588728CA27CF00014F23 /* NewsDetailsViewModel.swift */; };
+		AD7C2E9C28D06C8B001F93F2 /* EventsHomeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD7C2E9A28D06C8B001F93F2 /* EventsHomeTableViewCell.swift */; };
+		AD7C2E9D28D06C8B001F93F2 /* EventsHomeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AD7C2E9B28D06C8B001F93F2 /* EventsHomeTableViewCell.xib */; };
+		AD7C2EA128D06D0E001F93F2 /* EventsAwayTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD7C2E9F28D06D0E001F93F2 /* EventsAwayTableViewCell.swift */; };
+		AD7C2EA228D06D0E001F93F2 /* EventsAwayTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AD7C2EA028D06D0E001F93F2 /* EventsAwayTableViewCell.xib */; };
+		AD7C2EA628D06DF1001F93F2 /* EventsHeaderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD7C2EA428D06DF1001F93F2 /* EventsHeaderTableViewCell.swift */; };
+		AD7C2EA728D06DF1001F93F2 /* EventsHeaderTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AD7C2EA528D06DF1001F93F2 /* EventsHeaderTableViewCell.xib */; };
 		ADADCB6528C1D6C200D28A45 /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ADADCB6428C1D6C200D28A45 /* Home.storyboard */; };
 		ADADCB6728C1D74E00D28A45 /* Live.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ADADCB6628C1D74E00D28A45 /* Live.storyboard */; };
 		ADADCB6928C1D76500D28A45 /* News.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ADADCB6828C1D76500D28A45 /* News.storyboard */; };
@@ -185,6 +202,17 @@
 		41AFBC416C2CD7E81791EE52 /* Pods_775775Sports.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_775775Sports.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		41DE2292BA237790F96CD4EF /* Pods-775775Sports-775775SportsUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-775775Sports-775775SportsUITests.debug.xcconfig"; path = "Target Support Files/Pods-775775Sports-775775SportsUITests/Pods-775775Sports-775775SportsUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		AD0363E828C1CB18002C25C8 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
+		AD0B05BB28D07236004B1A00 /* EventTechnicHeaderTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventTechnicHeaderTableViewCell.swift; sourceTree = "<group>"; };
+		AD0B05BC28D07236004B1A00 /* EventTechnicHeaderTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EventTechnicHeaderTableViewCell.xib; sourceTree = "<group>"; };
+		AD0B05C028D075C7004B1A00 /* EventTechnicTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventTechnicTableViewCell.swift; sourceTree = "<group>"; };
+		AD0B05C128D075C7004B1A00 /* EventTechnicTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EventTechnicTableViewCell.xib; sourceTree = "<group>"; };
+		AD0B05C528D08D7E004B1A00 /* EventViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventViewController.swift; sourceTree = "<group>"; };
+		AD0B05C828D0976C004B1A00 /* EventList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventList.swift; sourceTree = "<group>"; };
+		AD0B05C928D0976C004B1A00 /* EventResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventResponse.swift; sourceTree = "<group>"; };
+		AD0B05CA28D0976C004B1A00 /* Event.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
+		AD0B05CB28D0976C004B1A00 /* Technic.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Technic.swift; sourceTree = "<group>"; };
+		AD0B05D028D09ACA004B1A00 /* EventsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsViewModel.swift; sourceTree = "<group>"; };
+		AD0B05D228D0B17F004B1A00 /* EventTechnic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventTechnic.swift; sourceTree = "<group>"; };
 		AD182D7328CF048C00080963 /* ScoresView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ScoresView.xib; sourceTree = "<group>"; };
 		AD182D7528CF04DB00080963 /* ScoresView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoresView.swift; sourceTree = "<group>"; };
 		AD182D7828CF0FC100080963 /* AnalysisViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalysisViewController.swift; sourceTree = "<group>"; };
@@ -302,6 +330,12 @@
 		AD76588128CA0B9100014F23 /* VideoList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoList.swift; sourceTree = "<group>"; };
 		AD76588528CA275900014F23 /* NewsDetails.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewsDetails.swift; sourceTree = "<group>"; };
 		AD76588728CA27CF00014F23 /* NewsDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsDetailsViewModel.swift; sourceTree = "<group>"; };
+		AD7C2E9A28D06C8B001F93F2 /* EventsHomeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsHomeTableViewCell.swift; sourceTree = "<group>"; };
+		AD7C2E9B28D06C8B001F93F2 /* EventsHomeTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EventsHomeTableViewCell.xib; sourceTree = "<group>"; };
+		AD7C2E9F28D06D0E001F93F2 /* EventsAwayTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsAwayTableViewCell.swift; sourceTree = "<group>"; };
+		AD7C2EA028D06D0E001F93F2 /* EventsAwayTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EventsAwayTableViewCell.xib; sourceTree = "<group>"; };
+		AD7C2EA428D06DF1001F93F2 /* EventsHeaderTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsHeaderTableViewCell.swift; sourceTree = "<group>"; };
+		AD7C2EA528D06DF1001F93F2 /* EventsHeaderTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EventsHeaderTableViewCell.xib; sourceTree = "<group>"; };
 		ADADCB6428C1D6C200D28A45 /* Home.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
 		ADADCB6628C1D74E00D28A45 /* Live.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Live.storyboard; sourceTree = "<group>"; };
 		ADADCB6828C1D76500D28A45 /* News.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = News.storyboard; sourceTree = "<group>"; };
@@ -390,6 +424,44 @@
 				3D8591928100BBB4E0690BDB /* Pods_775775SportsTests.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		AD0B05BA28D0720E004B1A00 /* EventTechnicHeader */ = {
+			isa = PBXGroup;
+			children = (
+				AD0B05BB28D07236004B1A00 /* EventTechnicHeaderTableViewCell.swift */,
+				AD0B05BC28D07236004B1A00 /* EventTechnicHeaderTableViewCell.xib */,
+			);
+			path = EventTechnicHeader;
+			sourceTree = "<group>";
+		};
+		AD0B05BF28D075A9004B1A00 /* EventTechnic */ = {
+			isa = PBXGroup;
+			children = (
+				AD0B05C028D075C7004B1A00 /* EventTechnicTableViewCell.swift */,
+				AD0B05C128D075C7004B1A00 /* EventTechnicTableViewCell.xib */,
+			);
+			path = EventTechnic;
+			sourceTree = "<group>";
+		};
+		AD0B05C428D08D64004B1A00 /* Event */ = {
+			isa = PBXGroup;
+			children = (
+				AD0B05C528D08D7E004B1A00 /* EventViewController.swift */,
+				AD0B05D028D09ACA004B1A00 /* EventsViewModel.swift */,
+			);
+			path = Event;
+			sourceTree = "<group>";
+		};
+		AD0B05C728D0974E004B1A00 /* Events */ = {
+			isa = PBXGroup;
+			children = (
+				AD0B05CA28D0976C004B1A00 /* Event.swift */,
+				AD0B05C828D0976C004B1A00 /* EventList.swift */,
+				AD0B05C928D0976C004B1A00 /* EventResponse.swift */,
+				AD0B05CB28D0976C004B1A00 /* Technic.swift */,
+			);
+			path = Events;
 			sourceTree = "<group>";
 		};
 		AD182D7228CF047500080963 /* Home */ = {
@@ -841,6 +913,7 @@
 		AD6B6D3A28C89F4D00A2F824 /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				AD0B05C728D0974E004B1A00 /* Events */,
 				AD182D9428CF589D00080963 /* ScoreAnalysis */,
 				AD76586828C9B6A500014F23 /* ScoreByIndex */,
 				AD6B6D3B28C89F5600A2F824 /* scoresResponse */,
@@ -902,6 +975,7 @@
 				AD76586F28C9C9AA00014F23 /* FootballCompany.swift */,
 				AD4543DF28CB6EE50099F800 /* FootballLeague.swift */,
 				AD76587128C9D27F00014F23 /* ScoreIndexModel.swift */,
+				AD0B05D228D0B17F004B1A00 /* EventTechnic.swift */,
 			);
 			path = "Local Models";
 			sourceTree = "<group>";
@@ -942,9 +1016,49 @@
 			path = NewsDetails;
 			sourceTree = "<group>";
 		};
+		AD7C2E9428D068C3001F93F2 /* Events */ = {
+			isa = PBXGroup;
+			children = (
+				AD0B05BF28D075A9004B1A00 /* EventTechnic */,
+				AD0B05BA28D0720E004B1A00 /* EventTechnicHeader */,
+				AD7C2EA328D06DD3001F93F2 /* EventsHeader */,
+				AD7C2E9E28D06CE8001F93F2 /* EventsAway */,
+				AD7C2E9928D06C57001F93F2 /* EventsHomeTableViewCell */,
+			);
+			path = Events;
+			sourceTree = "<group>";
+		};
+		AD7C2E9928D06C57001F93F2 /* EventsHomeTableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				AD7C2E9A28D06C8B001F93F2 /* EventsHomeTableViewCell.swift */,
+				AD7C2E9B28D06C8B001F93F2 /* EventsHomeTableViewCell.xib */,
+			);
+			path = EventsHomeTableViewCell;
+			sourceTree = "<group>";
+		};
+		AD7C2E9E28D06CE8001F93F2 /* EventsAway */ = {
+			isa = PBXGroup;
+			children = (
+				AD7C2E9F28D06D0E001F93F2 /* EventsAwayTableViewCell.swift */,
+				AD7C2EA028D06D0E001F93F2 /* EventsAwayTableViewCell.xib */,
+			);
+			path = EventsAway;
+			sourceTree = "<group>";
+		};
+		AD7C2EA328D06DD3001F93F2 /* EventsHeader */ = {
+			isa = PBXGroup;
+			children = (
+				AD7C2EA428D06DF1001F93F2 /* EventsHeaderTableViewCell.swift */,
+				AD7C2EA528D06DF1001F93F2 /* EventsHeaderTableViewCell.xib */,
+			);
+			path = EventsHeader;
+			sourceTree = "<group>";
+		};
 		ADADCB7C28C1FAF800D28A45 /* Home Flow */ = {
 			isa = PBXGroup;
 			children = (
+				AD0B05C428D08D64004B1A00 /* Event */,
 				AD182D7728CF0F6D00080963 /* Analysis */,
 				ADADCB7D28C1FB0200D28A45 /* Home */,
 				AD6B6D4828C8AF1E00A2F824 /* HomeCategory */,
@@ -985,6 +1099,7 @@
 		ADB2D76428C61D210063C2FF /* HomeFlow */ = {
 			isa = PBXGroup;
 			children = (
+				AD7C2E9428D068C3001F93F2 /* Events */,
 				AD182D7A28CF10D400080963 /* Analysis */,
 				AD6B6D2F28C87E9500A2F824 /* GeneralRow */,
 				ADB2D76528C61DBA0063C2FF /* Scores */,
@@ -1244,6 +1359,7 @@
 				AD1CEF7A28C0F25A00FA39AF /* SelectionCollectionViewCell.xib in Resources */,
 				AD0363E928C1CB18002C25C8 /* Colors.xcassets in Resources */,
 				ADC03D3F28C3401800D1790E /* RankCollectionViewCell.xib in Resources */,
+				AD7C2E9D28D06C8B001F93F2 /* EventsHomeTableViewCell.xib in Resources */,
 				ADADCB6928C1D76500D28A45 /* News.storyboard in Resources */,
 				ADC03D5328C3714600D1790E /* ResultCollectionViewCell.xib in Resources */,
 				AD1CEF6F28C0E83900FA39AF /* NewsGamesCollectionViewCell.xib in Resources */,
@@ -1254,6 +1370,7 @@
 				AD1CEECD28C0D9A500FA39AF /* Assets.xcassets in Resources */,
 				ADC03D5828C3789300D1790E /* PointsCollectionViewCell.xib in Resources */,
 				AD182D8428CF166A00080963 /* AnalysisTableViewCell.xib in Resources */,
+				AD0B05C328D075C7004B1A00 /* EventTechnicTableViewCell.xib in Resources */,
 				ADADCB6528C1D6C200D28A45 /* Home.storyboard in Resources */,
 				ADADCB6728C1D74E00D28A45 /* Live.storyboard in Resources */,
 				AD1CEEFB28C0DC6C00FA39AF /* Poppins-Light.otf in Resources */,
@@ -1270,13 +1387,16 @@
 				AD1CEF7328C0EDD300FA39AF /* NewsTableViewCell.xib in Resources */,
 				AD58CB6628C2260100327BD2 /* HeighlightsTableViewCell.xib in Resources */,
 				ADB2D76928C61E240063C2FF /* ScoresTableViewCell.xib in Resources */,
+				AD0B05BE28D07236004B1A00 /* EventTechnicHeaderTableViewCell.xib in Resources */,
 				AD1CEF6428C0DF4500FA39AF /* Dialogs.storyboard in Resources */,
 				AD182D8928CF1C3500080963 /* AnalysisFooterTableViewCell.xib in Resources */,
 				AD1CEEFE28C0DC6C00FA39AF /* Poppins-Bold.otf in Resources */,
 				ADC03D4428C341CE00D1790E /* TeamCollectionViewCell.xib in Resources */,
 				AD182D7F28CF112800080963 /* AnalysisHeaderTableViewCell.xib in Resources */,
+				AD7C2EA228D06D0E001F93F2 /* EventsAwayTableViewCell.xib in Resources */,
 				ADADCB6B28C1D77500D28A45 /* Awards.storyboard in Resources */,
 				AD1CEEFC28C0DC6C00FA39AF /* Poppins-Medium.otf in Resources */,
+				AD7C2EA728D06DF1001F93F2 /* EventsHeaderTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1421,29 +1541,36 @@
 				ADADCB7B28C1EBC600D28A45 /* ForumViewController.swift in Sources */,
 				AD6B6D2728C86CE500A2F824 /* RoundSelectionCollectionViewCell.swift in Sources */,
 				ADADCB7728C1EB8C00D28A45 /* NewsViewController.swift in Sources */,
+				AD7C2E9C28D06C8B001F93F2 /* EventsHomeTableViewCell.swift in Sources */,
 				AD182D9728CF58B800080963 /* ScoreAnalysis.swift in Sources */,
 				AD182D7628CF04DB00080963 /* ScoresView.swift in Sources */,
 				AD76587A28CA046800014F23 /* NewsListResponse.swift in Sources */,
 				AD76588628CA275900014F23 /* NewsDetails.swift in Sources */,
 				AD6B6D4428C89F7B00A2F824 /* MatchList.swift in Sources */,
+				AD7C2EA628D06DF1001F93F2 /* EventsHeaderTableViewCell.swift in Sources */,
 				AD76588328CA0B9100014F23 /* VideoList.swift in Sources */,
 				AD4543D828CB608A0099F800 /* TeamInfo.swift in Sources */,
 				AD4543D528CB608A0099F800 /* HomeHalfStandings.swift in Sources */,
 				AD182D9828CF58B800080963 /* ScoreAnalysisResponse.swift in Sources */,
 				AD6B6D3628C87F3F00A2F824 /* GeneralRowTableViewCell.swift in Sources */,
 				AD6B6D4728C8AF1300A2F824 /* HomeViewModel.swift in Sources */,
+				AD0B05CF28D0976C004B1A00 /* Technic.swift in Sources */,
+				AD0B05CC28D0976C004B1A00 /* EventList.swift in Sources */,
 				AD1CEF6928C0E4DE00FA39AF /* SnackView.swift in Sources */,
 				AD1CEF4528C0DF1600FA39AF /* UIImageView+Extension.swift in Sources */,
+				AD0B05CD28D0976C004B1A00 /* EventResponse.swift in Sources */,
 				AD4543D328CB608A0099F800 /* TotalStandings.swift in Sources */,
 				ADADCB7528C1EB7500D28A45 /* LiveViewController.swift in Sources */,
 				AD1CEF5428C0DF1600FA39AF /* CollectionViewExtension.swift in Sources */,
 				AD1CEF5628C0DF1600FA39AF /* Images.swift in Sources */,
 				AD4543D428CB608A0099F800 /* TeamStandingsResponse.swift in Sources */,
+				AD0B05C628D08D7E004B1A00 /* EventViewController.swift in Sources */,
 				ADC03D3928C33E6B00D1790E /* TitleCollectionViewCell.swift in Sources */,
 				AD4543E028CB6EE50099F800 /* FootballLeague.swift in Sources */,
 				AD1CEF6E28C0E83900FA39AF /* NewsGamesCollectionViewCell.swift in Sources */,
 				AD6B6D4228C89F7B00A2F824 /* ScoresResponse.swift in Sources */,
 				AD6B6D2E28C871CB00A2F824 /* IndexViewController.swift in Sources */,
+				AD0B05BD28D07236004B1A00 /* EventTechnicHeaderTableViewCell.swift in Sources */,
 				AD4543DB28CB608A0099F800 /* AwayHalfStandings.swift in Sources */,
 				AD58CB6928C2327D00327BD2 /* NewsDetailsViewController.swift in Sources */,
 				AD76586B28C9B6C600014F23 /* ScoresByIndexResponse.swift in Sources */,
@@ -1452,6 +1579,7 @@
 				AD1CEF4828C0DF1600FA39AF /* UIView+Extension.swift in Sources */,
 				ADC03D4D28C360EB00D1790E /* StandingsTableViewCell.swift in Sources */,
 				AD76587C28CA053300014F23 /* NewsAPI.swift in Sources */,
+				AD0B05CE28D0976C004B1A00 /* Event.swift in Sources */,
 				AD76587928CA046800014F23 /* NewsList.swift in Sources */,
 				ADADCB7928C1EBA600D28A45 /* AwardsViewController.swift in Sources */,
 				AD4543C628CB5EBA0099F800 /* AwardsAPI.swift in Sources */,
@@ -1463,6 +1591,7 @@
 				AD1CEF5128C0DF1600FA39AF /* Dictionary+Extension.swift in Sources */,
 				AD6B6D4528C89F7B00A2F824 /* VideoDetail.swift in Sources */,
 				AD1CEF2228C0DD6E00FA39AF /* AuthenticationAPI.swift in Sources */,
+				AD0B05D328D0B17F004B1A00 /* EventTechnic.swift in Sources */,
 				ADC03D5728C3789300D1790E /* PointsCollectionViewCell.swift in Sources */,
 				ADADCB6F28C1E6B600D28A45 /* TabBarController.swift in Sources */,
 				AD1CEF1A28C0DD6E00FA39AF /* WebService.swift in Sources */,
@@ -1485,10 +1614,12 @@
 				AD1CEF4C28C0DF1600FA39AF /* String+Extension.swift in Sources */,
 				AD182D9228CF239B00080963 /* OddsCollectionViewCell.swift in Sources */,
 				AD6B6D4328C89F7B00A2F824 /* Odds.swift in Sources */,
+				AD7C2EA128D06D0E001F93F2 /* EventsAwayTableViewCell.swift in Sources */,
 				AD76587028C9C9AA00014F23 /* FootballCompany.swift in Sources */,
 				AD1CEF6728C0DF4500FA39AF /* Dialog.swift in Sources */,
 				AD182D7E28CF112800080963 /* AnalysisHeaderTableViewCell.swift in Sources */,
 				AD1CEF5A28C0DF1600FA39AF /* FilePicker.swift in Sources */,
+				AD0B05C228D075C7004B1A00 /* EventTechnicTableViewCell.swift in Sources */,
 				AD1CEF1928C0DD6E00FA39AF /* BaseUrl.swift in Sources */,
 				AD1CEF7228C0EDD300FA39AF /* NewsTableViewCell.swift in Sources */,
 				AD58CB5D28C2177700327BD2 /* VideoHeighlightsCollectionViewCell.swift in Sources */,
@@ -1499,6 +1630,7 @@
 				AD76587228C9D27F00014F23 /* ScoreIndexModel.swift in Sources */,
 				AD4543D728CB608A0099F800 /* LeagueColorInfos.swift in Sources */,
 				AD1CEF1828C0DD6E00FA39AF /* Environment.swift in Sources */,
+				AD0B05D128D09ACA004B1A00 /* EventsViewModel.swift in Sources */,
 				AD1CEF4428C0DF1600FA39AF /* BaseViewController.swift in Sources */,
 				ADC03D3E28C3401800D1790E /* RankCollectionViewCell.swift in Sources */,
 				AD1CEF1628C0DD6E00FA39AF /* EndPoints.swift in Sources */,
