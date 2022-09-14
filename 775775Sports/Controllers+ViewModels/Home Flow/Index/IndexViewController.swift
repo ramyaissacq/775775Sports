@@ -23,6 +23,7 @@ class IndexViewController: UIViewController {
     var categories = ["Asia (Full)","1x2 (Full)","Over/Under(Full)","Asia(1st half)","Over/Under(1st half)"]
     var headers = ["Company","Home","Live Hand icap","Away","Home","Live Hand icap","Away"]
     var headerSizes = [CGFloat]()
+    var categorySizes = [CGFloat]()
     var viewModel = IndexViewModel()
     var selectedCategoryIndex = 0
     
@@ -49,6 +50,13 @@ class IndexViewController: UIViewController {
         let totalSpace:CGFloat = total_widths + itemSpacing
         let balance = (UIScreen.main.bounds.width - totalSpace)/CGFloat(headers.count)
         headerSizes = headerSizes.map{$0+balance}
+        
+        //calculating categorySizes
+        for m in categories{
+        let w = m.width(forHeight: 14, font: UIFont(name: "Poppins-Regular", size: 12)!) + 16
+            categorySizes.append(w)
+    
+        }
         
         viewModel.delegate = self
         viewModel.getIndexData()
@@ -109,8 +117,13 @@ extension IndexViewController:UICollectionViewDelegate,UICollectionViewDataSourc
             return CGSize(width: headerSizes[indexPath.row], height: 55)
         }
         else{
-            let w = categories[indexPath.row].width(forHeight: 14, font: UIFont(name: "Poppins-Regular", size: 12)!) + 16
-            return CGSize(width: w, height: 55)
+            if categorySizes.count > indexPath.row{
+            return CGSize(width: categorySizes[indexPath.row], height: 55)
+            }
+            else{
+                return CGSize(width: 137, height: 55)
+                
+            }
         }
     }
     

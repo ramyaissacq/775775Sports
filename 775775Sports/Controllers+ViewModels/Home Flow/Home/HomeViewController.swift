@@ -20,8 +20,6 @@ class HomeViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         initialSettings()
-
-        // Do any additional setup after loading the view.
     }
     
     func initialSettings(){
@@ -53,9 +51,7 @@ extension HomeViewController:HomeViewModelDelegate{
             noDataView.isHidden = false
         }
     }
-    
-   
-    
+  
 }
 
 
@@ -82,6 +78,14 @@ extension HomeViewController:UITableViewDelegate,UITableViewDataSource{
         
         cell.callEventSelection = {
             self.goToCategory(index: indexPath.row, category: .event)
+            
+        }
+        cell.callBriefingSelection = {
+            self.goToCategory(index: indexPath.row, category: .breifing)
+            
+        }
+        cell.callLeagueSelection = {
+            self.goToCategory(index: indexPath.row, category: .league)
             
         }
         

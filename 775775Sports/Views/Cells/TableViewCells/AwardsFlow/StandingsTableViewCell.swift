@@ -95,6 +95,7 @@ class StandingsTableViewCell: UITableViewCell {
         self.points = points
         setupView()
         
+        
     }
     
     
@@ -112,7 +113,12 @@ extension StandingsTableViewCell:UICollectionViewDelegate,UICollectionViewDataSo
             return lastResults?.count ?? 0
         }
         else if collectionView == collectionViewStandings{
+            if standings.count > 0 {
             return standings.count + 1
+            }
+            else{
+                return 0
+            }
         }
         else {
             return points?.count ?? 0
@@ -216,9 +222,10 @@ extension StandingsTableViewCell:UICollectionViewDelegate,UICollectionViewDataSo
             return CGSize(width: 20, height: 20)
         }
         else if collectionView == collectionViewPoints{
-            let str = points?[indexPath.row] ?? ""
-            let w = str.width(forHeight: 14, font: UIFont(name: "Poppins-Regular", size: 12)!) + 16
-            return CGSize(width: w, height: 30)
+//            let str = points?[indexPath.row] ?? ""
+//            let w = str.width(forHeight: 14, font: UIFont(name: "Poppins-Regular", size: 12)!) + 16
+//            return CGSize(width: w, height: 30)
+            return CGSize(width: 120, height: 30)
             
         }
         return CGSize(width: headerSizes[indexPath.row], height: 55)

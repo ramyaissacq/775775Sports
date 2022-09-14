@@ -44,6 +44,8 @@ class ScoresTableViewCell: UITableViewCell {
     var callIndexSelection:(()->Void)?
     var callAnalysisSelection:(()->Void)?
     var callEventSelection:(()->Void)?
+    var callBriefingSelection:(()->Void)?
+    var callLeagueSelection:(()->Void)?
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -56,6 +58,12 @@ class ScoresTableViewCell: UITableViewCell {
         
         let tapEvnt = UITapGestureRecognizer(target: self, action: #selector(tapEvent))
         viewEvent.addGestureRecognizer(tapEvnt)
+        
+        let tapBrf = UITapGestureRecognizer(target: self, action: #selector(tapBriefing))
+        viewBriefing.addGestureRecognizer(tapBrf)
+        
+        let tapLg = UITapGestureRecognizer(target: self, action: #selector(tapLeague))
+        viewLeague.addGestureRecognizer(tapLg)
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -77,6 +85,16 @@ class ScoresTableViewCell: UITableViewCell {
     
     @objc func tapEvent(){
         callEventSelection?()
+        
+    }
+    
+    @objc func tapBriefing(){
+        callBriefingSelection?()
+        
+    }
+    
+    @objc func tapLeague(){
+        callLeagueSelection?()
         
     }
     

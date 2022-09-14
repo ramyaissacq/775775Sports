@@ -99,7 +99,6 @@ extension AwardsViewController:UITableViewDelegate,UITableViewDataSource{
             let results = viewModel.getResultsArrayByIndex(index: indexPath.row)
             let percentageStr = viewModel.getResultsPercentageStringByIndex(index: indexPath.row)
             cell.configureTeamStandings(index: indexPath.row, standings: standings, results: results, resultsPercentage: percentageStr)
-            
         }
         else{
             let standings = viewModel.getPlayerRowByIndex(index: indexPath.row)

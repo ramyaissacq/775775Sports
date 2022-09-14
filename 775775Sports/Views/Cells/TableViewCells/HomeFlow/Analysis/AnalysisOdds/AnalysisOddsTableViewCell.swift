@@ -93,7 +93,9 @@ extension AnalysisOddsTableViewCell:UICollectionViewDelegate,UICollectionViewDat
         }
         else{
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "OddsCollectionViewCell", for: indexPath) as! OddsCollectionViewCell
+            if values.count > indexPath.row{
             cell.lblTitle.text = values[indexPath.row]
+            }
             if indexPath.row == 0{
                 cell.backView.isHidden = true
             }

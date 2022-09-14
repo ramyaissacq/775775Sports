@@ -78,10 +78,14 @@ extension AnalysisViewController:UITableViewDelegate,UITableViewDataSource{
             let cell = tableView.dequeueReusableCell(withIdentifier: "oddCell") as! AnalysisOddsTableViewCell
             cell.sizes = headerSizes
             if indexPath.section == 3{
+                if viewModel.analysisData?.homeOdds?.count ?? 0 > indexPath.row{
                 cell.configureCell(row: indexPath.row, data: viewModel.analysisData?.homeOdds?[indexPath.row].first ?? "")
+                }
             }
             else{
+                if viewModel.analysisData?.awayOdds?.count ?? 0 > indexPath.row{
                 cell.configureCell(row: indexPath.row, data: viewModel.analysisData?.awayOdds?[indexPath.row].first ?? "")
+                }
             }
             return cell
         }

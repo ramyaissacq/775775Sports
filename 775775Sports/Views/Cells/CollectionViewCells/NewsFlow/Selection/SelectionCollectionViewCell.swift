@@ -12,6 +12,12 @@ class SelectionCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var underLineView: UIView!
     @IBOutlet weak var lblTitle: UILabel!
     
+    var underLineColor:UIColor?{
+        didSet{
+            underLineView.backgroundColor = underLineColor
+        }
+    }
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

@@ -12,8 +12,8 @@ enum HomeCategory{
     case analysis
     case league
     case event
-    case animation
-    case live
+    case breifing
+    
 }
 
 class HomeCategoryViewController: BaseViewController {
@@ -56,6 +56,10 @@ class HomeCategoryViewController: BaseViewController {
     
     @IBOutlet weak var eventContainerView: UIView!
     
+    @IBOutlet weak var briefingView: UIView!
+    
+    @IBOutlet weak var leagueView: UIView!
+    
     //MARK: - Variables
     static var matchID:Int?
     var selectedMatch:MatchList?
@@ -82,23 +86,37 @@ class HomeCategoryViewController: BaseViewController {
         case .index:
             analysisContainerView.isHidden = true
             eventContainerView.isHidden = true
+            briefingView.isHidden = true
+            leagueView.isHidden = true
             indexContainerView.isHidden = false
             
         case .analysis:
             indexContainerView.isHidden = true
             eventContainerView.isHidden = true
+            briefingView.isHidden = true
+            leagueView.isHidden = true
             analysisContainerView.isHidden = false
             
         case .league:
-            break
+            indexContainerView.isHidden = true
+            eventContainerView.isHidden = true
+            briefingView.isHidden = true
+            analysisContainerView.isHidden = true
+            leagueView.isHidden = false
+            
         case .event:
             indexContainerView.isHidden = true
             analysisContainerView.isHidden = true
+            briefingView.isHidden = true
+            leagueView.isHidden = true
             eventContainerView.isHidden = false
-        case .animation:
-            break
-        case .live:
-            break
+        case .breifing:
+            indexContainerView.isHidden = true
+            analysisContainerView.isHidden = true
+            eventContainerView.isHidden = true
+            leagueView.isHidden = true
+            briefingView.isHidden = false
+            
         }
         
     }

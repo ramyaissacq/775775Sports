@@ -40,4 +40,22 @@ class HomeAPI: WebService {
             completion(response)
         }, failed: failed)
     }
+    
+    func getBriefing(id:Int,completion:@escaping (BreiefingResponse) -> Void, failed: @escaping (String) -> Void){
+        let url = BaseUrl.getBaseUrl() + EndPoints.scores_briefing.rawValue + "/\(id)"
+        get(url: url, params: [:], completion: { json in
+            let response = BreiefingResponse(json!)
+            completion(response)
+        }, failed: failed)
+    }
+    
+    
+    func getLeagueDetails(id:Int,subID:Int,grpID:Int,completion:@escaping (LeagueResponse) -> Void, failed: @escaping (String) -> Void){
+        let url = BaseUrl.getBaseUrl() + EndPoints.scores_league.rawValue + "/\(id)/\(subID)/\(grpID)"
+        get(url: url, params: [:], completion: { json in
+            let response = LeagueResponse(json!)
+            completion(response)
+        }, failed: failed)
+    }
+    
 }

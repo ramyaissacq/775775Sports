@@ -12,12 +12,12 @@ class AnalysisTableViewCell: UITableViewCell {
     @IBOutlet weak var lblCorner: UILabel!
     @IBOutlet weak var lblLeague: UILabel!
     @IBOutlet weak var lblDate: UILabel!
-    
     @IBOutlet weak var lblAway: UILabel!
     @IBOutlet weak var lblHome: UILabel!
     @IBOutlet weak var lblHT: UILabel!
-    
     @IBOutlet weak var lblScore: UILabel!
+    
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
