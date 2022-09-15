@@ -18,6 +18,7 @@ class GeneralRowTableViewCell: UITableViewCell {
         }
     }
     var headerSizes = [CGFloat]()
+    var titleType = TitleType.Normal
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -41,15 +42,9 @@ extension GeneralRowTableViewCell:UICollectionViewDelegate,UICollectionViewDataS
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "TitleCollectionViewCell", for: indexPath) as! TitleCollectionViewCell
-        cell.titleType = .Normal
-        if indexPath.row == 0{
-            if let id = Int(values?.first ?? ""){
-            cell.lblTitle.text = FootballCompany.getCompanyName(id: id)
-            }
-        }
-        else{
+        cell.titleType = titleType
         cell.lblTitle.text = values?[indexPath.row]
-        }
+
         return cell
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {

@@ -21,7 +21,7 @@ class BreifingViewModel{
             self.briefingData = response
             self.delegate?.didFinishFetch()
         } failed: { msg in
-            Utility.showErrorSnackView(message: msg)
+            //Utility.showErrorSnackView(message: msg)
         }
 
     }

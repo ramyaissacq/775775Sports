@@ -28,7 +28,7 @@ class AnalysisViewModel{
             self.delegate?.didFinishFetch()
             
         } failed: { msg in
-            Utility.showErrorSnackView(message: msg)
+            //Utility.showErrorSnackView(message: msg)
         }
 
     }

@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import SwiftyJSON
 
 class HomeAPI: WebService {
    
@@ -50,11 +51,10 @@ class HomeAPI: WebService {
     }
     
     
-    func getLeagueDetails(id:Int,subID:Int,grpID:Int,completion:@escaping (LeagueResponse) -> Void, failed: @escaping (String) -> Void){
+    func getLeagueDetails(id:Int,subID:Int,grpID:Int,completion:@escaping (JSON?) -> Void, failed: @escaping (String) -> Void){
         let url = BaseUrl.getBaseUrl() + EndPoints.scores_league.rawValue + "/\(id)/\(subID)/\(grpID)"
         get(url: url, params: [:], completion: { json in
-            let response = LeagueResponse(json!)
-            completion(response)
+            completion(json)
         }, failed: failed)
     }
     

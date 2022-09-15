@@ -17,9 +17,9 @@ class AwardsViewModel{
     var teamStandings:TeamStandingsResponse?
     var playerStandings:[PlayerStandings]?
     
-    func getTeamStandings(leagueID:Int){
+    func getTeamStandings(leagueID:Int,subLeagueID:Int){
         Utility.showProgress()
-        AwardsAPI().getTeamStandingsList(leagueID: leagueID, subLeagueID: 0) { response in
+        AwardsAPI().getTeamStandingsList(leagueID: leagueID, subLeagueID: subLeagueID) { response in
             self.teamStandings = response
             self.delegate?.didFinishTeamStandingsFetch()
         } failed: { msg in

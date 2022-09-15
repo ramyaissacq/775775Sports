@@ -93,7 +93,7 @@ class AwardsViewController: BaseViewController {
         balance = (UIScreen.main.bounds.width - totalSpace)/CGFloat(headings2.count)
         secondHeaderSizes = secondHeaderSizes.map{$0+balance}
         viewModel.delegate = self
-        viewModel.getTeamStandings(leagueID: selectedLeagueID!)
+        viewModel.getTeamStandings(leagueID: selectedLeagueID!, subLeagueID: 0)
         viewModel.getPlayerStandings(leagueID: selectedLeagueID!)
         
     }
@@ -168,7 +168,7 @@ class AwardsViewController: BaseViewController {
           print("Selected item: \(item) at index: \(index)")
             lblLeague.text = item
             selectedLeagueID = FootballLeague.leagues?[index].id
-            viewModel.getTeamStandings(leagueID: selectedLeagueID!)
+            viewModel.getTeamStandings(leagueID: selectedLeagueID!, subLeagueID: 0)
             viewModel.getPlayerStandings(leagueID: selectedLeagueID!)
         }
     }

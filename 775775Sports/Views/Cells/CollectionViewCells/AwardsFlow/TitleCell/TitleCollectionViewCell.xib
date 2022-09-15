@@ -44,6 +44,7 @@
                 </subviews>
             </view>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
                 <constraint firstAttribute="trailing" secondItem="jpm-or-T1G" secondAttribute="trailing" id="KPT-e1-EfX"/>
                 <constraint firstItem="jpm-or-T1G" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="T0f-0L-GI3"/>

@@ -30,7 +30,7 @@ class EventsViewModel{
             self.delegate?.didFinishEventsFetch()
             
         } failed: { msg in
-            Utility.showErrorSnackView(message: msg)
+           // Utility.showErrorSnackView(message: msg)
         }
 
     }

@@ -180,6 +180,13 @@ class HomeCategoryViewController: BaseViewController {
                 vc?.awayName = selectedMatch?.awayName
             
         }
+        else if segue.identifier == "league"{
+            let vc = segue.destination as? LeagueViewController
+            vc?.groupID = selectedMatch?.groupId ?? 0
+            vc?.leagueID = selectedMatch?.leagueId ?? 0
+            vc?.subLeagueID = Int(selectedMatch?.subLeagueId ?? "") ?? 0
+            
+    }
     }
     
 

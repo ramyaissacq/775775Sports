@@ -28,7 +28,8 @@ struct ScoreIndexModel{
     
     func getArrayValue()->[String]{
         var arr = [String]()
-        arr.append(String(companyID ?? 0))
+        let company = FootballCompany.getCompanyName(id: companyID ?? 0)
+        arr.append(company ?? "")
         arr.append(home1 ?? "")
         arr.append(liveHp1 ?? "")
         arr.append(away1 ?? "")

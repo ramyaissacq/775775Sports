@@ -33,6 +33,7 @@ struct MatchList {
 	let hasLineup: String?
 	let season: String?
 	let grouping: String?
+    let groupId:Int?
 	let temp: String?
 	let extraExplain: String?
 	let isHidden: Bool?
@@ -91,6 +92,7 @@ struct MatchList {
 		hasLineup = json["hasLineup"].stringValue
 		season = json["season"].stringValue
 		grouping = json["grouping"].stringValue
+        groupId = json["groupId"].intValue
 		temp = json["temp"].stringValue
 		extraExplain = json["extraExplain"].stringValue
 		isHidden = json["isHidden"].boolValue
