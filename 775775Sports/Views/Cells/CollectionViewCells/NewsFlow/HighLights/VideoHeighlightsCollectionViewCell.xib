@@ -28,7 +28,7 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rnD-xa-zn6">
                         <rect key="frame" x="0.0" y="0.0" width="332" height="164"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="highlight2" translatesAutoresizingMaskIntoConstraints="NO" id="GYZ-6p-Z0n">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="GYZ-6p-Z0n">
                                 <rect key="frame" x="0.0" y="0.0" width="332" height="164"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -75,15 +75,13 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="749" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="s8q-MS-3OQ">
-                                <rect key="frame" x="15" y="109.5" width="102" height="39.5"/>
-                                <string key="text">MAN. UNITED
-VS NEWCASTLE</string>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="749" text="" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="s8q-MS-3OQ">
+                                <rect key="frame" x="15" y="149" width="0.0" height="0.0"/>
                                 <fontDescription key="fontDescription" name="Poppins-Italic" family="Poppins" pointSize="14"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView hidden="YES" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="clubLogo" translatesAutoresizingMaskIntoConstraints="NO" id="R9O-u6-4Iu">
+                            <imageView hidden="YES" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="R9O-u6-4Iu">
                                 <rect key="frame" x="15" y="15" width="40" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="27M-qH-2PB"/>
@@ -141,8 +139,4 @@ VS NEWCASTLE</string>
             <point key="canvasLocation" x="334.78260869565219" y="136.60714285714286"/>
         </collectionViewCell>
     </objects>
-    <resources>
-        <image name="clubLogo" width="78" height="79"/>
-        <image name="highlight2" width="1050" height="549"/>
-    </resources>
 </document>

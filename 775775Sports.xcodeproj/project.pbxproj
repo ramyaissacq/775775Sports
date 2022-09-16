@@ -153,7 +153,6 @@
 		ADADCB6928C1D76500D28A45 /* News.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ADADCB6828C1D76500D28A45 /* News.storyboard */; };
 		ADADCB6B28C1D77500D28A45 /* Awards.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ADADCB6A28C1D77500D28A45 /* Awards.storyboard */; };
 		ADADCB6D28C1DA4300D28A45 /* Forum.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ADADCB6C28C1DA4300D28A45 /* Forum.storyboard */; };
-		ADADCB6F28C1E6B600D28A45 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADADCB6E28C1E6B600D28A45 /* TabBarController.swift */; };
 		ADADCB7128C1E7FB00D28A45 /* CustomTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADADCB7028C1E7FB00D28A45 /* CustomTabBar.swift */; };
 		ADADCB7328C1EB5000D28A45 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADADCB7228C1EB5000D28A45 /* HomeViewController.swift */; };
 		ADADCB7528C1EB7500D28A45 /* LiveViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADADCB7428C1EB7500D28A45 /* LiveViewController.swift */; };
@@ -369,7 +368,6 @@
 		ADADCB6828C1D76500D28A45 /* News.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = News.storyboard; sourceTree = "<group>"; };
 		ADADCB6A28C1D77500D28A45 /* Awards.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Awards.storyboard; sourceTree = "<group>"; };
 		ADADCB6C28C1DA4300D28A45 /* Forum.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Forum.storyboard; sourceTree = "<group>"; };
-		ADADCB6E28C1E6B600D28A45 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		ADADCB7028C1E7FB00D28A45 /* CustomTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBar.swift; sourceTree = "<group>"; };
 		ADADCB7228C1EB5000D28A45 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		ADADCB7428C1EB7500D28A45 /* LiveViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveViewController.swift; sourceTree = "<group>"; };
@@ -763,7 +761,6 @@
 			isa = PBXGroup;
 			children = (
 				AD1CEF2B28C0DF1600FA39AF /* BaseViewController.swift */,
-				ADADCB6E28C1E6B600D28A45 /* TabBarController.swift */,
 				ADADCB7028C1E7FB00D28A45 /* CustomTabBar.swift */,
 			);
 			path = BaseClasses;
@@ -1723,7 +1720,6 @@
 				AD0B05D328D0B17F004B1A00 /* EventTechnic.swift in Sources */,
 				ADC03D5728C3789300D1790E /* PointsCollectionViewCell.swift in Sources */,
 				AD48D1DE28D32A6100D84FF0 /* GroupScore.swift in Sources */,
-				ADADCB6F28C1E6B600D28A45 /* TabBarController.swift in Sources */,
 				AD1CEF1A28C0DD6E00FA39AF /* WebService.swift in Sources */,
 				AD1CEF4628C0DF1600FA39AF /* UIColor+Extension.swift in Sources */,
 				ADB5DB2028D20D2300B9E586 /* LeagueViewModel.swift in Sources */,

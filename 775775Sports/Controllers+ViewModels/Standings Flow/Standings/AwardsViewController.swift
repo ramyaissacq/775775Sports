@@ -16,12 +16,9 @@ class AwardsViewController: BaseViewController {
     @IBOutlet weak var collectionViewHeading: UICollectionView!
     @IBOutlet weak var tableViewStandings: UITableView!
     @IBOutlet weak var tableViewStandingsHeight: NSLayoutConstraint!
-    
     @IBOutlet weak var imgLogo: UIImageView!
-    
     @IBOutlet weak var lblSelectedLeague: UILabel!
     @IBOutlet weak var emptyView: UIView!
-    
     @IBOutlet weak var leagueView: UIView!
     
     //MARK: - Variables

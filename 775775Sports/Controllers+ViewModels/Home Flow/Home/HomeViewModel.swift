@@ -18,7 +18,7 @@ class HomeVieModel{
     var pageData:Meta?
     
     func getMatchesList(page:Int){
-        Utility.showProgress()
+       // Utility.showProgress()
         HomeAPI().getScores(page: page) { response in
             if page > 1 {
                 var tempMatches = self.matches ?? []

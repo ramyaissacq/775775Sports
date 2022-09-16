@@ -1,9 +1,4 @@
-//
-//  Constants.swift
-//  Riada Land
-//
-//  Created by Binsu on 28/09/2021.
-//
+
 
 import UIKit
 

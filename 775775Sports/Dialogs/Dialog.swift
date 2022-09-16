@@ -1,9 +1,4 @@
-//
-//  Dialog.swift
-//  Riada Land
-//
-//  Created by Binsu on 18/08/2021.
-//
+
 
 import UIKit
 import SwiftEntryKit

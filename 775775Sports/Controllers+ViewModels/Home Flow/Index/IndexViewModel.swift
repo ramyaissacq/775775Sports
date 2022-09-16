@@ -17,7 +17,7 @@ class IndexViewModel{
     var currentScores = [ScoreIndexModel]()
     
     func getIndexData(){
-        Utility.showProgress()
+        //Utility.showProgress()
         HomeAPI().getScoresByIndex { response in
             self.scores = response.list
             self.delegate?.didFinishFetch()

@@ -16,7 +16,7 @@ class BreifingViewModel{
     var briefingData:BreiefingResponse?
     
     func getBriefingDetails(){
-        Utility.showProgress()
+       // Utility.showProgress()
         HomeAPI().getBriefing(id: HomeCategoryViewController.matchID!) { response in
             self.briefingData = response
             self.delegate?.didFinishFetch()

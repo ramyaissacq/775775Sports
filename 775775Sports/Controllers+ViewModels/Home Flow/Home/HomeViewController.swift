@@ -23,6 +23,7 @@ class HomeViewController: BaseViewController {
     }
     
     func initialSettings(){
+        setupNavButtons()
         tableView.register(UINib(nibName: "ScoresTableViewCell", bundle: nil), forCellReuseIdentifier: "cell")
         refreshControl = UIRefreshControl()
         refreshControl?.tintColor = .clear
@@ -37,6 +38,25 @@ class HomeViewController: BaseViewController {
         viewModel.getMatchesList(page: page)
         refreshControl?.endRefreshing()
     }
+    
+    func setupNavButtons(){
+        let leftBtn = getButton(image: UIImage(named: "menu")!)
+        leftBtn.addTarget(self, action: #selector(menuTapped), for: .touchUpInside)
+        self.navigationItem.leftBarButtonItem = UIBarButtonItem(customView: leftBtn)
+        
+        let rightBtn = getButton(image: UIImage(named: "search")!)
+        rightBtn.addTarget(self, action: #selector(searchTapped), for: .touchUpInside)
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(customView: rightBtn)
+    }
+    
+    @objc func menuTapped(){
+        
+    }
+   
+    @objc func searchTapped(){
+        
+    }
+    
     
 }
 

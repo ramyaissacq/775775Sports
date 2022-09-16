@@ -82,44 +82,47 @@ class HomeCategoryViewController: BaseViewController {
     }
     
     func configureContainers(){
+        analysisContainerView.isHidden = true
+        eventContainerView.isHidden = true
+        briefingView.isHidden = true
+        leagueView.isHidden = true
+        indexContainerView.isHidden = true
+        
+        viewAnalysis.backgroundColor = .white
+        viewEvent.backgroundColor = .white
+        viewBriefing.backgroundColor = .white
+        viewLeague.backgroundColor = .white
+        viewIndex.backgroundColor = .white
+        
         switch selectedCategory{
         case .index:
-            analysisContainerView.isHidden = true
-            eventContainerView.isHidden = true
-            briefingView.isHidden = true
-            leagueView.isHidden = true
             indexContainerView.isHidden = false
+            viewIndex.backgroundColor = Colors.accentColor()
             
         case .analysis:
-            indexContainerView.isHidden = true
-            eventContainerView.isHidden = true
-            briefingView.isHidden = true
-            leagueView.isHidden = true
+            
             analysisContainerView.isHidden = false
+            viewAnalysis.backgroundColor = Colors.accentColor()
             
         case .league:
-            indexContainerView.isHidden = true
-            eventContainerView.isHidden = true
-            briefingView.isHidden = true
-            analysisContainerView.isHidden = true
+            
             leagueView.isHidden = false
+            viewLeague.backgroundColor = Colors.accentColor()
             
         case .event:
-            indexContainerView.isHidden = true
-            analysisContainerView.isHidden = true
-            briefingView.isHidden = true
-            leagueView.isHidden = true
+           
             eventContainerView.isHidden = false
+            viewEvent.backgroundColor = Colors.accentColor()
         case .breifing:
-            indexContainerView.isHidden = true
-            analysisContainerView.isHidden = true
-            eventContainerView.isHidden = true
-            leagueView.isHidden = true
+            
             briefingView.isHidden = false
+            viewBriefing.backgroundColor = Colors.accentColor()
             
         }
         
     }
+    
+    
     
     func configureTopView(){
         lblName.text = selectedMatch?.leagueName
@@ -171,6 +174,44 @@ class HomeCategoryViewController: BaseViewController {
             viewBriefing.isHidden = true
             
         }
+        
+        
+        let tap = UITapGestureRecognizer(target: self, action: #selector(indexTapped))
+        viewIndex.addGestureRecognizer(tap)
+        
+        let tapAnls = UITapGestureRecognizer(target: self, action: #selector(analysisTapped))
+        viewAnalysis.addGestureRecognizer(tapAnls)
+        
+        let tapEvnt = UITapGestureRecognizer(target: self, action: #selector(eventTapped))
+        viewEvent.addGestureRecognizer(tapEvnt)
+        
+        let tapBrf = UITapGestureRecognizer(target: self, action: #selector(briefingTapped))
+        viewBriefing.addGestureRecognizer(tapBrf)
+        
+        let tapLg = UITapGestureRecognizer(target: self, action: #selector(leagueTapped))
+        viewLeague.addGestureRecognizer(tapLg)
+    }
+    
+    
+    @objc func indexTapped(){
+        selectedCategory = .index
+        configureContainers()
+    }
+    @objc func eventTapped(){
+        selectedCategory = .event
+        configureContainers()
+    }
+    @objc func leagueTapped(){
+        selectedCategory = .league
+        configureContainers()
+    }
+    @objc func analysisTapped(){
+        selectedCategory = .analysis
+        configureContainers()
+    }
+    @objc func briefingTapped(){
+        selectedCategory = .breifing
+        configureContainers()
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

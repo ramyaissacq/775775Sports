@@ -16,7 +16,7 @@ class AnalysisViewModel{
     var analysisData:ScoreAnalysis?
     
     func fetchAnalysisData(){
-        Utility.showProgress()
+        //Utility.showProgress()
         HomeAPI().getScoresByAnalysis(id: HomeCategoryViewController.matchID!) { response in
             self.analysisData = response.list?.first
             if self.analysisData?.homeOdds?.count ?? 0 > 3{

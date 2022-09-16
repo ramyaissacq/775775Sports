@@ -36,6 +36,7 @@ class AnalysisOddsTableViewCell: UITableViewCell {
     }
     
     func configureCell(row:Int,data:String){
+        values.removeAll()
         titles[0] = getTitle(index: row)
         let arr = data.components(separatedBy: "^")
         if arr.count > 9{

@@ -1,9 +1,4 @@
-//
-//  SuccessfullDialog.swift
-//  Riada Land
-//
-//  Created by Binsu on 14/09/2021.
-//
+
 
 import UIKit
 import SwiftEntryKit

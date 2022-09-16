@@ -1,9 +1,4 @@
-//
-//  Utility.swift
-//  Riada Land
-//
-//  Created by Binsu on 16/08/2021.
-//
+
 
 import UIKit
 import Reachability

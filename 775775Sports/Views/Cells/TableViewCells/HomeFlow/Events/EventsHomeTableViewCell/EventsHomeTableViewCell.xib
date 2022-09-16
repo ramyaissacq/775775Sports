@@ -28,8 +28,8 @@
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="R7S-pw-uFE">
                                 <rect key="frame" x="0.0" y="8" width="326" height="17"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="25:67" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0eN-BE-E4q">
-                                        <rect key="frame" x="0.0" y="0.0" width="29.5" height="17"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0eN-BE-E4q">
+                                        <rect key="frame" x="0.0" y="0.0" width="35" height="17"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="35" id="sAQ-Ez-yzs"/>
                                         </constraints>
@@ -37,15 +37,15 @@
                                         <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="goal" translatesAutoresizingMaskIntoConstraints="NO" id="d4n-Qw-0TK">
-                                        <rect key="frame" x="33.5" y="0.0" width="17" height="17"/>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="d4n-Qw-0TK">
+                                        <rect key="frame" x="39" y="0.0" width="49.5" height="17"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="17" id="53u-5O-SPF"/>
                                             <constraint firstAttribute="width" constant="17" id="ejG-Ki-o1y"/>
                                         </constraints>
                                     </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Karim Benzema (Penalty)" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0VX-gd-aKL">
-                                        <rect key="frame" x="54.5" y="0.0" width="271.5" height="17"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0VX-gd-aKL">
+                                        <rect key="frame" x="92.5" y="0.0" width="233.5" height="17"/>
                                         <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="11"/>
                                         <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
@@ -89,7 +89,4 @@
             <point key="canvasLocation" x="136.23188405797103" y="69.308035714285708"/>
         </tableViewCell>
     </objects>
-    <resources>
-        <image name="goal" width="16.5" height="16"/>
-    </resources>
 </document>

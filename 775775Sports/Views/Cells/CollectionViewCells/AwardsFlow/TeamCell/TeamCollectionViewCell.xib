@@ -25,15 +25,15 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AKh-NJ-hkc">
                         <rect key="frame" x="0.0" y="0.0" width="166" height="59"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="clubLogo" translatesAutoresizingMaskIntoConstraints="NO" id="YfJ-ch-BbM">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="YfJ-ch-BbM">
                                 <rect key="frame" x="0.0" y="17" width="25" height="25"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="25" id="JQE-he-hl5"/>
                                     <constraint firstAttribute="height" constant="25" id="h0D-tN-ZPm"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Liverpool" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wPp-VE-rE4">
-                                <rect key="frame" x="32" y="21" width="134" height="17"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wPp-VE-rE4">
+                                <rect key="frame" x="32" y="29.5" width="134" height="0.0"/>
                                 <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="12"/>
                                 <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -67,7 +67,4 @@
             <point key="canvasLocation" x="215.94202898550725" y="90.736607142857139"/>
         </collectionViewCell>
     </objects>
-    <resources>
-        <image name="clubLogo" width="78" height="79"/>
-    </resources>
 </document>

@@ -1,9 +1,4 @@
-//
-//  BaseViewController.swift
-//  Riada Land
-//
-//  Created by Binsu on 17/08/2021.
-//
+
 
 import UIKit
 
@@ -12,7 +7,7 @@ class BaseViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 //        setTitleMargin()
-      //  setNavBarColor()
+       setNavBarColor()
         setTitle()
     }
     
@@ -32,9 +27,9 @@ class BaseViewController: UIViewController {
         navBarAppearance.setBackIndicatorImage(yourBackImage, transitionMaskImage: yourBackImage)
         navBarAppearance.shadowImage = UIImage()
         navBarAppearance.configureWithOpaqueBackground()
-        navBarAppearance.titleTextAttributes = [.foregroundColor: UIColor.black]
-        navBarAppearance.largeTitleTextAttributes = [.foregroundColor: UIColor.black]
-        navBarAppearance.backgroundColor = .white
+        navBarAppearance.titleTextAttributes = [.foregroundColor: UIColor.white]
+        navBarAppearance.largeTitleTextAttributes = [.foregroundColor: UIColor.white]
+        navBarAppearance.backgroundColor = Colors.accentColor()
         navBarAppearance.shadowImage = UIImage()
         navBarAppearance.shadowColor = .clear
         self.navigationController?.navigationBar.tintColor = .black

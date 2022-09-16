@@ -89,9 +89,6 @@ class LeagueViewController: UIViewController {
         secondHeaderSizes = secondHeaderSizes.map{$0+balance}
         
         viewModel.delegate = self
-//        leagueID = 1953
-//        subLeagueID = 0
-//        groupID = 22252
         viewModel.getLeagueDetails(id: leagueID ?? 0, subID: subLeagueID ?? 0, grpID: groupID ?? 0)
     }
     
@@ -182,6 +179,8 @@ extension LeagueViewController:UICollectionViewDelegate,UICollectionViewDataSour
         }
     }
     
+    
+    
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if collectionView == collectionViewTypes{
         selectedType = indexPath.row
@@ -193,14 +192,32 @@ extension LeagueViewController:UICollectionViewDelegate,UICollectionViewDataSour
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         if collectionView == collectionViewTypes{
-        let w = UIScreen.main.bounds.width / 2
-        return CGSize(width: w, height: 55)
+        let w = (UIScreen.main.bounds.width - 30) / 2
+            if indexPath.row == 0{
+                return CGSize(width: w-10, height: 35)
+            }
+            else{
+                let strW = "Match".width(forHeight: 19, font: UIFont(name: "Poppins-Regular", size: 19)!)
+               let width2 = strW + 16
+              return CGSize(width: width2, height: 35)
+            }
         }
         else{
             return CGSize(width: headerSizes[indexPath.row], height: 55)
         }
         
     }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        
+        return 30
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        return UIEdgeInsets(top: 0, left: 15, bottom: 0, right: 0)
+    }
+    
+   
     
     
 }

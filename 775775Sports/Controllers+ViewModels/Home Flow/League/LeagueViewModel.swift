@@ -20,7 +20,7 @@ class LeagueViewModel{
     var isNormalStanding = true
     
     func getLeagueDetails(id:Int,subID:Int,grpID:Int){
-        Utility.showProgress()
+       // Utility.showProgress()
         HomeAPI().getLeagueDetails(id: id, subID: subID, grpID: grpID) { json in
             let leagueJson = json?["leagueStanding"]
             self.analyseResponseJson(json: leagueJson)
@@ -34,7 +34,7 @@ class LeagueViewModel{
     }
     
     func analyseResponseJson(json:JSON?){
-        if json?.arrayValue.first?["totalStandings"].isEmpty ?? false{
+        if json?.arrayValue.first?["totalStandings"].isEmpty ?? true{
             print("Empty json")
             leaguStanding = json?.arrayValue.map { LeagueStanding($0) }.first
             isNormalStanding = false

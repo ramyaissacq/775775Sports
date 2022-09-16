@@ -23,7 +23,7 @@ class EventsViewModel{
     var technicArray:[EventTechnic]?
     
     func getEvents(){
-        Utility.showProgress()
+       // Utility.showProgress()
         HomeAPI().getEvents { response in
             self.eventData = response
             self.filterData()
