@@ -18,6 +18,14 @@ class HomeAPI: WebService {
         }, failed: failed)
     }
     
+    func getScoresPastFuture(date:String,completion:@escaping (ScoresResponse) -> Void, failed: @escaping (String) -> Void){
+        let url = BaseUrl.getBaseUrl() + EndPoints.scores_past_future.rawValue + "/\(date)"
+        get(url: url, params: [:], completion: { json in
+            let response = ScoresResponse(json!)
+            completion(response)
+        }, failed: failed)
+    }
+    
     func getScoresByIndex(completion:@escaping (ScoresByIndexResponse) -> Void, failed: @escaping (String) -> Void){
         let url = BaseUrl.getBaseUrl() + EndPoints.scores_index.rawValue
         get(url: url, params: [:], completion: { json in

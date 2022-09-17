@@ -133,7 +133,6 @@ class LeagueViewController: UIViewController {
         if selectedType == 0{
             standingsStack.isHidden = true
             leagueStack.isHidden = false
-            
         }
         else{
             leagueStack.isHidden = true

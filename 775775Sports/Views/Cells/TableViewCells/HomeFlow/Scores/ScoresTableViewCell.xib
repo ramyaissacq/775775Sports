@@ -456,6 +456,7 @@
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
+                <outlet property="indexViewYellow" destination="Wr2-Ra-zvU" id="mWZ-1b-eiG"/>
                 <outlet property="lblAwayName" destination="Ioh-Tf-BQV" id="PBs-hw-YIb"/>
                 <outlet property="lblCorner" destination="4tH-69-gfO" id="Dnf-z5-2OZ"/>
                 <outlet property="lblDate" destination="3SO-wZ-zA2" id="a8u-66-ogj"/>
@@ -470,6 +471,8 @@
                 <outlet property="lblOverUnder3" destination="yOh-xf-pHD" id="DOI-eX-Un4"/>
                 <outlet property="lblScore" destination="sFM-jY-d33" id="3ZW-so-xOj"/>
                 <outlet property="lblTime" destination="Fj2-ZA-zbe" id="nwV-Rc-6PO"/>
+                <outlet property="odds1Stack" destination="vh9-wp-FO5" id="O3Y-hZ-FvZ"/>
+                <outlet property="odds2Stack" destination="KwX-Uz-gK1" id="P29-ls-4xd"/>
                 <outlet property="viewAnalysis" destination="jDJ-op-qu0" id="7dT-vd-CpJ"/>
                 <outlet property="viewBriefing" destination="Ssq-zA-evP" id="NM5-dF-I3U"/>
                 <outlet property="viewEvent" destination="98B-hI-tWC" id="lM7-Zx-2vn"/>

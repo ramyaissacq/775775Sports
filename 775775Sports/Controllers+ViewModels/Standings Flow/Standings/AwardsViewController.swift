@@ -147,6 +147,7 @@ class AwardsViewController: BaseViewController {
         }
         
     }
+    
     func configureSportsDropDown(){
         sportsDropDown = DropDown()
         sportsDropDown?.dataSource = ["Football"]

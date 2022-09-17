@@ -39,6 +39,9 @@ class ScoresTableViewCell: UITableViewCell {
     @IBOutlet weak var lblOverUnder1: UILabel!
     @IBOutlet weak var lblOverUnder2: UILabel!
     @IBOutlet weak var lblOverUnder3: UILabel!
+    @IBOutlet weak var indexViewYellow: UIView!
+    @IBOutlet weak var odds2Stack: UIStackView!
+    @IBOutlet weak var odds1Stack: UIStackView!
     
     //MARK: - Variables
     var callIndexSelection:(()->Void)?
@@ -119,11 +122,25 @@ class ScoresTableViewCell: UITableViewCell {
         lblHandicap1.text = String(obj?.odds?.handicap?[6] ?? 0)
         lblHandicap2.text = String(obj?.odds?.handicap?[5] ?? 0)
         lblHandicap3.text = String(obj?.odds?.handicap?[7] ?? 0)
+            odds1Stack.isHidden = false
+        }
+        else{
+            odds1Stack.isHidden = true
         }
         if obj?.odds?.overUnder?.count ?? 0 > 7{
         lblOverUnder1.text = String(obj?.odds?.overUnder?[6] ?? 0)
         lblOverUnder2.text = String(obj?.odds?.overUnder?[5] ?? 0)
         lblOverUnder3.text = String(obj?.odds?.overUnder?[7] ?? 0)
+            odds2Stack.isHidden = false
+        }
+        else{
+            odds2Stack.isHidden = true
+        }
+        if (obj?.odds?.overUnder?.isEmpty ?? true) && (obj?.odds?.handicap?.isEmpty ?? true){
+            indexViewYellow.isHidden = true
+        }
+        else{
+            indexViewYellow.isHidden = false
         }
         if obj?.havOdds ?? false{
             viewIndex.isHidden = false

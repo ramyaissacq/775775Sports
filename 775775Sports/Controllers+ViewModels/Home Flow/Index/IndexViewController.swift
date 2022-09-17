@@ -128,7 +128,6 @@ extension IndexViewController:UICollectionViewDelegate,UICollectionViewDataSourc
     }
     
     
-    
 }
 
 extension IndexViewController:UITableViewDelegate,UITableViewDataSource{

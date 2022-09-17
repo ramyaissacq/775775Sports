@@ -5,6 +5,7 @@ import UIKit
 enum EndPoints: String ,CaseIterable {
     case register = "register"
     case scores = "zqbf-list-page"
+    case scores_past_future = "zqbf-list-past-result"
     case scores_index = "zqbf-live-odds"
     case scores_analysis = "zqbf-match-analysis"
     case scores_events = "zqbf-list-event"
@@ -16,6 +17,4 @@ enum EndPoints: String ,CaseIterable {
     case teamStandings = "zqbf-list-jifen"
     case playerStandings = "zqbf-list-jifen-top-scorer"
     
-    
-
 }

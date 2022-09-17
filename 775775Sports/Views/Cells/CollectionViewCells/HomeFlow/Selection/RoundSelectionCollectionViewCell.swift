@@ -16,20 +16,35 @@ class RoundSelectionCollectionViewCell: UICollectionViewCell {
             handleSelection()
         }
     }
+    
+    var unselectedViewColor = Colors.blue2Color()
+    var selectedViewColor = Colors.blue3Color()
+    var unselectedTitleColor = Colors.gray1Color()
+    var selectedTitleColor = UIColor.white
 
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
     }
     
+    func configureCell(unselectedViewColor:UIColor,selectedViewColor:UIColor,unselectedTitleColor:UIColor,selectedTitleColor:UIColor,title:String){
+        self.unselectedViewColor = unselectedViewColor
+        self.selectedViewColor = selectedViewColor
+        self.unselectedTitleColor = unselectedTitleColor
+        self.selectedTitleColor = selectedTitleColor
+        handleSelection()
+        lblTite.text = title
+        
+    }
+    
     func handleSelection(){
         if isSelected{
-            backView.backgroundColor = Colors.blue3Color()
-            lblTite.textColor = .white
+            backView.backgroundColor = selectedViewColor
+            lblTite.textColor = selectedTitleColor
         }
         else{
-            backView.backgroundColor = Colors.blue2Color()
-            lblTite.textColor = Colors.gray1Color()
+            backView.backgroundColor = unselectedViewColor
+            lblTite.textColor = unselectedTitleColor
         }
     }
 

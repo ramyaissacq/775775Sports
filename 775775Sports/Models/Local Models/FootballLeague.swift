@@ -17,6 +17,7 @@ class FootballLeague{
         static var leagues:[FootballLeague]?
 
         static func populateFootballLeagues(){
+            if leagues?.count ?? 0 == 0{
             let ids = [36,31,34,8,11,60,192,648,652,650,75,67,88,224]
             let names = ["Premier League", "La Liga", "Serie A","Bundesliga", "Ligue 1", "Chinese Super League", "AFC Champions League", "Asian Qualifiers", "South American Qualifier", "European Qualifier", "World Cup", "European Cup", "Confederations Cup", " America's Cup"]
             var leagues = [FootballLeague]()
@@ -25,6 +26,7 @@ class FootballLeague{
                 leagues.append(obj)
             }
             FootballLeague.leagues = leagues
+            }
         }
         
        
