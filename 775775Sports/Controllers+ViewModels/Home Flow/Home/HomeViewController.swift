@@ -29,7 +29,7 @@ class HomeViewController: BaseViewController {
     var selectedLeagueID:Int?
     var selectedTimeIndex = 0
     var selectedDate = ""
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         initialSettings()
@@ -39,7 +39,7 @@ class HomeViewController: BaseViewController {
     func initialSettings(){
         setupNavButtons()
         setupGestures()
-        FootballLeague.populateFootballLeagues()
+        // FootballLeague.populateFootballLeagues()
         configureTimeDropDown()
         configureLeagueDropDown()
         viewModel.categories = viewModel.todayCategories
@@ -62,17 +62,22 @@ class HomeViewController: BaseViewController {
     func configureLeagueDropDown(){
         leagueDropDown = DropDown()
         leagueDropDown?.anchorView = lblLeague
-        var arr:[String] = FootballLeague.leagues?.map{"League: " + ($0.name ?? "") } ?? []
-        arr.insert("All Leagues", at: 0)
-        leagueDropDown?.dataSource = arr
-        lblLeague.text = arr.first
+        //        var arr:[String] = FootballLeague.leagues?.map{"League: " + ($0.name ?? "") } ?? []
+        //        arr.insert("All Leagues", at: 0)
+        //        leagueDropDown?.dataSource = arr
+        //        lblLeague.text = arr.first
+        lblLeague.text = "All Leagues"
         leagueDropDown?.selectionAction = { [unowned self] (index: Int, item: String) in
             lblLeague.text = item
             if index == 0{
                 selectedLeagueID = nil
+                viewModel.matches = viewModel.originals
+                self.prepareDisplays()
             }
             else{
-                selectedLeagueID = FootballLeague.leagues?[index-1].id
+                selectedLeagueID = viewModel.scoreResponse?.todayHotLeague?[index].leagueId
+                //FootballLeague.leagues?[index-1].id
+                viewModel.getMatchesByLeague(leagueID: selectedLeagueID!)
             }
         }
         
@@ -90,11 +95,23 @@ class HomeViewController: BaseViewController {
             switch index{
             case 0:
                 viewModel.categories = viewModel.todayCategories
+                var arr:[String] = viewModel.scoreResponse?.todayHotLeague?.map{$0.leagueName ?? ""} ?? []
+                arr.insert("All Leagues", at: 0)
+                self.leagueDropDown?.dataSource = arr
+                lblLeague.text = arr.first
+                page = 1
+                viewModel.matches?.removeAll()
+                viewModel.originals?.removeAll()
+                viewModel.getMatchesList(page: page)
             case 1:
                 viewModel.categories = viewModel.pastDates
+                leagueDropDown?.dataSource = ["All Leagues"]
+                lblLeague.text = "All Leagues"
             case 2:
                 viewModel.categories = viewModel.futureDates
-               
+                leagueDropDown?.dataSource = ["All Leagues"]
+                lblLeague.text = "All Leagues"
+                
             default:
                 break
             }
@@ -126,9 +143,13 @@ class HomeViewController: BaseViewController {
     }
     
     @objc func refresh(){
-        page = 1
-        viewModel.getMatchesList(page: page)
-        refreshControl?.endRefreshing()
+        if selectedTimeIndex == 0{
+            page = 1
+            viewModel.matches?.removeAll()
+            viewModel.originals?.removeAll()
+            viewModel.getMatchesList(page: page)
+            refreshControl?.endRefreshing()
+        }
     }
     
     func setupNavButtons(){
@@ -144,11 +165,12 @@ class HomeViewController: BaseViewController {
     @objc func menuTapped(){
         
     }
-   
+    
     @objc func searchTapped(){
         let vc = self.storyboard?.instantiateViewController(withIdentifier: "SearchViewController") as! SearchViewController
-        vc.originals = viewModel.matches
-        vc.matches = viewModel.matches
+        vc.viewModel.originals = viewModel.originals
+        vc.viewModel.pageData = viewModel.pageData
+        vc.page = page
         self.navigationController?.pushViewController(vc, animated: true)
         
     }
@@ -157,7 +179,12 @@ class HomeViewController: BaseViewController {
 }
 
 extension HomeViewController:HomeViewModelDelegate{
+    func didFinishFilterByLeague() {
+        prepareDisplays()
+    }
+    
     func didFinishFetchRecentMatches() {
+        
         prepareDisplays()
     }
     
@@ -168,6 +195,10 @@ extension HomeViewController:HomeViewModelDelegate{
     func diFinisfFetchMatches() {
         page += 1
         viewModel.filterMatches(type: selectedType)
+        var arr:[String] = viewModel.scoreResponse?.todayHotLeague?.map{$0.leagueName ?? ""} ?? []
+        arr.insert("All Leagues", at: 0)
+        self.leagueDropDown?.dataSource = arr
+        self.lblLeague.text = arr.first
         prepareDisplays()
         
     }
@@ -181,53 +212,53 @@ extension HomeViewController:HomeViewModelDelegate{
             noDataView.isHidden = false
         }
     }
-  
+    
 }
 
 extension HomeViewController:UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout{
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-       
+        
         return viewModel.categories.count
         
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-       
+        
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "RoundSelectionCollectionViewCell", for: indexPath) as! RoundSelectionCollectionViewCell
         cell.configureCell(unselectedViewColor: Colors.fadeRedColor(), selectedViewColor: Colors.accentColor(), unselectedTitleColor: Colors.accentColor(), selectedTitleColor: .white, title: viewModel.categories[indexPath.row])
         return cell
-       
+        
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         collectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
         if selectedTimeIndex == 0{
-        selectedType = indexPath.row
-        viewModel.filterMatches(type: selectedType)
-        prepareDisplays()
+            selectedType = indexPath.row
+            viewModel.filterMatches(type: selectedType)
+            prepareDisplays()
         }
         else{
             selectedDate = viewModel.categories[indexPath.row]
             viewModel.getRecentMatches(date: selectedDate)
             
         }
-       
+        
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
-            if categorySizes.count == 0{
-                calculateCategorySizes()
-            }
+        if categorySizes.count == 0{
+            calculateCategorySizes()
+        }
         
         return CGSize(width: categorySizes[indexPath.row], height: 55)
-            
-        }
+        
+    }
     
     //calculating categorySizes
     func calculateCategorySizes(){
         for m in viewModel.categories{
-        let w = m.width(forHeight: 14, font: UIFont(name: "Poppins-Regular", size: 12)!) + 16
+            let w = m.width(forHeight: 14, font: UIFont(name: "Poppins-Regular", size: 12)!) + 16
             categorySizes.append(w)
         }
     }
@@ -244,11 +275,11 @@ extension HomeViewController:UITableViewDelegate,UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if selectedTimeIndex == 0{
-        if indexPath.row == viewModel.getModelCount()-1{
-            if page <= (viewModel.pageData?.lastPage ?? 0){
-            viewModel.getMatchesList(page: page)
+            if indexPath.row == viewModel.getModelCount()-1{
+                if page <= (viewModel.pageData?.lastPage ?? 0){
+                    viewModel.getMatchesList(page: page)
+                }
             }
-        }
         }
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as! ScoresTableViewCell
         cell.callIndexSelection = {
@@ -286,7 +317,7 @@ extension HomeViewController:UITableViewDelegate,UITableViewDataSource{
         
     }
     
-
+    
     
     
 }

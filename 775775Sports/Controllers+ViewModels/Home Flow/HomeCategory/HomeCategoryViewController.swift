@@ -48,6 +48,11 @@ class HomeCategoryViewController: BaseViewController {
     @IBOutlet weak var lblOverUnder1: UILabel!
     @IBOutlet weak var lblOverUnder2: UILabel!
     @IBOutlet weak var lblOverUnder3: UILabel!
+    @IBOutlet weak var indexViewYellow: UIView!
+    @IBOutlet weak var odds2Stack: UIStackView!
+    @IBOutlet weak var odds1Stack: UIStackView!
+    @IBOutlet weak var cornerStack: UIStackView!
+    @IBOutlet weak var cornerView: UIView!
     //topView outlets ends..
     
     @IBOutlet weak var indexContainerView: UIView!
@@ -64,7 +69,6 @@ class HomeCategoryViewController: BaseViewController {
     static var matchID:Int?
     var selectedMatch:MatchList?
     var selectedCategory = HomeCategory.index
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         initialSetup()
@@ -139,18 +143,41 @@ class HomeCategoryViewController: BaseViewController {
         }
         let matchDate = Utility.getSystemTimeZoneTime(dateString: selectedMatch?.matchTime ?? "")
         lblTime.text = Utility.formatDate(date: matchDate, with: .hhmm2)
-        lblHalfScore.text = "\(selectedMatch?.homeHalfScore ?? 0) : \(selectedMatch?.awayHalfScore ?? 0)"
-        lblCorner.text = "\(selectedMatch?.homeCorner ?? 0) : \(selectedMatch?.awayCorner ?? 0)"
+        lblHalfScore.text = "\(selectedMatch?.homeHalfScore ?? "") : \(selectedMatch?.awayHalfScore ?? "")"
+        lblCorner.text = "\(selectedMatch?.homeCorner ?? "") : \(selectedMatch?.awayCorner ?? "")"
+        if selectedMatch?.homeHalfScore == "" && selectedMatch?.awayHalfScore == "" && selectedMatch?.homeCorner == "" && selectedMatch?.awayCorner == ""{
+            cornerView.isHidden = true
+            cornerStack.isHidden = true
+        }
+        else{
+            cornerView.isHidden = false
+            cornerStack.isHidden = false
+        }
         if selectedMatch?.odds?.handicap?.count ?? 0 > 7{
             lblHandicap1.text = String(selectedMatch?.odds?.handicap?[6] ?? 0)
         lblHandicap2.text = String(selectedMatch?.odds?.handicap?[5] ?? 0)
         lblHandicap3.text = String(selectedMatch?.odds?.handicap?[7] ?? 0)
+            odds1Stack.isHidden = false
+        }
+        else{
+            odds1Stack.isHidden = true
         }
         if selectedMatch?.odds?.overUnder?.count ?? 0 > 7{
         lblOverUnder1.text = String(selectedMatch?.odds?.overUnder?[6] ?? 0)
         lblOverUnder2.text = String(selectedMatch?.odds?.overUnder?[5] ?? 0)
         lblOverUnder3.text = String(selectedMatch?.odds?.overUnder?[7] ?? 0)
+            odds2Stack.isHidden = false
         }
+        else{
+            odds2Stack.isHidden = true
+        }
+        if (selectedMatch?.odds?.overUnder?.isEmpty ?? true) && (selectedMatch?.odds?.handicap?.isEmpty ?? true){
+            indexViewYellow.isHidden = true
+        }
+        else{
+            indexViewYellow.isHidden = false
+        }
+        
         if selectedMatch?.havOdds ?? false{
             viewIndex.isHidden = false
         }

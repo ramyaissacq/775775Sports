@@ -206,7 +206,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <searchBar contentMode="redraw" searchBarStyle="minimal" translatesAutoresizingMaskIntoConstraints="NO" id="P2T-hp-PoZ">
+                            <searchBar contentMode="redraw" searchBarStyle="minimal" placeholder="Search Matches" translatesAutoresizingMaskIntoConstraints="NO" id="P2T-hp-PoZ">
                                 <rect key="frame" x="15" y="64" width="384" height="51"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <connections>
@@ -414,7 +414,7 @@
                                             <constraint firstAttribute="bottom" secondItem="qQH-Ju-XFR" secondAttribute="bottom" constant="2" id="Rmu-Le-Jkk"/>
                                         </constraints>
                                     </view>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="4RT-jw-KAu">
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="4RT-jw-KAu" userLabel="corner">
                                         <rect key="frame" x="327" y="75.5" width="72" height="33"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eNG-jc-lyL">
@@ -757,8 +757,11 @@
                     <connections>
                         <outlet property="analysisContainerView" destination="7fU-0C-tQv" id="J91-27-3Wz"/>
                         <outlet property="briefingView" destination="7uE-W9-ahu" id="znB-q7-GqC"/>
+                        <outlet property="cornerStack" destination="TKt-kF-3jC" id="2Rk-Nq-Ivg"/>
+                        <outlet property="cornerView" destination="eNG-jc-lyL" id="SUe-cH-lRy"/>
                         <outlet property="eventContainerView" destination="Bbk-vp-qMB" id="p49-zr-WSP"/>
                         <outlet property="indexContainerView" destination="jHI-eb-gLk" id="Rtj-mw-1hk"/>
+                        <outlet property="indexViewYellow" destination="W7E-we-vyc" id="RVB-qj-LUF"/>
                         <outlet property="lblAwayName" destination="E5f-sz-2ES" id="LMb-jF-KAW"/>
                         <outlet property="lblCorner" destination="dlR-l7-4p0" id="5HV-0q-fS2"/>
                         <outlet property="lblDate" destination="pvX-wZ-cRX" id="ivV-mp-r6I"/>
@@ -774,6 +777,8 @@
                         <outlet property="lblScore" destination="Nhz-P6-Mm3" id="ZcW-hb-OYw"/>
                         <outlet property="lblTime" destination="v0D-Yl-237" id="WhF-7S-HvS"/>
                         <outlet property="leagueView" destination="BVs-Bp-b66" id="p9u-VK-UAc"/>
+                        <outlet property="odds1Stack" destination="6dB-oh-atl" id="os0-p5-4WG"/>
+                        <outlet property="odds2Stack" destination="320-SW-HdN" id="575-Ba-BtF"/>
                         <outlet property="viewAnalysis" destination="bRs-RQ-Wdj" id="bLp-al-c3v"/>
                         <outlet property="viewBriefing" destination="j3t-xG-TYZ" id="9CF-yp-Kgy"/>
                         <outlet property="viewEvent" destination="TR7-VP-JEZ" id="L5D-x2-Z12"/>

@@ -47,12 +47,21 @@ class EventsViewModel{
         let arr = tStr.components(separatedBy: ";")
         var tempTechnic = [EventTechnic]()
         for m in arr{
-            let tcArr = m.components(separatedBy: ",")
+            var tcArr = m.components(separatedBy: ",")
             if tcArr.count >= 3{
+                var type = EvenTechnicType.normal
+                
                 let id = Int(tcArr[0]) ?? 0
-                let home = Int(tcArr[1]) ?? 0
-                let away = Int(tcArr[2]) ?? 0
-                let obj = EventTechnic(id: id, homeCount: home, awayCount: away)
+                if tcArr[1].contains("%"){
+                    tcArr[1] = tcArr[1].replacingOccurrences(of: "%", with: "")
+                    tcArr[2] = tcArr[2].replacingOccurrences(of: "%", with: "")
+                    type = .percent
+                }
+                
+               let home = Int(tcArr[1]) ?? 0
+               let away = Int(tcArr[2]) ?? 0
+                
+                let obj = EventTechnic(id: id, homeCount: home, awayCount: away, type: type)
                 tempTechnic.append(obj)
             }
         }

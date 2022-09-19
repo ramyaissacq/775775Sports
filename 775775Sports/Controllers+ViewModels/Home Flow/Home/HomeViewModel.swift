@@ -11,6 +11,7 @@ protocol HomeViewModelDelegate{
     func diFinisfFetchMatches()
     func getCurrentPage()->Int
     func didFinishFetchRecentMatches()
+    func didFinishFilterByLeague()
     
 }
 
@@ -19,6 +20,7 @@ class HomeVieModel{
     var matches:[MatchList]?
     var originals:[MatchList]?
     var pageData:Meta?
+    var scoreResponse:ScoresResponse?
     var pastDates = getRecentDates(isPast: true, limit: 10)
     var futureDates = getRecentDates(isPast: false, limit: 10)
     var todayCategories = ["ALL","LIVE","SOON","FT"]
@@ -27,15 +29,16 @@ class HomeVieModel{
     
     
     func getMatchesList(page:Int){
-       // Utility.showProgress()
+        // Utility.showProgress()
         HomeAPI().getScores(page: page) { response in
+            self.scoreResponse = response
             if page > 1 {
                 var tempMatches = self.originals ?? []
                 tempMatches.append(contentsOf: response.matchList ?? [])
                 self.originals = tempMatches
             }
             else{
-            self.originals = response.matchList
+                self.originals = response.matchList
             }
             self.pageData = response.meta
             self.delegate?.diFinisfFetchMatches()
@@ -43,8 +46,10 @@ class HomeVieModel{
         } failed: { msg in
             Utility.showErrorSnackView(message: msg)
         }
-
+        
     }
+    
+    
     
     func getRecentMatches(date:String){
         let dateFormatter = DateFormatter()
@@ -52,14 +57,22 @@ class HomeVieModel{
         let dt = dateFormatter.date(from: date)
         let date = Utility.formatDate(date: dt, with: .yyyyMMdd)
         HomeAPI().getScoresPastFuture(date: date) { response in
-            self.matches = response.matchList
+            self.matches = response.matchList?.map{MatchList(obj: $0)}
+            self.originals = self.matches
             self.delegate?.didFinishFetchRecentMatches()
         } failed: { msg in
             Utility.showErrorSnackView(message: msg)
         }
-
         
     }
+    
+    
+    func getMatchesByLeague(leagueID:Int){
+        self.matches?.removeAll()
+        self.matches = scoreResponse?.todayHotLeagueList?.filter{$0.leagueId == leagueID}
+        delegate?.didFinishFilterByLeague()
+    }
+    
     
     func getModelCount()->Int{
         return matches?.count ?? 0
@@ -76,14 +89,15 @@ class HomeVieModel{
             matches = originals?.filter{$0.state == 0}
         case 3:
             matches = originals?.filter{$0.state == -1}
+            let page = delegate!.getCurrentPage()
+            if matches?.count == 0 && page <= (pageData?.lastPage ?? 0){
+                getMatchesList(page: page)
+                
+            }
         default:
             break
         }
-//        let page = delegate!.getCurrentPage()
-//        if matches?.count == 0 && page <= (pageData?.lastPage ?? 0){
-//            getMatchesList(page: page)
-//
-//        }
+        
     }
     
     class func getRecentDates(isPast:Bool,limit:Int) -> [String]{
@@ -106,10 +120,10 @@ class HomeVieModel{
             }
             
         }
-         
+        
         return dates
-      
-
+        
+        
     }
     
     

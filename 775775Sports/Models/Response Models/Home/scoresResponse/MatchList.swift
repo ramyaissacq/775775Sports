@@ -21,14 +21,14 @@ struct MatchList {
 	let state: Int?
 	let homeScore: Int?
 	let awayScore: Int?
-	let homeHalfScore: Int?
-	let awayHalfScore: Int?
+	let homeHalfScore: String?
+	let awayHalfScore: String?
 	let homeRed: Int?
 	let awayRed: Int?
 	let homeYellow: Int?
 	let awayYellow: Int?
-	let homeCorner: Int?
-	let awayCorner: Int?
+	let homeCorner: String?
+	let awayCorner: String?
 	let isNeutral: Bool?
 	let hasLineup: String?
 	let season: String?
@@ -80,14 +80,14 @@ struct MatchList {
 		state = json["state"].intValue
 		homeScore = json["homeScore"].intValue
 		awayScore = json["awayScore"].intValue
-		homeHalfScore = json["homeHalfScore"].intValue
-		awayHalfScore = json["awayHalfScore"].intValue
+		homeHalfScore = json["homeHalfScore"].stringValue
+		awayHalfScore = json["awayHalfScore"].stringValue
 		homeRed = json["homeRed"].intValue
 		awayRed = json["awayRed"].intValue
 		homeYellow = json["homeYellow"].intValue
 		awayYellow = json["awayYellow"].intValue
-		homeCorner = json["homeCorner"].intValue
-		awayCorner = json["awayCorner"].intValue
+		homeCorner = json["homeCorner"].stringValue
+		awayCorner = json["awayCorner"].stringValue
 		isNeutral = json["isNeutral"].boolValue
 		hasLineup = json["hasLineup"].stringValue
 		season = json["season"].stringValue
@@ -126,5 +126,65 @@ struct MatchList {
 		weather = json["weather"].stringValue
 		explain = json["explain"].stringValue
 	}
+    
+    init(obj:RecentMatchList?){
+        matchId = obj?.matchId
+        color = obj?.color
+        kind = obj?.kind
+        leagueId = obj?.leagueId
+        subLeagueId = obj?.subLeagueId
+        matchTime = obj?.matchTime
+        startTime = obj?.startTime
+        homeId = obj?.homeId
+        awayId = obj?.awayId
+        state = obj?.state
+        homeScore = obj?.homeScore
+        awayScore = obj?.awayScore
+        homeHalfScore = obj?.homeHalfScore
+        awayHalfScore = obj?.awayHalfScore
+        homeRed = obj?.homeRed
+        awayRed = obj?.awayRed
+        homeYellow = obj?.homeYellow
+        awayYellow = obj?.awayYellow
+        homeCorner = obj?.homeCorner
+        awayCorner = obj?.awayCorner
+        isNeutral = obj?.isNeutral
+        hasLineup = obj?.hasLineup
+        season = obj?.season
+        grouping = obj?.grouping
+        groupId = obj?.groupId
+        temp = obj?.temp
+        extraExplain = obj?.extraExplain
+        isHidden = obj?.isHidden
+        havEvent = nil
+        havTech = nil
+        havAnim = nil
+        animateURL = nil
+        havBriefing = nil
+        havPlayerDetails = nil
+        havLineup = nil
+        havTextLive = nil
+        havLiveVideo = nil
+        videoId = nil
+        videoDetail = nil
+        havLiveAnchor = nil
+        havLiveAnchorId = nil
+        havLiveAnchorLocale = nil
+        homeLogo = obj?.homeLogo
+        awayLogo = obj?.awayLogo
+        havOdds = nil
+        odds = nil
+        leagueName = obj?.leagueNameEn
+        leagueNameShort = obj?.leagueNameShortEn
+        subLeagueName = obj?.subLeagueEn
+        homeName = obj?.homeNameEn
+        awayName = obj?.awayNameEn
+        homeRank = obj?.homeRankEn
+        awayRank = obj?.awayRankEn
+        round = obj?.roundEn
+        location = obj?.locationEn
+        weather = obj?.weatherEn
+        explain = obj?.explainEn
+    }
 
 }

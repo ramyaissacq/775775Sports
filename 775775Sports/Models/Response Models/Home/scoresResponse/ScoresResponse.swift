@@ -11,10 +11,14 @@ struct ScoresResponse {
 
 	let matchList: [MatchList]?
 	let meta: Meta?
+    let todayHotLeague: [TodayHotLeague]?
+    let todayHotLeagueList: [MatchList]?
 
 	init(_ json: JSON) {
 		matchList = json["matchList"].arrayValue.map { MatchList($0) }
 		meta = Meta(json["meta"])
+        todayHotLeague = json["todayHotLeague"].arrayValue.map { TodayHotLeague($0) }
+        todayHotLeagueList = json["todayHotLeague"].arrayValue.map { MatchList($0) }
 	}
 
 }

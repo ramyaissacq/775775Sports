@@ -13,8 +13,9 @@ class SearchViewController: BaseViewController {
     @IBOutlet weak var tableView:UITableView!
     
     //MARK: - Variables
-    var matches:[MatchList]?
-    var originals:[MatchList]?
+    
+    var viewModel = HomeVieModel()
+    var page = 1
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,8 +27,31 @@ class SearchViewController: BaseViewController {
         setTitle()
         setBackButton()
         tableView.register(UINib(nibName: "ScoresTableViewCell", bundle: nil), forCellReuseIdentifier: "cell")
+        viewModel.delegate = self
         
     }
+    
+}
+
+extension SearchViewController:HomeViewModelDelegate{
+    func diFinisfFetchMatches() {
+        page += 1
+        doSearch(searchText: searchBar.text ?? "")
+        
+    }
+    
+    func getCurrentPage() -> Int {
+      return 0
+    }
+    
+    func didFinishFetchRecentMatches() {
+        
+    }
+    
+    func didFinishFilterByLeague() {
+        
+    }
+    
     
 }
 
@@ -39,15 +63,15 @@ extension SearchViewController:UISearchBarDelegate{
             
         }
         else{
-            self.matches = self.originals
+            self.viewModel.matches?.removeAll()
             tableView.reloadData()
         }
         
     }
     
     func doSearch(searchText:String){
-        matches?.removeAll()
-        matches = originals?.filter{($0.leagueName?.lowercased().contains(searchText.lowercased()) ?? false) || ($0.homeName?.lowercased().contains(searchText.lowercased()) ?? false) || ($0.awayName?.lowercased().contains(searchText.lowercased()) ?? false)}
+        self.viewModel.matches?.removeAll()
+        self.viewModel.matches = self.viewModel.originals?.filter{($0.leagueName?.lowercased().contains(searchText.lowercased()) ?? false) || ($0.homeName?.lowercased().contains(searchText.lowercased()) ?? false) || ($0.awayName?.lowercased().contains(searchText.lowercased()) ?? false)}
         tableView.reloadData()
         
     }
@@ -58,11 +82,17 @@ extension SearchViewController:UISearchBarDelegate{
 //MARK: - TableView Delegates
 extension SearchViewController:UITableViewDelegate,UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return matches?.count ?? 0
+        
+        return self.viewModel.matches?.count ?? 0
     }
     
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        if indexPath.row == (self.viewModel.matches?.count ?? 0) - 1{
+            if (viewModel.pageData?.lastPage ?? 0) > page{
+                viewModel.getMatchesList(page: page)
+            }
+        }
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as! ScoresTableViewCell
         cell.callIndexSelection = {
@@ -86,15 +116,15 @@ extension SearchViewController:UITableViewDelegate,UITableViewDataSource{
             
         }
         
-        cell.configureCell(obj: matches?[indexPath.row])
+        cell.configureCell(obj: self.viewModel.matches?[indexPath.row])
         return cell
         
     }
     
     func goToCategory(index:Int,category:HomeCategory){
         let vc = self.storyboard?.instantiateViewController(withIdentifier: "HomeCategoryViewController") as! HomeCategoryViewController
-        HomeCategoryViewController.matchID = self.matches?[index].matchId
-        vc.selectedMatch =  self.matches?[index]
+        HomeCategoryViewController.matchID = self.viewModel.matches?[index].matchId
+        vc.selectedMatch =  self.viewModel.matches?[index]
         vc.selectedCategory = category
         self.navigationController?.pushViewController(vc, animated: true)
         

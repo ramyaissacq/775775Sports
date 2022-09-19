@@ -27,8 +27,14 @@ class EventTechnicTableViewCell: UITableViewCell {
     
     func configureCell(obj:EventTechnic?){
         lblName.text = EventTechnicTableViewCell.getTechnicName(index: obj?.id ?? 0)
-        lblHomeCount.text = "\(obj?.homeCount ?? 0)"
-        lblAwayCount.text = "\(obj?.awayCount ?? 0)"
+        if obj?.type == .percent{
+        lblHomeCount.text = "\(obj?.homeCount ?? 0) %"
+        lblAwayCount.text = "\(obj?.awayCount ?? 0) %"
+        }
+        else{
+            lblHomeCount.text = "\(obj?.homeCount ?? 0)"
+            lblAwayCount.text = "\(obj?.awayCount ?? 0)"
+        }
         let tot = (obj?.homeCount ?? 0) + (obj?.awayCount ?? 0)
         let per:Float = Float(obj?.homeCount ?? 0) / Float(tot)
         progressView.progress = per

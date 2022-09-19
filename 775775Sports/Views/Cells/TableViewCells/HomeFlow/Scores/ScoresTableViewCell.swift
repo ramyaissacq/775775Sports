@@ -43,6 +43,9 @@ class ScoresTableViewCell: UITableViewCell {
     @IBOutlet weak var odds2Stack: UIStackView!
     @IBOutlet weak var odds1Stack: UIStackView!
     
+    @IBOutlet weak var cornerStack: UIStackView!
+    @IBOutlet weak var cornerView: UIView!
+    
     //MARK: - Variables
     var callIndexSelection:(()->Void)?
     var callAnalysisSelection:(()->Void)?
@@ -116,8 +119,17 @@ class ScoresTableViewCell: UITableViewCell {
         }
         let matchDate = Utility.getSystemTimeZoneTime(dateString: obj?.matchTime ?? "")
         lblTime.text = Utility.formatDate(date: matchDate, with: .hhmm2)
-        lblHalfScore.text = "\(obj?.homeHalfScore ?? 0) : \(obj?.awayHalfScore ?? 0)"
-        lblCorner.text = "\(obj?.homeCorner ?? 0) : \(obj?.awayCorner ?? 0)"
+        lblHalfScore.text = "\(obj?.homeHalfScore ?? "") : \(obj?.awayHalfScore ?? "")"
+        lblCorner.text = "\(obj?.homeCorner ?? "") : \(obj?.awayCorner ?? "")"
+        if obj?.homeHalfScore == "" && obj?.awayHalfScore == "" && obj?.homeCorner == "" && obj?.awayCorner == ""{
+            cornerView.isHidden = true
+            cornerStack.isHidden = true
+        }
+        else{
+            cornerView.isHidden = false
+            cornerStack.isHidden = false
+        }
+        
         if obj?.odds?.handicap?.count ?? 0 > 7{
         lblHandicap1.text = String(obj?.odds?.handicap?[6] ?? 0)
         lblHandicap2.text = String(obj?.odds?.handicap?[5] ?? 0)
@@ -136,6 +148,7 @@ class ScoresTableViewCell: UITableViewCell {
         else{
             odds2Stack.isHidden = true
         }
+        
         if (obj?.odds?.overUnder?.isEmpty ?? true) && (obj?.odds?.handicap?.isEmpty ?? true){
             indexViewYellow.isHidden = true
         }
