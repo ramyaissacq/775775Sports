@@ -75,6 +75,16 @@ class Dialog: NSObject {
         openViewControllerAsDialog(viewController: vc)
     }
     
+    class func openMatchOptionsDialog(callReminder:@escaping()->(),callHighlights:@escaping()->(),callPin:@escaping()->(),callClose:@escaping()->()){
+        let vc = MatchOptionsViewController.instance()
+        vc.callbackReminder = callReminder
+        vc.callbackHighLights = callHighlights
+        vc.callbackPin = callPin
+        vc.callbackClose = callClose
+        openViewControllerAsDialog(viewController: vc, dismissed: callClose)
+        
+    }
+    
     
     
     class func openSuccessDialog(buttonLabel :String,title :String,msg :String, completed : @escaping ()->(), dismissed : @escaping ()->()){

@@ -18,7 +18,7 @@ struct ScoresResponse {
 		matchList = json["matchList"].arrayValue.map { MatchList($0) }
 		meta = Meta(json["meta"])
         todayHotLeague = json["todayHotLeague"].arrayValue.map { TodayHotLeague($0) }
-        todayHotLeagueList = json["todayHotLeague"].arrayValue.map { MatchList($0) }
+        todayHotLeagueList = json["todayHotLeagueList"].arrayValue.map { MatchList($0) }
 	}
 
 }

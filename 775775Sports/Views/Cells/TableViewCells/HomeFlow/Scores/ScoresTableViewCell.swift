@@ -52,6 +52,7 @@ class ScoresTableViewCell: UITableViewCell {
     var callEventSelection:(()->Void)?
     var callBriefingSelection:(()->Void)?
     var callLeagueSelection:(()->Void)?
+    var callLongPress:(()->Void)?
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -70,12 +71,19 @@ class ScoresTableViewCell: UITableViewCell {
         
         let tapLg = UITapGestureRecognizer(target: self, action: #selector(tapLeague))
         viewLeague.addGestureRecognizer(tapLg)
+        
+        let tapLong = UILongPressGestureRecognizer(target: self, action: #selector(actionLongPress))
+        self.addGestureRecognizer(tapLong)
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state
+    }
+    
+    @objc func actionLongPress(){
+        callLongPress?()
     }
     
     @objc func tapIndex(){

@@ -16,7 +16,6 @@ class ConfirmationViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
         messageLabel.text = messageString
         titleLabel.text = titleString
     }

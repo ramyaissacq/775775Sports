@@ -116,6 +116,9 @@
 		AD58CB6928C2327D00327BD2 /* NewsDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD58CB6828C2327D00327BD2 /* NewsDetailsViewController.swift */; };
 		AD58CB6D28C23B9900327BD2 /* TypesCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD58CB6B28C23B9900327BD2 /* TypesCollectionViewCell.swift */; };
 		AD58CB6E28C23B9900327BD2 /* TypesCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AD58CB6C28C23B9900327BD2 /* TypesCollectionViewCell.xib */; };
+		AD64052828D99C4F005F83B7 /* MatchOptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD64052728D99C4F005F83B7 /* MatchOptionsViewController.swift */; };
+		AD64053028D9DA5D005F83B7 /* HighlightsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD64052E28D9DA5D005F83B7 /* HighlightsCollectionViewCell.swift */; };
+		AD64053128D9DA5D005F83B7 /* HighlightsCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AD64052F28D9DA5D005F83B7 /* HighlightsCollectionViewCell.xib */; };
 		AD6B6D2728C86CE500A2F824 /* RoundSelectionCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD6B6D2528C86CE500A2F824 /* RoundSelectionCollectionViewCell.swift */; };
 		AD6B6D2828C86CE500A2F824 /* RoundSelectionCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AD6B6D2628C86CE500A2F824 /* RoundSelectionCollectionViewCell.xib */; };
 		AD6B6D2C28C86FA900A2F824 /* HomeCategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD6B6D2B28C86FA900A2F824 /* HomeCategoryViewController.swift */; };
@@ -336,6 +339,9 @@
 		AD58CB6828C2327D00327BD2 /* NewsDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsDetailsViewController.swift; sourceTree = "<group>"; };
 		AD58CB6B28C23B9900327BD2 /* TypesCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypesCollectionViewCell.swift; sourceTree = "<group>"; };
 		AD58CB6C28C23B9900327BD2 /* TypesCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TypesCollectionViewCell.xib; sourceTree = "<group>"; };
+		AD64052728D99C4F005F83B7 /* MatchOptionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchOptionsViewController.swift; sourceTree = "<group>"; };
+		AD64052E28D9DA5D005F83B7 /* HighlightsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HighlightsCollectionViewCell.swift; sourceTree = "<group>"; };
+		AD64052F28D9DA5D005F83B7 /* HighlightsCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HighlightsCollectionViewCell.xib; sourceTree = "<group>"; };
 		AD6B6D2528C86CE500A2F824 /* RoundSelectionCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundSelectionCollectionViewCell.swift; sourceTree = "<group>"; };
 		AD6B6D2628C86CE500A2F824 /* RoundSelectionCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RoundSelectionCollectionViewCell.xib; sourceTree = "<group>"; };
 		AD6B6D2B28C86FA900A2F824 /* HomeCategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCategoryViewController.swift; sourceTree = "<group>"; };
@@ -802,6 +808,7 @@
 				AD1CEF5E28C0DF4500FA39AF /* Dialogs.storyboard */,
 				AD1CEF6028C0DF4500FA39AF /* SuccessfullDialog.swift */,
 				AD1CEF6128C0DF4500FA39AF /* ConfirmationViewController.swift */,
+				AD64052728D99C4F005F83B7 /* MatchOptionsViewController.swift */,
 				AD1CEF6228C0DF4500FA39AF /* Dialog.swift */,
 			);
 			path = Dialogs;
@@ -948,9 +955,19 @@
 			path = NewsTypes;
 			sourceTree = "<group>";
 		};
+		AD64052928D9D8F8005F83B7 /* MatchHighlights */ = {
+			isa = PBXGroup;
+			children = (
+				AD64052E28D9DA5D005F83B7 /* HighlightsCollectionViewCell.swift */,
+				AD64052F28D9DA5D005F83B7 /* HighlightsCollectionViewCell.xib */,
+			);
+			path = MatchHighlights;
+			sourceTree = "<group>";
+		};
 		AD6B6D2428C86CC300A2F824 /* HomeFlow */ = {
 			isa = PBXGroup;
 			children = (
+				AD64052928D9D8F8005F83B7 /* MatchHighlights */,
 				AD182D8F28CF238400080963 /* Odds */,
 				AD6B6D2928C86CEA00A2F824 /* Selection */,
 			);
@@ -1523,6 +1540,7 @@
 				AD6B6D3728C87F3F00A2F824 /* GeneralRowTableViewCell.xib in Resources */,
 				ADC03D3A28C33E6B00D1790E /* TitleCollectionViewCell.xib in Resources */,
 				AD48D1E528D3397F00D84FF0 /* LeagueHeaderTableViewCell.xib in Resources */,
+				AD64053128D9DA5D005F83B7 /* HighlightsCollectionViewCell.xib in Resources */,
 				AD58CB5E28C2177700327BD2 /* VideoHeighlightsCollectionViewCell.xib in Resources */,
 				AD58CB6028C21E5500327BD2 /* Poppins-Italic.otf in Resources */,
 				AD182D7428CF048C00080963 /* ScoresView.xib in Resources */,
@@ -1745,6 +1763,7 @@
 				ADADCB8128C1FBE200D28A45 /* Extensions+NewsViewController.swift in Sources */,
 				AD4543DA28CB608A0099F800 /* AwayStandings.swift in Sources */,
 				ADB5DB1C28D20B2000B9E586 /* LeagueData01.swift in Sources */,
+				AD64052828D99C4F005F83B7 /* MatchOptionsViewController.swift in Sources */,
 				AD58CB6D28C23B9900327BD2 /* TypesCollectionViewCell.swift in Sources */,
 				AD1CEF5128C0DF1600FA39AF /* Dictionary+Extension.swift in Sources */,
 				AD6B6D4528C89F7B00A2F824 /* VideoDetail.swift in Sources */,
@@ -1800,6 +1819,7 @@
 				AD1CEF4428C0DF1600FA39AF /* BaseViewController.swift in Sources */,
 				ADC03D3E28C3401800D1790E /* RankCollectionViewCell.swift in Sources */,
 				ADB5DB1E28D20B2000B9E586 /* LeagueData02.swift in Sources */,
+				AD64053028D9DA5D005F83B7 /* HighlightsCollectionViewCell.swift in Sources */,
 				AD1CEF1628C0DD6E00FA39AF /* EndPoints.swift in Sources */,
 				AD1CEF4928C0DF1600FA39AF /* UINavigationController+Extension.swift in Sources */,
 				AD1CEEC428C0D9A500FA39AF /* AppDelegate.swift in Sources */,

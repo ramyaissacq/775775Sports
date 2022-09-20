@@ -21,6 +21,30 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ScoresView">
             <connections>
                 <outlet property="contentView" destination="iN0-l3-epB" id="wJP-R5-gCY"/>
+                <outlet property="cornerStack" destination="yRR-Jp-uT7" id="jbw-7h-cuP"/>
+                <outlet property="cornerView" destination="244-Ys-5tg" id="LGI-im-rF1"/>
+                <outlet property="indexViewYellow" destination="r6t-lp-pOc" id="a4I-Xt-NQi"/>
+                <outlet property="lblAwayName" destination="ffT-bn-fk7" id="HLk-mM-JHU"/>
+                <outlet property="lblCorner" destination="hcG-D1-M1a" id="WX3-Qw-crq"/>
+                <outlet property="lblDate" destination="qwa-CT-bUs" id="Vtn-kp-nIw"/>
+                <outlet property="lblHalfScore" destination="Ofm-s0-KuP" id="k4m-zn-rdY"/>
+                <outlet property="lblHandicap1" destination="Cnb-Bd-drp" id="dGD-Qf-gk5"/>
+                <outlet property="lblHandicap2" destination="teR-EE-9V1" id="nuH-Z1-Pft"/>
+                <outlet property="lblHandicap3" destination="Nji-uW-8B8" id="60l-7E-ej9"/>
+                <outlet property="lblHomeName" destination="ffT-bn-fk7" id="OjK-b9-gKX"/>
+                <outlet property="lblName" destination="rnj-Ir-Yqd" id="KIe-Tt-NGf"/>
+                <outlet property="lblOverUnder1" destination="Xp8-Sc-gYQ" id="rcE-SY-kOd"/>
+                <outlet property="lblOverUnder2" destination="HW0-jd-gBv" id="6tq-lM-Xdw"/>
+                <outlet property="lblOverUnder3" destination="vB2-Pt-FHy" id="pUW-Fb-bQU"/>
+                <outlet property="lblScore" destination="KDb-lZ-dxW" id="pla-C3-Noo"/>
+                <outlet property="lblTime" destination="bZs-2G-7ae" id="THE-ER-Vh0"/>
+                <outlet property="odds1Stack" destination="6mp-ZI-La5" id="Acb-MU-Am3"/>
+                <outlet property="odds2Stack" destination="1sx-ay-Dg2" id="bpy-0R-rgz"/>
+                <outlet property="viewAnalysis" destination="wOs-zB-5HO" id="Yfe-2f-9Uh"/>
+                <outlet property="viewBriefing" destination="Btb-We-4rW" id="c4A-yt-tP8"/>
+                <outlet property="viewEvent" destination="fbA-lj-qbB" id="fsw-xU-Qe5"/>
+                <outlet property="viewIndex" destination="5Bb-4f-W4P" id="b2g-ae-cAR"/>
+                <outlet property="viewLeague" destination="NEA-fZ-cdt" id="iEg-dW-WwX"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
@@ -172,25 +196,6 @@
                                 </label>
                             </subviews>
                         </stackView>
-                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="r6t-lp-pOc" userLabel="index">
-                            <rect key="frame" x="3" y="82.5" width="31" height="15"/>
-                            <subviews>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Index" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fIc-pU-ojb">
-                                    <rect key="frame" x="2" y="2" width="27" height="11"/>
-                                    <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="10"/>
-                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                    <nil key="highlightedColor"/>
-                                </label>
-                            </subviews>
-                            <color key="backgroundColor" name="yellow"/>
-                            <constraints>
-                                <constraint firstAttribute="height" constant="15" id="Nga-Wj-u8D"/>
-                                <constraint firstItem="fIc-pU-ojb" firstAttribute="top" secondItem="r6t-lp-pOc" secondAttribute="top" constant="2" id="fdT-PS-QMZ"/>
-                                <constraint firstItem="fIc-pU-ojb" firstAttribute="leading" secondItem="r6t-lp-pOc" secondAttribute="leading" constant="2" id="u2h-Xi-IjM"/>
-                                <constraint firstAttribute="trailing" secondItem="fIc-pU-ojb" secondAttribute="trailing" constant="2" id="yUE-Wd-5rQ"/>
-                                <constraint firstAttribute="bottom" secondItem="fIc-pU-ojb" secondAttribute="bottom" constant="2" id="zMF-nd-3CB"/>
-                            </constraints>
-                        </view>
                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="r1d-6d-cWg">
                             <rect key="frame" x="361" y="74" width="72" height="33"/>
                             <subviews>
@@ -404,6 +409,25 @@
                                 </view>
                             </subviews>
                         </stackView>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="r6t-lp-pOc" userLabel="index">
+                            <rect key="frame" x="3" y="83" width="31" height="15"/>
+                            <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Index" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fIc-pU-ojb">
+                                    <rect key="frame" x="2" y="2" width="27" height="11"/>
+                                    <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="10"/>
+                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
+                            <color key="backgroundColor" name="yellow"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="15" id="Nga-Wj-u8D"/>
+                                <constraint firstItem="fIc-pU-ojb" firstAttribute="top" secondItem="r6t-lp-pOc" secondAttribute="top" constant="2" id="fdT-PS-QMZ"/>
+                                <constraint firstItem="fIc-pU-ojb" firstAttribute="leading" secondItem="r6t-lp-pOc" secondAttribute="leading" constant="2" id="u2h-Xi-IjM"/>
+                                <constraint firstAttribute="trailing" secondItem="fIc-pU-ojb" secondAttribute="trailing" constant="2" id="yUE-Wd-5rQ"/>
+                                <constraint firstAttribute="bottom" secondItem="fIc-pU-ojb" secondAttribute="bottom" constant="2" id="zMF-nd-3CB"/>
+                            </constraints>
+                        </view>
                     </subviews>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
@@ -459,7 +483,7 @@
                 <constraint firstItem="Fxw-PV-VNs" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="Ddl-wp-o9D"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="Fxw-PV-VNs" secondAttribute="trailing" id="NrA-vq-kc0"/>
                 <constraint firstItem="Fxw-PV-VNs" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="nT1-fA-uty"/>
-                <constraint firstAttribute="bottom" secondItem="Fxw-PV-VNs" secondAttribute="bottom" id="uNE-eO-s5A"/>
+                <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="Fxw-PV-VNs" secondAttribute="bottom" id="uNE-eO-s5A"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <point key="canvasLocation" x="149.27536231884059" y="-38.169642857142854"/>

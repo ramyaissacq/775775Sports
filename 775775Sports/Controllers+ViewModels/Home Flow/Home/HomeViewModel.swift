@@ -38,6 +38,8 @@ class HomeVieModel{
                 self.originals = tempMatches
             }
             else{
+               
+                self.originals?.removeAll()
                 self.originals = response.matchList
             }
             self.pageData = response.meta
@@ -68,8 +70,10 @@ class HomeVieModel{
     
     
     func getMatchesByLeague(leagueID:Int){
+        self.originals?.removeAll()
         self.matches?.removeAll()
-        self.matches = scoreResponse?.todayHotLeagueList?.filter{$0.leagueId == leagueID}
+        self.originals = scoreResponse?.todayHotLeagueList?.filter{$0.leagueId == leagueID}
+        self.matches = self.originals
         delegate?.didFinishFilterByLeague()
     }
     

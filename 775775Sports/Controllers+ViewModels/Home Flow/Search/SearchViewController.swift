@@ -57,6 +57,10 @@ extension SearchViewController:HomeViewModelDelegate{
 
 //MARK: - Searchbar Delegates
 extension SearchViewController:UISearchBarDelegate{
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        self.view.endEditing(true)
+    }
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         if searchText.trim() != ""{
             doSearch(searchText: searchText)

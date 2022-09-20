@@ -17,7 +17,9 @@ class HomeViewController: BaseViewController {
     @IBOutlet weak var timeView: UIView!
     @IBOutlet weak var lblLeague: UILabel!
     @IBOutlet weak var lblTime: UILabel!
-    
+    @IBOutlet weak var highlightsStack: UIStackView!
+    @IBOutlet weak var lblHeader: UILabel!
+    @IBOutlet weak var collectionViewHighlights: UICollectionView!
     //MARK: - Variables
     var viewModel = HomeVieModel()
     var page = 1
@@ -29,6 +31,7 @@ class HomeViewController: BaseViewController {
     var selectedLeagueID:Int?
     var selectedTimeIndex = 0
     var selectedDate = ""
+    var longPressId:Int?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -44,9 +47,8 @@ class HomeViewController: BaseViewController {
         configureLeagueDropDown()
         viewModel.categories = viewModel.todayCategories
         collectionViewCategory.registerCell(identifier: "RoundSelectionCollectionViewCell")
+        collectionViewHighlights.registerCell(identifier: "HighlightsCollectionViewCell")
         collectionViewCategory.selectItem(at: IndexPath(row: 0, section: 0), animated: true, scrollPosition: .left)
-        
-        
         tableView.register(UINib(nibName: "ScoresTableViewCell", bundle: nil), forCellReuseIdentifier: "cell")
         refreshControl = UIRefreshControl()
         refreshControl?.tintColor = .clear
@@ -71,11 +73,13 @@ class HomeViewController: BaseViewController {
             lblLeague.text = item
             if index == 0{
                 selectedLeagueID = nil
-                viewModel.matches = viewModel.originals
-                self.prepareDisplays()
+                if selectedTimeIndex == 0{
+                    page = 1
+                    viewModel.getMatchesList(page: page)
+                }
             }
             else{
-                selectedLeagueID = viewModel.scoreResponse?.todayHotLeague?[index].leagueId
+                selectedLeagueID = viewModel.scoreResponse?.todayHotLeague?[index-1].leagueId
                 //FootballLeague.leagues?[index-1].id
                 viewModel.getMatchesByLeague(leagueID: selectedLeagueID!)
             }
@@ -100,8 +104,6 @@ class HomeViewController: BaseViewController {
                 self.leagueDropDown?.dataSource = arr
                 lblLeague.text = arr.first
                 page = 1
-                viewModel.matches?.removeAll()
-                viewModel.originals?.removeAll()
                 viewModel.getMatchesList(page: page)
             case 1:
                 viewModel.categories = viewModel.pastDates
@@ -143,10 +145,8 @@ class HomeViewController: BaseViewController {
     }
     
     @objc func refresh(){
-        if selectedTimeIndex == 0{
+        if selectedTimeIndex == 0 && selectedLeagueID == nil{
             page = 1
-            viewModel.matches?.removeAll()
-            viewModel.originals?.removeAll()
             viewModel.getMatchesList(page: page)
             refreshControl?.endRefreshing()
         }
@@ -217,20 +217,30 @@ extension HomeViewController:HomeViewModelDelegate{
 
 extension HomeViewController:UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout{
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        
+        if collectionView == collectionViewCategory{
         return viewModel.categories.count
+        }
+        else{
+            return 4
+        }
         
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        
+        if collectionView == collectionViewCategory{
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "RoundSelectionCollectionViewCell", for: indexPath) as! RoundSelectionCollectionViewCell
         cell.configureCell(unselectedViewColor: Colors.fadeRedColor(), selectedViewColor: Colors.accentColor(), unselectedTitleColor: Colors.accentColor(), selectedTitleColor: .white, title: viewModel.categories[indexPath.row])
         return cell
+        }
+        else{
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "HighlightsCollectionViewCell", for: indexPath) as! HighlightsCollectionViewCell
+            return cell
+        }
         
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        if collectionView == collectionViewCategory{
         collectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
         if selectedTimeIndex == 0{
             selectedType = indexPath.row
@@ -242,16 +252,21 @@ extension HomeViewController:UICollectionViewDelegate,UICollectionViewDataSource
             viewModel.getRecentMatches(date: selectedDate)
             
         }
+        }
         
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        
+        if collectionView == collectionViewCategory{
         if categorySizes.count == 0{
             calculateCategorySizes()
         }
-        
         return CGSize(width: categorySizes[indexPath.row], height: 55)
+        }
+        else{
+            let w = UIScreen.main.bounds.width - 10
+            return CGSize(width: w, height: 160)
+        }
         
     }
     
@@ -275,7 +290,7 @@ extension HomeViewController:UITableViewDelegate,UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if selectedTimeIndex == 0{
-            if indexPath.row == viewModel.getModelCount()-1{
+            if indexPath.row == viewModel.getModelCount()-1 && selectedLeagueID == nil{
                 if page <= (viewModel.pageData?.lastPage ?? 0){
                     viewModel.getMatchesList(page: page)
                 }
@@ -302,7 +317,12 @@ extension HomeViewController:UITableViewDelegate,UITableViewDataSource{
             self.goToCategory(index: indexPath.row, category: .league)
             
         }
+        cell.callLongPress = {
+            self.showMatchOptions(row: indexPath.row)
+            
+        }
         
+       
         cell.configureCell(obj: viewModel.matches?[indexPath.row])
         return cell
         
@@ -317,7 +337,30 @@ extension HomeViewController:UITableViewDelegate,UITableViewDataSource{
         
     }
     
-    
-    
+    func showMatchOptions(row:Int){
+        if longPressId == nil{
+        longPressId = row
+            let obj = viewModel.matches?[row]
+        Dialog.openMatchOptionsDialog {
+            self.longPressId = nil
+            let matchDate = Utility.getSystemTimeZoneTime(dateString: obj?.matchTime ?? "")
+            if matchDate > Date(){
+                Utility.scheduleLocalNotification(date: matchDate, subTitle: obj?.leagueName ?? "", body: "Match \(obj?.homeName ?? "") Vs \(obj?.awayName ?? "") will start now")
+            }
+            else{
+                Utility.showErrorSnackView(message: "Please choose upcoming matches")
+            }
+            
+        } callHighlights: {
+            self.longPressId = nil
+            
+        } callPin: {
+            self.longPressId = nil
+        } callClose: {
+            self.longPressId = nil
+        }
+        }
+  
+    }
     
 }

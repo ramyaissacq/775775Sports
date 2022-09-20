@@ -4,6 +4,8 @@ import UIKit
 import Reachability
 import ProgressHUD
 import CoreLocation
+import UserNotifications
+
 //import MOLH
 
 class Utility: NSObject {
@@ -309,5 +311,43 @@ class Utility: NSObject {
     class func secondsToHoursMinutesSeconds(_ seconds: Int) -> (Int, Int, Int) {
         return (seconds / 3600, (seconds % 3600) / 60, (seconds % 3600) % 60)
     }
+    
+    class func scheduleLocalNotification(date:Date,subTitle:String,body:String) {
+        // Create Notification Content
+        let notificationContent = UNMutableNotificationContent()
+
+        // Configure Notification Content
+        notificationContent.title = "Reminder"
+        notificationContent.subtitle = subTitle
+        notificationContent.body = body
+
+        // Add Trigger
+        //let notificationTrigger = UNTimeIntervalNotificationTrigger(timeInterval: 10.0, repeats: false)
+        
+        let calendar = Calendar(identifier: .gregorian)
+        let components = calendar.dateComponents([.year,.day,.month,.hour,.minute,.second], from: date)
+        print(components)
+        //components.year = 2022
+        let trg2 = UNCalendarNotificationTrigger(dateMatching: components, repeats: false)
+
+        // Create Notification Request
+        let notificationRequest = UNNotificationRequest(identifier: "cocoacasts_local_notification", content: notificationContent, trigger: trg2)
+
+        // Add Request to User Notification Center
+        UNUserNotificationCenter.current().add(notificationRequest) { (error) in
+            if let error = error {
+                print("Unable to Add Notification Request (\(error), \(error.localizedDescription))")
+                DispatchQueue.main.async {
+                Utility.showErrorSnackView(message: "Unable to Add Reminder")
+                }
+            }
+            DispatchQueue.main.async {
+                Utility.showSuccessSnackView(message: "Reminder saved successfully", iconName: "")
+                
+            }
+            
+        }
+    }
+
     
 }
