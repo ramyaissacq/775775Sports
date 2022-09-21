@@ -21,7 +21,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="50"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="50" id="5YT-bb-vvd"/>
+                            <constraint firstAttribute="height" constant="50" id="QXa-nJ-Q79"/>
                         </constraints>
                         <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="5" minimumInteritemSpacing="5" id="MDi-2l-tsc">
                             <size key="itemSize" width="128" height="128"/>
@@ -36,12 +36,13 @@
                     <constraint firstAttribute="trailing" secondItem="n5P-cR-rY9" secondAttribute="trailing" id="IO0-52-4p4"/>
                     <constraint firstItem="n5P-cR-rY9" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="UMh-Sw-WQw"/>
                     <constraint firstItem="n5P-cR-rY9" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="VDj-0r-oVY"/>
-                    <constraint firstAttribute="bottom" secondItem="n5P-cR-rY9" secondAttribute="bottom" id="pCj-gS-POM"/>
+                    <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="n5P-cR-rY9" secondAttribute="bottom" id="pCj-gS-POM"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <connections>
+                <outlet property="collectionHeight" destination="QXa-nJ-Q79" id="MGO-pU-bBd"/>
                 <outlet property="collectionViewRow" destination="n5P-cR-rY9" id="cgT-hz-DYJ"/>
             </connections>
             <point key="canvasLocation" x="131.8840579710145" y="87.723214285714278"/>

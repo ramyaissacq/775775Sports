@@ -12,6 +12,7 @@ protocol HomeViewModelDelegate{
     func getCurrentPage()->Int
     func didFinishFetchRecentMatches()
     func didFinishFilterByLeague()
+    func didFinishFetchBasketballScores()
     
 }
 
@@ -26,6 +27,9 @@ class HomeVieModel{
     var todayCategories = ["ALL","LIVE","SOON","FT"]
     //,"OTHER"
     var categories = [String]()
+    
+    //basketball models
+    var basketballMatches:[BasketballMatchList]?
     
     
     func getMatchesList(page:Int){
@@ -69,6 +73,21 @@ class HomeVieModel{
     }
     
     
+    func getBasketballScores(){
+        HomeAPI().getBasketballScores { response in
+            self.basketballMatches = response.matchList
+        } failed: { msg in
+            Utility.showErrorSnackView(message: msg)
+        }
+
+    }
+    
+    
+    
+}
+
+
+extension HomeVieModel{
     func getMatchesByLeague(leagueID:Int){
         self.originals?.removeAll()
         self.matches?.removeAll()
@@ -78,8 +97,14 @@ class HomeVieModel{
     }
     
     
-    func getModelCount()->Int{
+    func getModelCount(sport:SportsType)->Int{
+        if sport == .soccer{
         return matches?.count ?? 0
+        }
+        else if sport == .basketball{
+            return basketballMatches?.count ?? 0
+        }
+        return 0
     }
     
     func filterMatches(type:Int){
@@ -129,6 +154,4 @@ class HomeVieModel{
         
         
     }
-    
-    
 }

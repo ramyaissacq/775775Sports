@@ -52,6 +52,10 @@ extension SearchViewController:HomeViewModelDelegate{
         
     }
     
+    func didFinishFetchBasketballScores() {
+        
+    }
+    
     
 }
 

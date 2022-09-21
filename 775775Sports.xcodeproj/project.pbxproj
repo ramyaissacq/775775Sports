@@ -156,6 +156,12 @@
 		AD84792328D855D800367DDD /* TodayHotLeague.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD84792228D855D800367DDD /* TodayHotLeague.swift */; };
 		AD84792528D89DFD00367DDD /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD84792428D89DFD00367DDD /* SearchViewModel.swift */; };
 		AD84F26228D5930C00D603CE /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD84F26128D5930C00D603CE /* SearchViewController.swift */; };
+		AD8836F628DB2DE500CC42AA /* BasketballMatchList.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD8836F228DB2DE500CC42AA /* BasketballMatchList.swift */; };
+		AD8836F728DB2DE500CC42AA /* BasketOdds.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD8836F328DB2DE500CC42AA /* BasketOdds.swift */; };
+		AD8836F828DB2DE500CC42AA /* BasketballScoreResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD8836F428DB2DE500CC42AA /* BasketballScoreResponse.swift */; };
+		AD8836FB28DB35B100CC42AA /* ScoresTableviewCell+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD8836FA28DB35B100CC42AA /* ScoresTableviewCell+Extensions.swift */; };
+		AD8836FD28DB399200CC42AA /* MoneyLineAverage.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD8836FC28DB399200CC42AA /* MoneyLineAverage.swift */; };
+		AD959FB328DAFC32005EE4BC /* Extensions+HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD959FB228DAFC32005EE4BC /* Extensions+HomeViewController.swift */; };
 		ADADCB6528C1D6C200D28A45 /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ADADCB6428C1D6C200D28A45 /* Home.storyboard */; };
 		ADADCB6728C1D74E00D28A45 /* Live.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ADADCB6628C1D74E00D28A45 /* Live.storyboard */; };
 		ADADCB6928C1D76500D28A45 /* News.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ADADCB6828C1D76500D28A45 /* News.storyboard */; };
@@ -379,6 +385,12 @@
 		AD84792228D855D800367DDD /* TodayHotLeague.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TodayHotLeague.swift; sourceTree = "<group>"; };
 		AD84792428D89DFD00367DDD /* SearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModel.swift; sourceTree = "<group>"; };
 		AD84F26128D5930C00D603CE /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		AD8836F228DB2DE500CC42AA /* BasketballMatchList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BasketballMatchList.swift; sourceTree = "<group>"; };
+		AD8836F328DB2DE500CC42AA /* BasketOdds.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BasketOdds.swift; sourceTree = "<group>"; };
+		AD8836F428DB2DE500CC42AA /* BasketballScoreResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BasketballScoreResponse.swift; sourceTree = "<group>"; };
+		AD8836FA28DB35B100CC42AA /* ScoresTableviewCell+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ScoresTableviewCell+Extensions.swift"; sourceTree = "<group>"; };
+		AD8836FC28DB399200CC42AA /* MoneyLineAverage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoneyLineAverage.swift; sourceTree = "<group>"; };
+		AD959FB228DAFC32005EE4BC /* Extensions+HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extensions+HomeViewController.swift"; sourceTree = "<group>"; };
 		ADADCB6428C1D6C200D28A45 /* Home.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
 		ADADCB6628C1D74E00D28A45 /* Live.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Live.storyboard; sourceTree = "<group>"; };
 		ADADCB6828C1D76500D28A45 /* News.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = News.storyboard; sourceTree = "<group>"; };
@@ -1009,12 +1021,8 @@
 		AD6B6D3B28C89F5600A2F824 /* scoresResponse */ = {
 			isa = PBXGroup;
 			children = (
-				AD6B6D3F28C89F7B00A2F824 /* MatchList.swift */,
-				AD6B6D3C28C89F7B00A2F824 /* Meta.swift */,
-				AD6B6D3E28C89F7B00A2F824 /* Odds.swift */,
-				AD6B6D3D28C89F7B00A2F824 /* ScoresResponse.swift */,
-				AD84792228D855D800367DDD /* TodayHotLeague.swift */,
-				AD6B6D4028C89F7B00A2F824 /* VideoDetail.swift */,
+				AD8836F128DB2DCF00CC42AA /* Basketball */,
+				AD8836F028DB2DAC00CC42AA /* Football */,
 			);
 			path = scoresResponse;
 			sourceTree = "<group>";
@@ -1160,6 +1168,30 @@
 			path = Search;
 			sourceTree = "<group>";
 		};
+		AD8836F028DB2DAC00CC42AA /* Football */ = {
+			isa = PBXGroup;
+			children = (
+				AD6B6D3F28C89F7B00A2F824 /* MatchList.swift */,
+				AD6B6D3C28C89F7B00A2F824 /* Meta.swift */,
+				AD6B6D3E28C89F7B00A2F824 /* Odds.swift */,
+				AD6B6D3D28C89F7B00A2F824 /* ScoresResponse.swift */,
+				AD84792228D855D800367DDD /* TodayHotLeague.swift */,
+				AD6B6D4028C89F7B00A2F824 /* VideoDetail.swift */,
+			);
+			path = Football;
+			sourceTree = "<group>";
+		};
+		AD8836F128DB2DCF00CC42AA /* Basketball */ = {
+			isa = PBXGroup;
+			children = (
+				AD8836F228DB2DE500CC42AA /* BasketballMatchList.swift */,
+				AD8836FC28DB399200CC42AA /* MoneyLineAverage.swift */,
+				AD8836F328DB2DE500CC42AA /* BasketOdds.swift */,
+				AD8836F428DB2DE500CC42AA /* BasketballScoreResponse.swift */,
+			);
+			path = Basketball;
+			sourceTree = "<group>";
+		};
 		ADADCB7C28C1FAF800D28A45 /* Home Flow */ = {
 			isa = PBXGroup;
 			children = (
@@ -1179,6 +1211,7 @@
 			isa = PBXGroup;
 			children = (
 				ADADCB7228C1EB5000D28A45 /* HomeViewController.swift */,
+				AD959FB228DAFC32005EE4BC /* Extensions+HomeViewController.swift */,
 				AD6B6D4628C8AF1300A2F824 /* HomeViewModel.swift */,
 			);
 			path = Home;
@@ -1220,6 +1253,7 @@
 			isa = PBXGroup;
 			children = (
 				ADB2D76628C61E240063C2FF /* ScoresTableViewCell.swift */,
+				AD8836FA28DB35B100CC42AA /* ScoresTableviewCell+Extensions.swift */,
 				ADB2D76728C61E240063C2FF /* ScoresTableViewCell.xib */,
 			);
 			path = Scores;
@@ -1714,6 +1748,7 @@
 				AD76588628CA275900014F23 /* NewsDetails.swift in Sources */,
 				AD6B6D4428C89F7B00A2F824 /* MatchList.swift in Sources */,
 				AD7C2EA628D06DF1001F93F2 /* EventsHeaderTableViewCell.swift in Sources */,
+				AD959FB328DAFC32005EE4BC /* Extensions+HomeViewController.swift in Sources */,
 				AD76588328CA0B9100014F23 /* VideoList.swift in Sources */,
 				ADB5DB1B28D20B2000B9E586 /* LeagueResponse.swift in Sources */,
 				AD4543D828CB608A0099F800 /* TeamInfo.swift in Sources */,
@@ -1729,11 +1764,13 @@
 				AD4543D328CB608A0099F800 /* TotalStandings.swift in Sources */,
 				AD48D1DB28D32A6100D84FF0 /* LeaguePlayercount.swift in Sources */,
 				ADADCB7528C1EB7500D28A45 /* LiveViewController.swift in Sources */,
+				AD8836F828DB2DE500CC42AA /* BasketballScoreResponse.swift in Sources */,
 				AD1CEF5428C0DF1600FA39AF /* CollectionViewExtension.swift in Sources */,
 				AD1CEF5628C0DF1600FA39AF /* Images.swift in Sources */,
 				AD4543D428CB608A0099F800 /* TeamStandingsResponse.swift in Sources */,
 				AD0B05C628D08D7E004B1A00 /* EventViewController.swift in Sources */,
 				ADC03D3928C33E6B00D1790E /* TitleCollectionViewCell.swift in Sources */,
+				AD8836FD28DB399200CC42AA /* MoneyLineAverage.swift in Sources */,
 				AD4543E028CB6EE50099F800 /* FootballLeague.swift in Sources */,
 				ADB5DB0828D1B09800B9E586 /* BreiefingResponse.swift in Sources */,
 				AD1CEF6E28C0E83900FA39AF /* NewsGamesCollectionViewCell.swift in Sources */,
@@ -1743,6 +1780,7 @@
 				AD4543DB28CB608A0099F800 /* AwayHalfStandings.swift in Sources */,
 				ADB5DB0D28D1B77300B9E586 /* BreifingViewModel.swift in Sources */,
 				AD48D1DC28D32A6100D84FF0 /* ScoreItems.swift in Sources */,
+				AD8836FB28DB35B100CC42AA /* ScoresTableviewCell+Extensions.swift in Sources */,
 				AD58CB6928C2327D00327BD2 /* NewsDetailsViewController.swift in Sources */,
 				AD76586B28C9B6C600014F23 /* ScoresByIndexResponse.swift in Sources */,
 				ADB5DB1128D1E17200B9E586 /* LeagueTableViewCell.swift in Sources */,
@@ -1752,6 +1790,7 @@
 				AD4543D628CB608A0099F800 /* HomeStandings.swift in Sources */,
 				AD1CEF4828C0DF1600FA39AF /* UIView+Extension.swift in Sources */,
 				ADC03D4D28C360EB00D1790E /* StandingsTableViewCell.swift in Sources */,
+				AD8836F728DB2DE500CC42AA /* BasketOdds.swift in Sources */,
 				AD76587C28CA053300014F23 /* NewsAPI.swift in Sources */,
 				AD0B05CE28D0976C004B1A00 /* Event.swift in Sources */,
 				AD76587928CA046800014F23 /* NewsList.swift in Sources */,
@@ -1802,6 +1841,7 @@
 				AD1CEF6728C0DF4500FA39AF /* Dialog.swift in Sources */,
 				AD182D7E28CF112800080963 /* AnalysisHeaderTableViewCell.swift in Sources */,
 				AD1CEF5A28C0DF1600FA39AF /* FilePicker.swift in Sources */,
+				AD8836F628DB2DE500CC42AA /* BasketballMatchList.swift in Sources */,
 				AD0B05C228D075C7004B1A00 /* EventTechnicTableViewCell.swift in Sources */,
 				AD1CEF1928C0DD6E00FA39AF /* BaseUrl.swift in Sources */,
 				AD1CEF7228C0EDD300FA39AF /* NewsTableViewCell.swift in Sources */,
@@ -2029,6 +2069,7 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
@@ -2041,7 +2082,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -2059,6 +2100,7 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
@@ -2071,7 +2113,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

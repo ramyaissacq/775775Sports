@@ -186,5 +186,69 @@ struct MatchList {
         weather = obj?.weatherEn
         explain = obj?.explainEn
     }
+    
+    
+    func toDictionary() ->[String:Any]{
+        var dict = [String:Any]()
+        dict["matchId"] = matchId ?? 0
+        dict["color"] = color ?? ""
+        dict["kind"] = kind ?? 0
+        dict["leagueId"] = leagueId ?? 0
+        dict["subLeagueId"] = subLeagueId ?? ""
+        dict["matchTime"] = matchTime ?? ""
+        dict["startTime"] = startTime ?? ""
+        dict["homeId"] = homeId ?? 0
+        dict["awayId"] = awayId ?? 0
+        dict["state"] = state ?? 0
+        dict["homeScore"] = homeScore ?? 0
+        dict["awayScore"] = awayScore ?? 0
+        dict["homeHalfScore"] = homeHalfScore ?? ""
+        dict["awayHalfScore"] = awayHalfScore ?? ""
+        dict["homeRed"] = homeRed ?? 0
+        dict["awayRed"] = awayRed ?? 0
+        dict["homeYellow"] = homeYellow ?? 0
+        dict["awayYellow"] = awayYellow ?? 0
+        dict["homeCorner"] = homeCorner ?? ""
+        dict["awayCorner"] = awayCorner ?? ""
+        dict["isNeutral"] = isNeutral ?? false
+        dict["hasLineup"] = hasLineup ?? ""
+        dict["season"] = season ?? ""
+        dict["grouping"] = grouping ?? ""
+        dict["groupId"] = groupId ?? 0
+        dict["temp"] = temp ?? ""
+        dict["extraExplain"] = extraExplain ?? ""
+        dict["isHidden"] = isHidden ?? false
+        dict["havEvent"] = havEvent ?? false
+        dict["havTech"] = havTech ?? false
+        dict["havAnim"] = havAnim ?? false
+        dict["animateURL"] = animateURL ?? ""
+        dict["havBriefing"] = havBriefing ?? false
+        dict["havPlayerDetails"] = havPlayerDetails ?? false
+        dict["havLineup"] = havLineup ?? false
+        dict["havTextLive"] = havTextLive ?? false
+        dict["havLiveVideo"] = havLiveVideo ?? false
+        dict["videoId"] = videoId ?? 0
+        dict["videoDetail"] = videoDetail?.toDictionary()
+        dict["havLiveAnchor"] = havLiveAnchor ?? false
+        dict["havLiveAnchorId"] = havLiveAnchorId ?? ""
+        dict["havLiveAnchorLocale"] = havLiveAnchorLocale ?? ""
+        dict["homeLogo"] = homeLogo ?? ""
+        dict["awayLogo"] = awayLogo ?? ""
+        dict["havOdds"] = havOdds ?? false
+        dict["odds"] = odds?.toDictionary()
+        dict["leagueName"] = leagueName ?? ""
+        dict["leagueNameShort"] = leagueNameShort ?? ""
+        dict["subLeagueName"] = subLeagueName ?? ""
+        dict["homeName"] = homeName ?? ""
+        dict["awayName"] = awayName ?? ""
+        dict["homeRank"] = homeRank ?? ""
+        dict["awayRank"] = awayRank ?? ""
+        dict["round"] = round ?? ""
+        dict["location"] = location ?? ""
+        dict["weather"] = weather ?? ""
+        dict["explain"] = explain ?? ""
+        return dict
+        
+    }
 
 }

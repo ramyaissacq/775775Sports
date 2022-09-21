@@ -74,4 +74,15 @@ class HomeAPI: WebService {
         }, failed: failed)
     }
     
+    
+    //Basketball APIs
+    func getBasketballScores(completion:@escaping (BasketballScoreResponse) -> Void, failed: @escaping (String) -> Void){
+        let url = BaseUrl.getBaseUrl() + EndPoints.basketball_scores.rawValue
+        get(url: url, params: [:], completion: { json in
+            let response = BasketballScoreResponse(json!)
+            completion(response)
+        }, failed: failed)
+    }
+    
+    
 }

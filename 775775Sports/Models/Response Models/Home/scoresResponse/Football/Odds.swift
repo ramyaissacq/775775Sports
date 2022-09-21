@@ -22,5 +22,16 @@ struct Odds {
 		overUnder = json["overUnder"].arrayValue.map { $0.doubleValue }
 		overUnderHalf = json["overUnderHalf"].arrayValue.map { $0.doubleValue }
 	}
+    
+    func toDictionary()->[String:Any]{
+        var dict = [String:Any]()
+        dict["handicap"] = handicap ?? []
+        dict["handicapHalf"] = handicapHalf ?? []
+        dict["europeOdds"] = europeOdds ?? []
+        dict["overUnder"] = overUnder ?? []
+        dict["overUnderHalf"] = overUnderHalf ?? []
+        return dict
+       
+    }
 
 }

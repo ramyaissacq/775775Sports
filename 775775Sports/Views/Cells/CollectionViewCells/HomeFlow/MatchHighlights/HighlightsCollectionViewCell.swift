@@ -12,7 +12,7 @@ class HighlightsCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var scoresView: ScoresView!
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        
     }
     
     func configureCell(obj:MatchList?){
@@ -20,5 +20,5 @@ class HighlightsCollectionViewCell: UICollectionViewCell {
     }
     
     
-
+   
 }

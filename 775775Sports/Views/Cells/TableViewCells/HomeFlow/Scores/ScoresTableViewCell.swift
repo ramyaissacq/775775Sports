@@ -46,6 +46,9 @@ class ScoresTableViewCell: UITableViewCell {
     @IBOutlet weak var cornerStack: UIStackView!
     @IBOutlet weak var cornerView: UIView!
     
+    @IBOutlet weak var quartersStack: UIStackView!
+    @IBOutlet weak var tableViewQuarters: UITableView!
+    
     //MARK: - Variables
     var callIndexSelection:(()->Void)?
     var callAnalysisSelection:(()->Void)?
@@ -53,10 +56,18 @@ class ScoresTableViewCell: UITableViewCell {
     var callBriefingSelection:(()->Void)?
     var callLeagueSelection:(()->Void)?
     var callLongPress:(()->Void)?
+    var quarters = ["","1Q","2Q","3Q","4Q","F"]
+    var homeScores = [String]()
+    var awayScores = [String]()
     
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        tableViewQuarters.delegate = self
+        tableViewQuarters.dataSource = self
+        tableViewQuarters.register(UINib(nibName: "GeneralRowTableViewCell", bundle: nil), forCellReuseIdentifier: "cell")
+        
+        
         let tap = UITapGestureRecognizer(target: self, action: #selector(tapIndex))
         viewIndex.addGestureRecognizer(tap)
         
@@ -113,6 +124,9 @@ class ScoresTableViewCell: UITableViewCell {
     }
     
     func configureCell(obj:MatchList?){
+        quartersStack.isHidden = true
+        cornerStack.isHidden = false
+        cornerView.isHidden = false
         lblName.text = obj?.leagueName
         lblHomeName.text = obj?.homeName
         lblAwayName.text = obj?.awayName
@@ -189,50 +203,54 @@ class ScoresTableViewCell: UITableViewCell {
         
     }
     
-    class func getStatus(state:Int)->String{
-        var value = ""
-        switch state{
-        case 0:
-            value = "SOON"
-        case 1:
-            value = "FH"
-        case 2:
-            value = "HT"
-        case 3:
-            value = "SH"
-        case 4:
-            value = "OT"
-        case 5:
-            value = "PT"
-        case -1:
-            value = "FT"
-        case -10:
-            value = "C"
-        case -11:
-            value = "TBD"
-        case -12:
-            value = "CIH"
-        case -13:
-            value = "INT"
-        case -14:
-            value = "DEL"
+    
+    func configureCell(obj:BasketballMatchList?){
+        cornerStack.isHidden = true
+        cornerView.isHidden = true
+        lblName.text = obj?.leagueNameEn
+        lblHomeName.text = obj?.homeTeamNameEn
+        lblAwayName.text = obj?.awayTeamNameEn
+        if obj?.matchState == 0{
+            lblScore.text = "SOON"
+        }
+        else{
+        lblScore.text = "\(obj?.homeScore ?? "" ) : \(obj?.awayScore ?? "")"
+        }
+        let date = Utility.getSystemTimeZoneTime(dateString: obj?.matchTime ?? "")
+        lblDate.text = Utility.formatDate(date: date, with: .eddmmm)
+        
+        let matchDate = Utility.getSystemTimeZoneTime(dateString: obj?.matchTime ?? "")
+        lblTime.text = Utility.formatDate(date: matchDate, with: .hhmm2)
+       
+            lblHandicap1.text = String(obj?.odds?.moneyLineAverage?.liveHomeWinRate ?? 0)
+        if obj?.odds?.spread?.count ?? 0 > 9{
+            lblHandicap2.text = String(obj?.odds?.spread?[9] ?? 0)
+        }
+        if obj?.odds?.total?.count ?? 0 > 9{
+        lblHandicap3.text = String(obj?.odds?.total?[9] ?? 0)
+        }
+        
+        lblOverUnder1.text = String(obj?.odds?.moneyLineAverage?.liveAwayWinRate ?? 0)
+        if obj?.odds?.spread?.count ?? 0 > 10{
+        lblOverUnder2.text = String(obj?.odds?.spread?[10] ?? 0)
+        }
+        if obj?.odds?.total?.count ?? 0 > 10{
+        lblOverUnder3.text = String(obj?.odds?.total?[10] ?? 0)
+        }
+       
+        if obj?.havBriefing ?? false{
+            viewBriefing.isHidden = false
+        }
+        else{
+            viewBriefing.isHidden = true
             
-        default:
-            break
         }
-        return value
+        homeScores = ["Home",obj?.home1 ?? "",obj?.home2 ?? "",obj?.home3 ?? "",obj?.home4 ?? "",obj?.homeScore ?? ""]
+        awayScores = ["Away",obj?.away1 ?? "",obj?.away2 ?? "",obj?.away3 ?? "",obj?.away4 ?? "",obj?.awayScore ?? ""]
+        tableViewQuarters.reloadData()
+        quartersStack.isHidden = false
+        
+        
     }
-    
-   
-    
-    class func getMinutesFromTimeInterval(interval: TimeInterval)->Int{
-          let time = NSInteger(interval)
-          //let seconds = time % 60
-          let minutes = (time / 60) % 60
-          //let hours = (time / 3600)
-          return minutes
-        }
-    
-    
-    
 }
+    

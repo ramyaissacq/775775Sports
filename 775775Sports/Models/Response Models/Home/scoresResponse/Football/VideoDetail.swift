@@ -26,5 +26,18 @@ struct VideoDetail {
 		url = json["url"].stringValue
 		flv = json["flv"].stringValue
 	}
+    
+    func toDictionary()->[String:Any]{
+        var dict = [String:Any]()
+        dict["iframe"] = iframe ?? ""
+        dict["m3u8"] = m3u8 ?? ""
+        dict["snapshot"] = snapshot ?? ""
+        dict["sort"] = sort ?? ""
+        dict["status"] = status ?? ""
+        dict["url"] = url ?? ""
+        dict["flv"] = flv ?? ""
+        return dict
+      
+    }
 
 }
