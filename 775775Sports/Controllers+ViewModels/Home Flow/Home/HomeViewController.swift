@@ -65,6 +65,10 @@ class HomeViewController: BaseViewController {
     
     
     func initialSettings(){
+        
+        UNUserNotificationCenter.current().delegate = self
+        Utility.scheduleLocalNotificationNow(time: 1, title: "Hon Kong Vs Myanmar", subTitle: "", body: "Scores - 2:1, C - 3:1, HT - 1:0")
+        Utility.scheduleLocalNotificationNow(time: 5, title: "Hon Kong Vs Myanmar", subTitle: "GOAL!!", body: "Scores - 3:1, C - 3:1, HT - 1:0")
         setupNavButtons()
         setupGestures()
         // FootballLeague.populateFootballLeagues()

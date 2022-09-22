@@ -331,7 +331,7 @@ class Utility: NSObject {
         let trg2 = UNCalendarNotificationTrigger(dateMatching: components, repeats: false)
 
         // Create Notification Request
-        let notificationRequest = UNNotificationRequest(identifier: "cocoacasts_local_notification", content: notificationContent, trigger: trg2)
+        let notificationRequest = UNNotificationRequest(identifier: UUID().uuidString, content: notificationContent, trigger: trg2)
 
         // Add Request to User Notification Center
         UNUserNotificationCenter.current().add(notificationRequest) { (error) in
@@ -348,6 +348,51 @@ class Utility: NSObject {
             
         }
     }
+    
+    class func scheduleLocalNotificationNow(time:Double,title:String,subTitle:String,body:String) {
+        // Create Notification Content
+        let notificationContent = UNMutableNotificationContent()
+
+        // Configure Notification Content
+        notificationContent.title = title
+        notificationContent.subtitle = subTitle
+        notificationContent.body = body
+
+        // Add Trigger
+        let notificationTrigger = UNTimeIntervalNotificationTrigger(timeInterval: time, repeats: false)
+       
+        // Create Notification Request
+        let notificationRequest = UNNotificationRequest(identifier: UUID().uuidString, content: notificationContent, trigger: notificationTrigger)
+
+        // Add Request to User Notification Center
+        UNUserNotificationCenter.current().add(notificationRequest) { (error) in
+            if let error = error {
+                print("Unable to Add Notification Request (\(error), \(error.localizedDescription))")
+//                DispatchQueue.main.async {
+//                Utility.showErrorSnackView(message: "Unable to Add Reminder")
+//                }
+            }
+            print("Notificatoion set")
+//            DispatchQueue.main.async {
+//                Utility.showSuccessSnackView(message: "Reminder saved successfully", iconName: "")
+//
+//            }
+            
+        }
+    }
+    
+   class func checkPendings(){
+        let calendar = Calendar(identifier: .gregorian)
+        UNUserNotificationCenter.current().getPendingNotificationRequests(){ requests in
+            for request in requests {
+                guard let trigger = request.trigger as? UNCalendarNotificationTrigger else {return}
+                if let dt = trigger.nextTriggerDate(){
+                print(calendar.dateComponents([.year,.day,.month,.hour,.minute,.second], from: dt))
+                }
+            }
+        }
+   }
+        
 
     
 }

@@ -132,6 +132,8 @@
 		AD6B6D4428C89F7B00A2F824 /* MatchList.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD6B6D3F28C89F7B00A2F824 /* MatchList.swift */; };
 		AD6B6D4528C89F7B00A2F824 /* VideoDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD6B6D4028C89F7B00A2F824 /* VideoDetail.swift */; };
 		AD6B6D4728C8AF1300A2F824 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD6B6D4628C8AF1300A2F824 /* HomeViewModel.swift */; };
+		AD72725A28DC349A00341D4F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD72725928DC349A00341D4F /* ViewController.swift */; };
+		AD72725C28DC35F400341D4F /* Home+Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD72725B28DC35F400341D4F /* Home+Notifications.swift */; };
 		AD76586B28C9B6C600014F23 /* ScoresByIndexResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD76586928C9B6C600014F23 /* ScoresByIndexResponse.swift */; };
 		AD76586C28C9B6C600014F23 /* List.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD76586A28C9B6C600014F23 /* List.swift */; };
 		AD76587028C9C9AA00014F23 /* FootballCompany.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD76586F28C9C9AA00014F23 /* FootballCompany.swift */; };
@@ -361,6 +363,8 @@
 		AD6B6D3F28C89F7B00A2F824 /* MatchList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MatchList.swift; sourceTree = "<group>"; };
 		AD6B6D4028C89F7B00A2F824 /* VideoDetail.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoDetail.swift; sourceTree = "<group>"; };
 		AD6B6D4628C8AF1300A2F824 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		AD72725928DC349A00341D4F /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		AD72725B28DC35F400341D4F /* Home+Notifications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Home+Notifications.swift"; sourceTree = "<group>"; };
 		AD76586928C9B6C600014F23 /* ScoresByIndexResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScoresByIndexResponse.swift; sourceTree = "<group>"; };
 		AD76586A28C9B6C600014F23 /* List.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = List.swift; sourceTree = "<group>"; };
 		AD76586F28C9C9AA00014F23 /* FootballCompany.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FootballCompany.swift; sourceTree = "<group>"; };
@@ -697,6 +701,7 @@
 				ADADCB7E28C1FB5400D28A45 /* News Flow */,
 				ADADCB7C28C1FAF800D28A45 /* Home Flow */,
 				ADADCB7428C1EB7500D28A45 /* LiveViewController.swift */,
+				AD72725928DC349A00341D4F /* ViewController.swift */,
 				ADADCB7A28C1EBC600D28A45 /* ForumViewController.swift */,
 			);
 			path = "Controllers+ViewModels";
@@ -1212,6 +1217,7 @@
 			children = (
 				ADADCB7228C1EB5000D28A45 /* HomeViewController.swift */,
 				AD959FB228DAFC32005EE4BC /* Extensions+HomeViewController.swift */,
+				AD72725B28DC35F400341D4F /* Home+Notifications.swift */,
 				AD6B6D4628C8AF1300A2F824 /* HomeViewModel.swift */,
 			);
 			path = Home;
@@ -1522,7 +1528,7 @@
 					};
 				};
 			};
-			buildConfigurationList = AD1CEEBB28C0D9A500FA39AF /* Build configuration list for PBXProject "775775Sports" */;
+			buildConfigurationList = AD1CEEBB28C0D9A500FA39AF /* Build configuration list for PBXProject "Jet Score" */;
 			compatibilityVersion = "Xcode 13.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -1750,6 +1756,7 @@
 				AD7C2EA628D06DF1001F93F2 /* EventsHeaderTableViewCell.swift in Sources */,
 				AD959FB328DAFC32005EE4BC /* Extensions+HomeViewController.swift in Sources */,
 				AD76588328CA0B9100014F23 /* VideoList.swift in Sources */,
+				AD72725A28DC349A00341D4F /* ViewController.swift in Sources */,
 				ADB5DB1B28D20B2000B9E586 /* LeagueResponse.swift in Sources */,
 				AD4543D828CB608A0099F800 /* TeamInfo.swift in Sources */,
 				AD4543D528CB608A0099F800 /* HomeHalfStandings.swift in Sources */,
@@ -1792,6 +1799,7 @@
 				ADC03D4D28C360EB00D1790E /* StandingsTableViewCell.swift in Sources */,
 				AD8836F728DB2DE500CC42AA /* BasketOdds.swift in Sources */,
 				AD76587C28CA053300014F23 /* NewsAPI.swift in Sources */,
+				AD72725C28DC35F400341D4F /* Home+Notifications.swift in Sources */,
 				AD0B05CE28D0976C004B1A00 /* Event.swift in Sources */,
 				AD76587928CA046800014F23 /* NewsList.swift in Sources */,
 				ADADCB7928C1EBA600D28A45 /* AwardsViewController.swift in Sources */,
@@ -2066,6 +2074,7 @@
 				DEVELOPMENT_TEAM = 7ABAGYBGR5;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = 775775Sports/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "Jet Score";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -2097,6 +2106,7 @@
 				DEVELOPMENT_TEAM = 7ABAGYBGR5;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = 775775Sports/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "Jet Score";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -2196,7 +2206,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		AD1CEEBB28C0D9A500FA39AF /* Build configuration list for PBXProject "775775Sports" */ = {
+		AD1CEEBB28C0D9A500FA39AF /* Build configuration list for PBXProject "Jet Score" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				AD1CEEE828C0D9A500FA39AF /* Debug */,
